@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "gh-pages -d src"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "hovinhthanh7893",
   "license": "ISC",
