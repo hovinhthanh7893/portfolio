@@ -27,11 +27,15 @@ nav {
   color: beige;
 }
 
-nav a {
+.logo {
   text-decoration: none;
   font-weight: bold;
   font-size: 40px;
   color: beige;
+}
+.logo:hover {
+  font-style: italic;
+  color: goldenrod;
 }
 
 nav ul {
@@ -40,5 +44,10 @@ nav ul {
   margin: 0;
   display:  flex;
   gap: 30px;
+}
+
+.navEach:hover {
+  font-style: italic;
+  color: goldenrod;
 }
 
