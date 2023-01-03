@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "gh-pages -d src"
+    "deploy": "gh-pages -d dist"
   },
   "author": "hovinhthanh7893",
   "license": "ISC",
