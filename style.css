@@ -18,7 +18,7 @@ body {
 nav {
   z-index: 2;
   position: relative;
-  padding: 20px 0;
+  padding: 25px 0;
   margin: 0 15vw 0 15vw;
   display: flex;
   justify-content: space-between;
