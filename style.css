@@ -11,7 +11,7 @@ body {
   width: 100%;
   height: 100%;
 	overflow: hidden;
-	background: linear-gradient(#e4e0ba, #f7999a);
+	background: black;
   z-index: 1;
 }
 
@@ -22,6 +22,7 @@ nav {
   display: flex;
   justify-content: space-between;
   font-family: 'Playfair Display', serif;
+  color: beige;
 }
 
 nav a {
