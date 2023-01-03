@@ -18,9 +18,11 @@ body {
 nav {
   z-index: 2;
   position: relative;
-  padding: 20px 20px;
+  padding: 20px 0;
+  margin: 0 15vw 0 15vw;
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
   font-family: 'Playfair Display', serif;
   color: beige;
 }
@@ -28,10 +30,14 @@ nav {
 nav a {
   text-decoration: none;
   font-weight: bold;
+  font-size: 40px;
+  color: beige;
 }
 
 nav ul {
   list-style: none;
+  padding: 0;
+  margin: 0;
   display:  flex;
   gap: 30px;
 }
