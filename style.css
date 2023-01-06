@@ -11,7 +11,7 @@ body {
   width: 100%;
   height: 100%;
 	overflow: hidden;
-	background: black;
+	background: linear-gradient(#e4e0ba, #f7999a);
   z-index: 1;
 }
 
@@ -36,6 +36,7 @@ nav {
 .logo:hover {
   font-style: italic;
   color: goldenrod;
+  text-shadow: 0 0 30px white;
 }
 
 nav ul {
@@ -49,5 +50,6 @@ nav ul {
 .navEach:hover {
   font-style: italic;
   color: goldenrod;
+  text-shadow: 0 0 30px white;
 }
 
