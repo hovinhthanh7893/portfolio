@@ -9,7 +9,7 @@ const sizes = {
 //SCENE
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x000000)
-scene.fog = new THREE.Fog(0x000000, 5.5, 6.5);
+scene.fog = new THREE.Fog(0x000000, 4, 6);
 // const gridHelper = new THREE.GridHelper(200, 50);
 // scene.add(gridHelper)
 
@@ -35,12 +35,12 @@ scene.add(light, lightBack, rectLight);
 
 //CAMERA
 const camera = new THREE.PerspectiveCamera(35, sizes.width / sizes.heith, 1, 500);
-camera.position.set( 0, 0, 6 );
+camera.position.set( 0, 0, 5 );
 scene.add(camera);
 
 //RENDERER
 const canvas = document.querySelector('.webgl');
-const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha:true });
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
 renderer.setSize(sizes.width, sizes.heith);
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.shadowMap.enabled = false;
@@ -85,7 +85,14 @@ function init() {
     } else {
       geometry = new THREE.DodecahedronGeometry(1);
     }
-    const material = new THREE.MeshStandardMaterial({color:0x111111, transparent: false, roughness: 0.4, opacity:1, wireframe:false});
+    const material = new THREE.MeshStandardMaterial({
+      color:0x111111,
+      transparent: false,
+      roughness: 0.4,
+      metalness: 0.5,
+      opacity: 1,
+      wireframe:false
+    });
     const cube = new THREE.Mesh(geometry, material);
     cube.speedRotation = Math.random() * 0.1;
     cube.positionX = mathRandom();
@@ -120,11 +127,28 @@ function handleWindowResize() {
 window.addEventListener('resize', handleWindowResize, false);
 
 //MOUSE EVENT
+const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
+let INTERSECTED, intersected;
 function onMouseMove(event) {
   event.preventDefault();
   mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
   mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+  raycaster.setFromCamera(mouse, camera);
+  intersected = raycaster.intersectObjects(modularGroup.children);
+  if (intersected.length > 0) {
+    if (INTERSECTED != intersected[0].object) {
+      if (INTERSECTED) INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
+      
+      INTERSECTED = intersected[0].object;
+      INTERSECTED.currentHex = INTERSECTED.material.emissive.getHex();
+      INTERSECTED.material.emissive.setHex(0xFFFF00);
+    } else {
+      if (INTERSECTED) INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
+      INTERSECTED = null;
+    }
+  }
 }
 window.addEventListener('mousemove', onMouseMove, false);
 
