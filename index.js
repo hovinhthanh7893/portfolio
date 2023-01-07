@@ -1,80 +1,113 @@
 import * as THREE from 'three';
-import { OrbitControls } from 'OrbitControls';
 
-//Variables
+//VARIABLES
 const sizes = {
   width: window.innerWidth,
   heith: window.innerHeight
 };
-let mousePosition = { x: 0, y: 0 };
-const fov = 40;
-const aspectRatio = sizes.width / sizes.heith;
-const near = 1;
-const far = 100;
 
-//Scene
+//SCENE
 const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x000000)
+scene.fog = new THREE.Fog(0x000000, 5.5, 6.5);
+// const gridHelper = new THREE.GridHelper(200, 50);
+// scene.add(gridHelper)
 
-//Create sphere
-const moonAlbedo = new THREE.TextureLoader().load('moon_Albedo.jpeg');
-const moonNormal = new THREE.TextureLoader().load('moon_Normal.jpeg');
-const moon = new THREE.Mesh(
-  new THREE.SphereGeometry(4, 64, 64),
-  new THREE.MeshStandardMaterial({
-    map: moonAlbedo,
-    normalMap: moonNormal,
-    // color: "#ffffff",
-    // roughness: 0.5,
-  })
-)
-scene.add(moon);
+//LIGHT
+//yellow
+const light = new THREE.SpotLight(0xFFC800, 10);
+light.position.set(5, 5, 2);
+light.castShadow = true;
+light.shadow.mapSize.width = 10000;
+light.shadow.mapSize.height = light.shadow.mapSize.width;
+light.penumbra = 0.5;
+//red
+const lightBack = new THREE.PointLight(0xFF0000, 2);
+lightBack.position.set(0, -3, -1);
+//purple
+const rectLight = new THREE.RectAreaLight(0xa200ff, 20, 2, 2);
+rectLight.position.set(1, 1, 1);
+rectLight.lookAt(0, 0, 0);
+scene.add(light, lightBack, rectLight);
+// const lightHelper1 = new THREE.SpotLightHelper(light);
+// const lightHelper2 = new THREE.PointLightHelper(lightBack);
+// scene.add(lightHelper1, lightHelper2);
 
-//Light
-const hemisphereLight = new THREE.HemisphereLight(0xffffff,0x000000, 0.5);
-const globalLight = new THREE.AmbientLight(0xffffff, 0.9);
-const shadowLight = new THREE.DirectionalLight(0xff8f16, 0.4);
-shadowLight.position.set(0, 450, 350);
-shadowLight.castShadow = true;
-shadowLight.shadow.camera.left = -400;
-shadowLight.shadow.camera.right = 400;
-shadowLight.shadow.camera.top = 400;
-shadowLight.shadow.camera.bottom = -400;
-shadowLight.shadow.camera.near = 1;
-shadowLight.shadow.camera.far = 2000;
-shadowLight.shadow.mapSize.width = 2048;
-shadowLight.shadow.mapSize.height = 2048;
-scene.add(hemisphereLight, shadowLight, globalLight);
-
-// const lightHelper = new THREE.DirectionalLightHelper(shadowLight);
-const gridHelper = new THREE.GridHelper(200, 50);
-scene.add(gridHelper)
-
-//Camera
-const camera = new THREE.PerspectiveCamera(fov, aspectRatio, near, far);
-camera.position.set( 40, 10, 8 );
+//CAMERA
+const camera = new THREE.PerspectiveCamera(35, sizes.width / sizes.heith, 1, 500);
+camera.position.set( 0, 0, 6 );
 scene.add(camera);
 
-//Renderer
+//RENDERER
 const canvas = document.querySelector('.webgl');
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha:true });
 renderer.setSize(sizes.width, sizes.heith);
 renderer.setPixelRatio(window.devicePixelRatio);
-// renderer.render(scene, camera);
+renderer.shadowMap.enabled = false;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.shadowMap.needsUpdate = true;
 
+//OBJECTS
+const sceneGroup = new THREE.Object3D();
+const particularGroup = new THREE.Object3D();
+const modularGroup = new THREE.Object3D();
 
+function generateParticle(num, amp = 2) {
+  const gmaterial = new THREE.MeshPhysicalMaterial({color:0xFFFFFF, side:THREE.DoubleSide});
+  const gparticular = new THREE.CircleGeometry(0.2,5);
+  for (let i = 1; i < num; i++) {
+    const pscale = 0.001+Math.abs(mathRandom(0.03));
+    const particular = new THREE.Mesh(gparticular, gmaterial);
+    particular.position.set(mathRandom(amp),mathRandom(amp),mathRandom(amp));
+    particular.rotation.set(mathRandom(),mathRandom(),mathRandom());
+    particular.scale.set(pscale,pscale,pscale);
+    particular.speedValue = mathRandom(1);
+    particularGroup.add(particular);
+  }
+}
+generateParticle(200, 2);
 
+sceneGroup.add(particularGroup);
+scene.add(modularGroup);
+scene.add(sceneGroup);
 
-//Controls
-const controls = new OrbitControls(camera, renderer.domElement);
-controls.target.set( 0, 0.5, 0 );
-controls.enableDamping = true;
-controls.enablePan = false;
-// controls.enableZoom = false;
-// controls.autoRotate = true;
-// controls.autoRotateSpeed = 5;
+function mathRandom(num = 1) {
+  var setNumber = - Math.random() * num + Math.random() * num;
+  return setNumber;
+}
 
-//Resize
-window.addEventListener('resize', handleWindowResize, false);
+function init() {
+  for (let i = 0; i<30; i++) {
+    const oneOrZero = Math.round(Math.random());
+    let geometry;
+    if (oneOrZero === 0) {
+      geometry = new THREE.IcosahedronGeometry(1);
+    } else {
+      geometry = new THREE.DodecahedronGeometry(1);
+    }
+    const material = new THREE.MeshStandardMaterial({color:0x111111, transparent: false, roughness: 0.4, opacity:1, wireframe:false});
+    const cube = new THREE.Mesh(geometry, material);
+    cube.speedRotation = Math.random() * 0.1;
+    cube.positionX = mathRandom();
+    cube.positionY = mathRandom();
+    cube.positionZ = mathRandom();
+    cube.castShadow = true;
+    cube.receiveShadow = true;
+    
+    const newScaleValue = mathRandom(0.3);
+    
+    cube.scale.set(newScaleValue,newScaleValue,newScaleValue);
+
+    cube.rotation.x = mathRandom(180 * Math.PI / 180);
+    cube.rotation.y = mathRandom(180 * Math.PI / 180);
+    cube.rotation.z = mathRandom(180 * Math.PI / 180);
+
+    cube.position.set(cube.positionX, cube.positionY, cube.positionZ);
+    modularGroup.add(cube);
+  }
+}
+
+//RESIZE WINDOW
 function handleWindowResize() {
   //Update Sizes
   sizes.width = window.innerWidth;
@@ -84,20 +117,46 @@ function handleWindowResize() {
   camera.aspect = sizes.width / sizes.heith;
   camera.updateProjectionMatrix();
 }
+window.addEventListener('resize', handleWindowResize, false);
 
-//Mouse track
-// document.addEventListener('mousemove', handleMouseMove, false);
-// function handleMouseMove(event) {
-//   var tx = -1 + (event.clientX / sizes.width)*2;
-//   var ty = 1 - (event.clientY / sizes.heith)*2;
-//   mousePosition = {x:tx, y:ty};
-// }
+//MOUSE EVENT
+const mouse = new THREE.Vector2();
+function onMouseMove(event) {
+  event.preventDefault();
+  mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+  mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+}
+window.addEventListener('mousemove', onMouseMove, false);
 
-
+//ANIMATION
 const animate = () => {
-  moon.rotation.y += 0.01;
-  // controls.update();
+  const time = performance.now() * 0.0003;
+
+  for (let i = 0; i<particularGroup.children.length; i++) {
+    const newObject = particularGroup.children[i];
+    newObject.rotation.x += newObject.speedValue/10;
+    newObject.rotation.y += newObject.speedValue/10;
+    newObject.rotation.z += newObject.speedValue/10;
+  };
+  
+  for (let i = 0; i<modularGroup.children.length; i++) {
+    const newCubes = modularGroup.children[i];
+    newCubes.rotation.x += 0.008;
+    newCubes.rotation.y += 0.005;
+    newCubes.rotation.z += 0.003;
+    newCubes.position.x = Math.sin(time * newCubes.positionZ) * newCubes.positionY;
+    newCubes.position.y = Math.cos(time * newCubes.positionX) * newCubes.positionZ;
+    newCubes.position.z = Math.sin(time * newCubes.positionY) * newCubes.positionX;
+  }
+
+  particularGroup.rotation.y += 0.004;
+
+  modularGroup.rotation.y -= ((mouse.x * 4) + modularGroup.rotation.y) * 0.1;
+  modularGroup.rotation.x -= ((-mouse.y * 4) + modularGroup.rotation.x) * 0.1;
+  camera.lookAt(scene.position);
+
   renderer.render(scene, camera);
   requestAnimationFrame(animate);
 }
-animate()
+animate();
+init();
