@@ -90,7 +90,7 @@ section {
 .sec1Tit {
   flex-wrap: wrap;
   font-size: 60px;
-  margin-top: 60vh;
+  margin-top: 55vh;
   text-shadow: 0 0 50px white;
 }
 .sec1Name {
@@ -103,7 +103,7 @@ section {
   flex-wrap: wrap;
   font-family: 'Josefin Sans', sans-serif;
   font-size: 30px;
-  padding-top: 13px;
+  padding: 13px 0 15px 0;
   text-shadow: 0 0 40px white;
   background-color: wheat;
   background-image: linear-gradient(
@@ -121,15 +121,55 @@ section {
   -webkit-text-fill-color: transparent; 
   -moz-text-fill-color: transparent;
 }
-.sec1Arrow {
-  flex-wrap: wrap;
-  font-size: 40px;
-  writing-mode: vertical-lr;
-  padding-top: 10px;
-}
 @keyframes moveGradient {
   50% {
     background-position: 100% 50%;
+  }
+}
+.next {
+  width: 24px;
+  height: 24px;
+  border-left: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-animation: sdb07 2s infinite;
+  animation: sdb07 2s infinite;
+  opacity: 0;
+  box-sizing: border-box;
+}
+.next:nth-of-type(1) {
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+}
+.next:nth-of-type(2) {
+  -webkit-animation-delay: .15s;
+  animation-delay: .15s;
+}
+.next:nth-of-type(3) {
+  -webkit-animation-delay: .3s;
+  animation-delay: .3s;
+}
+@-webkit-keyframes sdb07 {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes sdb07 {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 
