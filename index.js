@@ -6,6 +6,24 @@ const sizes = {
   heith: window.innerHeight
 };
 
+//NAVBAR
+if (window.innerWidth < 800) {
+  document.querySelector('.navBig').style.display = 'none';
+  document.querySelector('.navSmall').style.display = 'flex';
+} else {
+  document.querySelector('.navBig').style.display = 'flex';
+  document.querySelector('.navSmall').style.display = 'none';
+}
+document.querySelector('.hamburger').addEventListener('click', function (event) {
+  event.preventDefault();
+  this.classList.toggle("is-active");
+  if (document.querySelector('.subMenu').style.display === 'block') {
+    document.querySelector('.subMenu').style.display = 'none';
+  } else {
+    document.querySelector('.subMenu').style.display = 'block';
+  }
+});
+
 //SCENE
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x000000)
@@ -117,6 +135,14 @@ function init() {
 
 //RESIZE WINDOW
 function handleWindowResize() {
+  //Update NavBar
+  if (window.innerWidth < 800) {
+    document.querySelector('.navBig').style.display = 'none';
+    document.querySelector('.navSmall').style.display = 'flex';
+  } else {
+    document.querySelector('.navBig').style.display = 'flex';
+    document.querySelector('.navSmall').style.display = 'none';
+  }
   //Update Sizes
   sizes.width = window.innerWidth;
   sizes.heith = window.innerHeight;
