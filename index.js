@@ -34,8 +34,8 @@ scene.add(light, lightBack, rectLight);
 // scene.add(lightHelper1, lightHelper2);
 
 //CAMERA
-const camera = new THREE.PerspectiveCamera(35, sizes.width / sizes.heith, 1, 500);
-camera.position.set( 0, 0, 5 );
+const camera = new THREE.PerspectiveCamera(27, sizes.width / sizes.heith, 1, 500);
+camera.position.set( -0.45, 0, 5 );
 scene.add(camera);
 
 //RENDERER
@@ -145,7 +145,7 @@ function onMouseDown(event) {
       if (touchedObject) touchedObject.material.emissive.setHex(touchedObject.currentHex);
       touchedObject = intersected[0].object;
       touchedObject.currentHex = touchedObject.material.emissive.getHex();
-      touchedObject.material.emissive.setHex(0xFFFF00);
+      touchedObject.material.emissive.setHex(0x88fc03);
     } else {
       if (touchedObject) touchedObject.material.emissive.setHex(touchedObject.currentHex);
       touchedObject = null;
@@ -180,10 +180,12 @@ const animate = () => {
 
   modularGroup.rotation.y -= ((mouse.x * 4) + modularGroup.rotation.y) * 0.1;
   modularGroup.rotation.x -= ((-mouse.y * 4) + modularGroup.rotation.x) * 0.1;
-  camera.lookAt(scene.position);
+  // camera.lookAt(scene.position);
 
   renderer.render(scene, camera);
   requestAnimationFrame(animate);
 }
+
+window.scrollTo({ top: 0, behavior: 'smooth' });
 animate();
 init();

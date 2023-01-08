@@ -5,25 +5,33 @@ body {
 }
   
 .webgl {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  background: black;
 	overflow: hidden;
   z-index: 1;
 }
 
 nav {
-  z-index: 2;
-  position: relative;
-  padding: 25px 0;
+  position: fixed;
+  width: 70vw;
+  height: 70px;
   margin: 0 15vw 0 15vw;
+  padding-bottom: 50px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   font-family: 'Playfair Display', serif;
   color: beige;
+  background-image: linear-gradient(
+    to bottom,
+    rgb(0, 0, 0) 50%,
+    rgba(0, 0, 0, 0.4) 70%,
+    rgba(0, 0, 0, 0));
+  z-index: 99;
 }
 
 .logo {
@@ -52,3 +60,33 @@ nav ul {
   text-shadow: 0 0 30px white;
 }
 
+section {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  color: #ffeded;
+  margin-left: 15vw;
+  z-index: 90;
+}
+
+.foot {
+  position: fixed;
+  bottom: 0;
+  width: 70vw;
+  height: 70px;
+  margin: 0 15vw 0 15vw;
+  padding-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Playfair Display', serif;
+  color: beige;
+  background-image: linear-gradient(
+    to top,
+    rgb(0, 0, 0) 50%,
+    rgba(0, 0, 0, 0.4) 70%,
+    rgba(0, 0, 0, 0));
+  z-index: 99;
+}
