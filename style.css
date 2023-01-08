@@ -2,6 +2,11 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow: scroll;
+}
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
 }
   
 .webgl {
@@ -36,14 +41,14 @@ nav {
 
 .logo {
   text-decoration: none;
+  font-family: 'Josefin Sans', sans-serif;
   font-weight: bold;
   font-size: 40px;
-  color: beige;
+  color: white;
 }
 .logo:hover {
   font-style: italic;
   color: goldenrod;
-  text-shadow: 0 0 30px white;
 }
 
 nav ul {
@@ -62,13 +67,39 @@ nav ul {
 
 section {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  height: 100vh;
+  flex-direction: column;
+  min-height: 100vh;
   position: relative;
-  color: #ffeded;
+  font-family: 'Roboto Slab', serif;
+  color: rgb(255, 249, 239);
   margin-left: 15vw;
   z-index: 90;
+}
+
+.sec1Tit {
+  flex-wrap: wrap;
+  font-size: 60px;
+  margin-top: 60vh;
+  text-shadow: 0 0 40px black;
+}
+.sec1Name {
+  margin-top: -12px;
+  flex-wrap: wrap;
+  font-size: 40px;
+  text-shadow: 0 0 40px black;
+}
+.sec1Des {
+  flex-wrap: wrap;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 30px;
+  padding-top: 13px;
+  text-shadow: 0 0 40px white;
+}
+.sec1Arrow {
+  flex-wrap: wrap;
+  font-size: 40px;
+  writing-mode: vertical-lr;
+  padding-top: 10px;
 }
 
 .foot {
@@ -79,7 +110,7 @@ section {
   margin: 0 15vw 0 15vw;
   padding-top: 40px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   font-family: 'Playfair Display', serif;
   color: beige;

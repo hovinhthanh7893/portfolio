@@ -34,15 +34,15 @@ scene.add(light, lightBack, rectLight);
 // scene.add(lightHelper1, lightHelper2);
 
 //CAMERA
-const camera = new THREE.PerspectiveCamera(27, sizes.width / sizes.heith, 1, 500);
-camera.position.set( -0.45, 0, 5 );
+const camera = new THREE.PerspectiveCamera(25, sizes.width / sizes.heith, 1, 500);
+camera.position.set( -0.3, 0, 5 );
 scene.add(camera);
 
 //RENDERER
 const canvas = document.querySelector('.webgl');
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
 renderer.setSize(sizes.width, sizes.heith);
-renderer.setPixelRatio(window.devicePixelRatio);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.shadowMap.enabled = false;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 renderer.shadowMap.needsUpdate = true;
@@ -145,7 +145,7 @@ function onMouseDown(event) {
       if (touchedObject) touchedObject.material.emissive.setHex(touchedObject.currentHex);
       touchedObject = intersected[0].object;
       touchedObject.currentHex = touchedObject.material.emissive.getHex();
-      touchedObject.material.emissive.setHex(0x88fc03);
+      touchedObject.material.emissive.setHex(0xffff00);
     } else {
       if (touchedObject) touchedObject.material.emissive.setHex(touchedObject.currentHex);
       touchedObject = null;
