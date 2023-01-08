@@ -129,28 +129,31 @@ window.addEventListener('resize', handleWindowResize, false);
 //MOUSE EVENT
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
-let INTERSECTED, intersected;
+let intersected, touchedObject;
 function onMouseMove(event) {
   event.preventDefault();
   mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
   mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-
+}
+function onMouseDown(event) {
+  event.preventDefault();
+  onMouseMove(event);
   raycaster.setFromCamera(mouse, camera);
   intersected = raycaster.intersectObjects(modularGroup.children);
   if (intersected.length > 0) {
-    if (INTERSECTED != intersected[0].object) {
-      if (INTERSECTED) INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
-      
-      INTERSECTED = intersected[0].object;
-      INTERSECTED.currentHex = INTERSECTED.material.emissive.getHex();
-      INTERSECTED.material.emissive.setHex(0xFFFF00);
+    if (touchedObject != intersected[0].object) {
+      if (touchedObject) touchedObject.material.emissive.setHex(touchedObject.currentHex);
+      touchedObject = intersected[0].object;
+      touchedObject.currentHex = touchedObject.material.emissive.getHex();
+      touchedObject.material.emissive.setHex(0xFFFF00);
     } else {
-      if (INTERSECTED) INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
-      INTERSECTED = null;
+      if (touchedObject) touchedObject.material.emissive.setHex(touchedObject.currentHex);
+      touchedObject = null;
     }
   }
 }
 window.addEventListener('mousemove', onMouseMove, false);
+window.addEventListener('mousedown', onMouseDown, false);
 
 //ANIMATION
 const animate = () => {
