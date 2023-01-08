@@ -40,9 +40,10 @@ scene.add(camera);
 
 //RENDERER
 const canvas = document.querySelector('.webgl');
-const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
 renderer.setSize(sizes.width, sizes.heith);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.setClearAlpha(0);
 renderer.shadowMap.enabled = false;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 renderer.shadowMap.needsUpdate = true;

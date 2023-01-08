@@ -1,8 +1,12 @@
+html {
+  background: black;
+}
+
 body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    overflow: scroll;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: scroll;
 }
 ::-webkit-scrollbar {
   width: 0;
