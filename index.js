@@ -156,6 +156,18 @@ function onMouseDown(event) {
 window.addEventListener('mousemove', onMouseMove, false);
 window.addEventListener('mousedown', onMouseDown, false);
 
+//SCROLL SECTION
+let scrollY = window.scrollY;
+let currentSection = 0;
+window.addEventListener('scroll', () => {
+  scrollY = window.scrollY;
+  const newSection = Math.round(scrollY / window.innerHeight);
+  if(newSection != currentSection) {
+    currentSection = newSection
+    console.log('section', currentSection)
+  }
+})
+
 //ANIMATION
 const animate = () => {
   const time = performance.now() * 0.0003;
@@ -166,7 +178,6 @@ const animate = () => {
     newObject.rotation.y += newObject.speedValue/10;
     newObject.rotation.z += newObject.speedValue/10;
   };
-  
   for (let i = 0; i<modularGroup.children.length; i++) {
     const newCubes = modularGroup.children[i];
     newCubes.rotation.x += 0.008;
@@ -175,8 +186,7 @@ const animate = () => {
     newCubes.position.x = Math.sin(time * newCubes.positionZ) * newCubes.positionY;
     newCubes.position.y = Math.cos(time * newCubes.positionX) * newCubes.positionZ;
     newCubes.position.z = Math.sin(time * newCubes.positionY) * newCubes.positionX;
-  }
-
+  };
   particularGroup.rotation.y += 0.004;
 
   modularGroup.rotation.y -= ((mouse.x * 4) + modularGroup.rotation.y) * 0.1;

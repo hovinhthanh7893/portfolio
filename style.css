@@ -47,12 +47,19 @@ nav {
   text-decoration: none;
   font-family: 'Josefin Sans', sans-serif;
   font-weight: bold;
-  font-size: 40px;
+  font-size: 30px;
   color: white;
 }
-.logo:hover {
-  font-style: italic;
-  color: goldenrod;
+.logo::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #fff;
+  transition: width 0.5s;
+}
+.logo:hover::after {
+  width: 100%;
 }
 
 nav ul {
@@ -84,7 +91,7 @@ section {
   flex-wrap: wrap;
   font-size: 60px;
   margin-top: 60vh;
-  text-shadow: 0 0 40px black;
+  text-shadow: 0 0 50px white;
 }
 .sec1Name {
   margin-top: -12px;
@@ -98,12 +105,32 @@ section {
   font-size: 30px;
   padding-top: 13px;
   text-shadow: 0 0 40px white;
+  background-color: wheat;
+  background-image: linear-gradient(
+    60deg,
+    #b721ff,
+    #2af598,
+    #ffee37,
+    #fa709a
+  );
+  background-size: 200% 200%;
+  background-position: 0 50%;
+  animation: moveGradient 6s alternate infinite;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-text-fill-color: transparent;
 }
 .sec1Arrow {
   flex-wrap: wrap;
   font-size: 40px;
   writing-mode: vertical-lr;
   padding-top: 10px;
+}
+@keyframes moveGradient {
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 .foot {
