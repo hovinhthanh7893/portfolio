@@ -134,7 +134,7 @@ function onMouseMove(event) {
   event.preventDefault();
   mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
   mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-}
+};
 function onMouseDown(event) {
   event.preventDefault();
   onMouseMove(event);
@@ -149,23 +149,18 @@ function onMouseDown(event) {
     } else {
       if (touchedObject) touchedObject.material.emissive.setHex(touchedObject.currentHex);
       touchedObject = null;
-    }
-  }
-}
+    };
+  };
+};
 window.addEventListener('mousemove', onMouseMove, false);
 window.addEventListener('mousedown', onMouseDown, false);
 
 //SCROLL SECTION
-let scrollY = window.scrollY;
-let currentSection = 0;
-window.addEventListener('scroll', () => {
-  scrollY = window.scrollY;
-  const newSection = Math.round(scrollY / window.innerHeight);
-  if(newSection != currentSection) {
-    currentSection = newSection
-    console.log('section', currentSection)
-  }
-})
+function handleScroll() {
+  const scrollTotal = document.documentElement.scrollHeight - document.documentElement.clientHeight
+  const scrollYPos = window.scrollY;
+};
+window.addEventListener('scroll', handleScroll);
 
 //UI CLICK queries
 document.querySelector('.hamburger').addEventListener('click', function (event) {
