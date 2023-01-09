@@ -7,13 +7,6 @@ const sizes = {
 };
 
 //NAVBAR
-if (window.innerWidth < 800) {
-  document.querySelector('.navBig').style.display = 'none';
-  document.querySelector('.navSmall').style.display = 'flex';
-} else {
-  document.querySelector('.navBig').style.display = 'flex';
-  document.querySelector('.navSmall').style.display = 'none';
-}
 document.querySelector('.hamburger').addEventListener('click', function (event) {
   event.preventDefault();
   this.classList.toggle("is-active");
@@ -135,14 +128,6 @@ function init() {
 
 //RESIZE WINDOW
 function handleWindowResize() {
-  //Update NavBar
-  if (window.innerWidth < 800) {
-    document.querySelector('.navBig').style.display = 'none';
-    document.querySelector('.navSmall').style.display = 'flex';
-  } else {
-    document.querySelector('.navBig').style.display = 'flex';
-    document.querySelector('.navSmall').style.display = 'none';
-  }
   //Update Sizes
   sizes.width = window.innerWidth;
   sizes.heith = window.innerHeight;

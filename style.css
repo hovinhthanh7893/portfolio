@@ -74,9 +74,6 @@ nav ul {
   text-shadow: 0 0 30px white;
 }
 
-.navBig {
-  display: none;
-}
 .navSmall {
   display: none;
 }
@@ -124,7 +121,7 @@ nav ul {
 	display: none;
   position: absolute;
   top: 0;
-  right: 11.5vw;
+  right: calc(15vw - 20px);
   width: 80px;
   padding: 90px 20px 20px 0;
   background-color: rgba(0, 0, 0, 0.5);
@@ -140,7 +137,6 @@ nav ul {
   gap: 16px;
 }
 
-
 section {
   display: flex;
   flex-direction: column;
@@ -148,7 +144,7 @@ section {
   position: relative;
   font-family: 'Roboto Slab', serif;
   color: rgb(255, 249, 239);
-  margin-left: 15vw;
+  margin: 0 15vw 0 15vw;
   z-index: 90;
 }
 
@@ -168,7 +164,7 @@ section {
   flex-wrap: wrap;
   font-family: 'Josefin Sans', sans-serif;
   font-size: 30px;
-  padding: 13px 0 15px 0;
+  margin: 13px 0 15px 0;
   text-shadow: 0 0 40px white;
   background-color: wheat;
   background-image: linear-gradient(
@@ -256,4 +252,25 @@ section {
     rgba(0, 0, 0, 0.4) 70%,
     rgba(0, 0, 0, 0));
   z-index: 99;
+}
+
+@media only screen and (max-width: 768px) {
+  .navBig {
+    display: none;
+  }
+  .navSmall {
+    display: flex;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  nav {
+    padding: 30px 10vw 50px 10vw;
+  }
+  section {
+    margin: 0 10vw 0 10vw;
+  }
+  .sec1Tit {
+    margin-top: 33vh;
+  }
 }
