@@ -135,6 +135,11 @@ function onMouseMove(event) {
   mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
   mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 };
+function onTouchMove(event) {
+  event.preventDefault();
+  mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+  mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+};
 function onMouseDown(event) {
   event.preventDefault();
   onMouseMove(event);
@@ -153,6 +158,7 @@ function onMouseDown(event) {
   };
 };
 window.addEventListener('mousemove', onMouseMove, false);
+window.addEventListener('touchmove', onTouchMove, false);
 window.addEventListener('mousedown', onMouseDown, false);
 
 //SCROLL SECTION
