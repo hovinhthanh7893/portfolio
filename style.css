@@ -1,5 +1,6 @@
 html {
   background: black;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -33,7 +34,6 @@ nav {
   justify-content: space-between;
   align-items: flex-end;
   font-family: 'Playfair Display', serif;
-  color: beige;
   background-image: linear-gradient(
     to bottom,
     rgb(0, 0, 0) 50%,
@@ -68,6 +68,10 @@ nav ul {
   display:  flex;
   gap: 30px;
 }
+.navEach {
+  text-decoration: none;
+  color: beige;
+}
 .navEach:hover {
   font-style: italic;
   color: goldenrod;
@@ -85,7 +89,7 @@ nav ul {
 .line{
   width: 30px;
   height: 3px;
-  background-color: wheat;
+  background-color: beige;
   display: block;
   margin: 5px auto;
   -webkit-transition: all 0.3s ease-in-out;
@@ -166,7 +170,7 @@ section {
   font-size: 30px;
   margin: 13px 0 15px 0;
   text-shadow: 0 0 40px white;
-  background-color: wheat;
+  background-color: gold;
   background-image: linear-gradient(
     60deg,
     #b721ff,
@@ -177,15 +181,26 @@ section {
   background-size: 200% 200%;
   background-position: 0 50%;
   animation: moveGradient 6s alternate infinite;
+  background-clip: text;
   -webkit-background-clip: text;
   -moz-background-clip: text;
   -webkit-text-fill-color: transparent; 
   -moz-text-fill-color: transparent;
 }
+@-webkit-keyframes moveGradient {
+  50% {
+    background-position: 100% 50%;
+  }
+}
 @keyframes moveGradient {
   50% {
     background-position: 100% 50%;
   }
+}
+.nextButton {
+  display: flex;
+  flex-direction: column;
+  width: 24px;
 }
 .next {
   width: 24px;
