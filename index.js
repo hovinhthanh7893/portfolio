@@ -6,17 +6,6 @@ const sizes = {
   heith: window.innerHeight
 };
 
-//NAVBAR
-document.querySelector('.hamburger').addEventListener('click', function (event) {
-  event.preventDefault();
-  this.classList.toggle("is-active");
-  if (document.querySelector('.subMenu').style.display === 'block') {
-    document.querySelector('.subMenu').style.display = 'none';
-  } else {
-    document.querySelector('.subMenu').style.display = 'block';
-  }
-});
-
 //SCENE
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x000000)
@@ -90,6 +79,7 @@ function mathRandom(num = 1) {
 
 function init() {
   for (let i = 0; i<30; i++) {
+    //Throw random shape
     const oneOrZero = Math.round(Math.random());
     let geometry;
     if (oneOrZero === 0) {
@@ -97,6 +87,7 @@ function init() {
     } else {
       geometry = new THREE.DodecahedronGeometry(1);
     }
+    //Init object
     const material = new THREE.MeshStandardMaterial({
       color:0x111111,
       transparent: false,
@@ -112,15 +103,12 @@ function init() {
     cube.positionZ = mathRandom();
     cube.castShadow = true;
     cube.receiveShadow = true;
-    
+    //Behavior
     const newScaleValue = mathRandom(0.3);
-    
     cube.scale.set(newScaleValue,newScaleValue,newScaleValue);
-
     cube.rotation.x = mathRandom(180 * Math.PI / 180);
     cube.rotation.y = mathRandom(180 * Math.PI / 180);
     cube.rotation.z = mathRandom(180 * Math.PI / 180);
-
     cube.position.set(cube.positionX, cube.positionY, cube.positionZ);
     modularGroup.add(cube);
   }
@@ -179,10 +167,20 @@ window.addEventListener('scroll', () => {
   }
 })
 
+//UI CLICK queries
+document.querySelector('.hamburger').addEventListener('click', function (event) {
+  event.preventDefault();
+  this.classList.toggle("is-active");
+  if (document.querySelector('.subMenu').style.display === 'block') {
+    document.querySelector('.subMenu').style.display = 'none';
+  } else {
+    document.querySelector('.subMenu').style.display = 'block';
+  }
+});
+
 //ANIMATION
 const animate = () => {
   const time = performance.now() * 0.0003;
-
   for (let i = 0; i<particularGroup.children.length; i++) {
     const newObject = particularGroup.children[i];
     newObject.rotation.x += newObject.speedValue/10;
@@ -199,11 +197,10 @@ const animate = () => {
     newCubes.position.z = Math.sin(time * newCubes.positionY) * newCubes.positionX;
   };
   particularGroup.rotation.y += 0.004;
-
   modularGroup.rotation.y -= ((mouse.x * 4) + modularGroup.rotation.y) * 0.1;
   modularGroup.rotation.x -= ((-mouse.y * 4) + modularGroup.rotation.x) * 0.1;
   // camera.lookAt(scene.position);
-
+  //Update to screen
   renderer.render(scene, camera);
   requestAnimationFrame(animate);
 }
