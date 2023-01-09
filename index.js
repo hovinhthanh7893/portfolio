@@ -135,11 +135,6 @@ function onMouseMove(event) {
   mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
   mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 };
-function onTouchMove(event) {
-  event.preventDefault();
-  mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-  mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-};
 function onMouseDown(event) {
   event.preventDefault();
   onMouseMove(event);
@@ -158,8 +153,15 @@ function onMouseDown(event) {
   };
 };
 window.addEventListener('mousemove', onMouseMove, false);
-window.addEventListener('touchmove', onTouchMove, false);
 window.addEventListener('mousedown', onMouseDown, false);
+
+//TOUCH EVENT
+function onTouchMove(event) {
+  event.preventDefault();
+  mouse.x = (event.changedTouches[0].clientX / window.innerWidth) * 2 - 1;
+  mouse.y = -(event.changedTouches[0].clientY / window.innerHeight) * 2 + 1;
+};
+window.addEventListener('touchmove', onTouchMove, false);
 
 //SCROLL SECTION
 function handleScroll() {
