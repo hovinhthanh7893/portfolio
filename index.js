@@ -209,5 +209,5 @@ const animate = () => {
 }
 
 window.scrollTo({ top: 0, behavior: 'smooth' });
-animate();
 init();
+animate();
