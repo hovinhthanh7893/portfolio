@@ -161,11 +161,30 @@ function onTouchMove(event) {
   mouse.x = (event.changedTouches[0].clientX / window.innerWidth) * 2 - 1;
   mouse.y = -(event.changedTouches[0].clientY / window.innerHeight) * 2 + 1;
 };
+function onTouchStart(event) {
+  event.preventDefault();
+  onTouchMove(event);
+  raycaster.setFromCamera(mouse, camera);
+  intersected = raycaster.intersectObjects(modularGroup.children);
+  if (intersected.length > 0) {
+    if (touchedObject != intersected[0].object) {
+      if (touchedObject) touchedObject.material.emissive.setHex(touchedObject.currentHex);
+      touchedObject = intersected[0].object;
+      touchedObject.currentHex = touchedObject.material.emissive.getHex();
+      touchedObject.material.emissive.setHex(0xffff00);
+    } else {
+      if (touchedObject) touchedObject.material.emissive.setHex(touchedObject.currentHex);
+      touchedObject = null;
+    };
+  };
+};
 window.addEventListener('touchmove', onTouchMove, false);
+window.addEventListener('touchstart', onTouchStart, false);
 
 //SCROLL SECTION
 function handleScroll() {
   const scrollTotal = document.documentElement.scrollHeight - document.documentElement.clientHeight
+  
   const scrollYPos = window.scrollY;
 };
 window.addEventListener('scroll', handleScroll);
@@ -211,3 +230,8 @@ const animate = () => {
 window.scrollTo({ top: 0, behavior: 'smooth' });
 init();
 animate();
+
+// const julie = document.querySelector('#section4');
+// julie.scrollIntoView({
+//   block: 'center',
+// });
