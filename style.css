@@ -46,28 +46,157 @@ nav {
 }
 
 .logo {
+  display: flex;
+  flex-wrap: nowrap;
   text-decoration: none;
   font-family: "Josefin Sans", sans-serif;
   font-weight: bold;
-  font-size: 30px;
-  color: white;
+  font-size: 24px;
+  color: beige;
   z-index: 100;
 }
 .logo::after {
   content: "";
-  display: block;
-  width: 0;
-  height: 2px;
-  background: #fff;
-  transition: width 0.5s;
+  position: absolute;
+  top: 56px;
+  width: 0px;
+  height: 1px;
+  background: beige;
 }
 .logo:hover::after {
-  width: 100%;
+  animation: logoUnder 0.5s ease-in-out forwards;
 }
 .logo:active {
   color: gold;
-  font-size: 28px;
-  text-shadow: 0 0 30px white;
+  font-size: 22px;
+  text-shadow: 0 0 30px beige;
+}
+.logoName {
+  animation: logoAnim 10s ease-out infinite;
+}
+.logoName:nth-of-type(1) {
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+}
+.logoName:nth-of-type(2) {
+  -webkit-animation-delay: 0.15s;
+  animation-delay: 0.15s;
+}
+.logoName:nth-of-type(3) {
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s;
+}
+.logoName:nth-of-type(4) {
+  -webkit-animation-delay: 0.45s;
+  animation-delay: 0.45s;
+}
+.logoName:nth-of-type(5) {
+  -webkit-animation-delay: 0.6s;
+  animation-delay: 0.6s;
+}
+.logoName:nth-of-type(6) {
+  -webkit-animation-delay: 0.75s;
+  animation-delay: 0.75s;
+}
+.logoName:nth-of-type(7) {
+  -webkit-animation-delay: 0.9s;
+  animation-delay: 0.9s;
+}
+.logoName:nth-of-type(8) {
+  -webkit-animation-delay: 1.05s;
+  animation-delay: 1.05s;
+}
+.logoName:nth-of-type(9) {
+  -webkit-animation-delay: 1.2s;
+  animation-delay: 1.2s;
+}
+.logoName:nth-of-type(10) {
+  -webkit-animation-delay: 1.35s;
+  animation-delay: 1.35s;
+}
+.logoName:nth-of-type(11) {
+  -webkit-animation-delay: 1.5s;
+  animation-delay: 1.5s;
+}
+.logoName:nth-of-type(12) {
+  -webkit-animation-delay: 1.65s;
+  animation-delay: 1.65s;
+}
+.logoName:nth-of-type(13) {
+  -webkit-animation-delay: 1.8s;
+  animation-delay: 1.8s;
+}
+.logoName:nth-of-type(14) {
+  -webkit-animation-delay: 1.95s;
+  animation-delay: 1.95s;
+}
+.logoName:nth-of-type(15) {
+  -webkit-animation-delay: 2.1s;
+  animation-delay: 2.1s;
+}
+@-webkit-keyframes logoAnim {
+  0% {
+    opacity: 1;
+  }
+  5% {
+    opacity: 0;
+    transform: translateY(-15px)
+  }
+  10% {
+    opacity: 0;
+    transform: translateY(15px)
+  }
+  25% {
+    opacity: 0;
+    transform: translateY(15px)
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(0px)
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes logoAnim {
+  0% {
+    opacity: 1;
+  }
+  5% {
+    opacity: 0;
+    transform: translateY(-15px)
+  }
+  10% {
+    opacity: 0;
+    transform: translateY(15px)
+  }
+  25% {
+    opacity: 0;
+    transform: translateY(15px)
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(0px)
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes logoUnder {
+  0% {
+    width: 0px;
+  }
+  100% {
+    width: 175px;
+  }
+}
+@keyframes logoUnder {
+  0% {
+    width: 0px;
+  }
+  100% {
+    width: 175px;
+  }
 }
 
 nav ul {
@@ -109,11 +238,11 @@ nav ul {
 }
 
 .line {
-  width: 30px;
-  height: 3px;
+  width: 27px;
+  height: 2px;
   background-color: beige;
   display: block;
-  margin: 5px auto;
+  margin: 6px auto;
   -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
@@ -125,6 +254,7 @@ nav ul {
   background-color: goldenrod;
   height: 2px;
   margin: 6px auto;
+  width: 30px;
 }
 
 .hamburger.is-active .line:nth-child(2) {
@@ -188,10 +318,12 @@ section {
 #section1 {
   justify-content: flex-end;
 }
-#section2,
+#section2 {
+  justify-content: center;
+}
 #section3,
 #section4 {
-  justify-content: center;
+  justify-content: flex-start;
 }
 #section5 {
   align-items: center;
@@ -269,6 +401,7 @@ section {
   flex-wrap: wrap;
   font-size: 32px;
   line-height: 32px;
+  margin-top: 16vh;
   text-shadow: 0 0 30px white;
 }
 .secPortFrame {
@@ -293,7 +426,7 @@ section {
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
-  margin-bottom: 40vh;
+  margin-bottom: 50vh;
 }
 .secPhone {
   width: 194px;
@@ -325,9 +458,16 @@ section {
   background-position: 0 50%;
   animation: moveGradient 8s alternate infinite;
 }
+.phone {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  filter: invert(100%);
+  background: url("./image/icon-phone-48.png") no-repeat;
+  background-size: cover;
+}
 .phoneNumber {
   text-decoration: none;
-  margin-bottom: 6px;
 }
 .secMail {
   width: 200px;
@@ -485,11 +625,17 @@ section {
 }
 
 @media only screen and (max-width: 768px) {
+  .logo::after {
+    top: 62px;
+  }
   .navBig {
     display: none;
   }
   .navSmall {
     display: flex;
+  }
+  .secPortTit {
+    margin-top: 10vh;
   }
 }
 
