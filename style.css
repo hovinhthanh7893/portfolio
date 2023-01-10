@@ -168,11 +168,12 @@ section {
   flex-wrap: wrap;
   font-size: 60px;
   margin-top: 55vh;
-  text-shadow: 0 0 50px white;
+  text-shadow: 0 0 30px white;
 }
 .sec1Name {
   margin-top: -12px;
   flex-wrap: wrap;
+  color: beige;
   font-size: 40px;
   text-shadow: 0 0 40px black;
 }

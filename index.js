@@ -159,7 +159,7 @@ window.addEventListener('mousedown', onMouseDown, false);
 function onTouchMove(event) {
   event.preventDefault();
   mouse.x = (event.changedTouches[0].clientX / window.innerWidth) * 2 - 1;
-  mouse.y = -(event.changedTouches[0].clientY / window.innerHeight) * 2 + 1;
+  mouse.y = (event.changedTouches[0].clientY / window.innerHeight) * 2 + 1;
 };
 function onTouchStart(event) {
   event.preventDefault();
@@ -182,10 +182,40 @@ window.addEventListener('touchmove', onTouchMove, false);
 window.addEventListener('touchstart', onTouchStart, false);
 
 //SCROLL SECTION
+let scrollY = window.scrollY;
+let currentSection = 0;
 function handleScroll() {
-  const scrollTotal = document.documentElement.scrollHeight - document.documentElement.clientHeight
-  
-  const scrollYPos = window.scrollY;
+  scrollY = window.scrollY;
+  const newSection = Math.round(scrollY / window.innerHeight);
+  if(newSection != currentSection) {
+    currentSection = newSection;
+    //Highlight navbar
+    //dedault state
+    if (currentSection === 0 || currentSection === 1) {
+      document.querySelectorAll('.navEach').forEach((each) => {
+        each.style.color = 'beige';
+        each.style.fontStyle = "normal";
+      });
+    }
+    //highlight state
+    function highLightNavLink(number) {
+      const navLinks = document.querySelectorAll('.navEach');
+      navLinks.forEach((each) => {
+        each.style.color = 'beige';
+        each.style.fontStyle = "normal";
+      });
+      navLinks[number-2].style.color = 'goldenrod';
+      navLinks[number-2].style.fontStyle = "italic";
+      navLinks[number+1].style.color = 'goldenrod';
+      navLinks[number+1].style.fontStyle = "italic";
+    }
+    if (currentSection === 2) highLightNavLink(currentSection);
+    if (currentSection === 3) highLightNavLink(currentSection);
+    if (currentSection === 4) highLightNavLink(currentSection);
+    //Push to view
+    // const element = document.querySelectorAll('section')[currentSection];
+    // element.scrollIntoView(true);
+  }
 };
 window.addEventListener('scroll', handleScroll);
 
@@ -230,8 +260,3 @@ const animate = () => {
 window.scrollTo({ top: 0, behavior: 'smooth' });
 init();
 animate();
-
-// const julie = document.querySelector('#section4');
-// julie.scrollIntoView({
-//   block: 'center',
-// });
