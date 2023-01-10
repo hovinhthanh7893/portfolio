@@ -1,9 +1,11 @@
 import * as THREE from 'three';
 
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
 //VARIABLES
 const sizes = {
   width: window.innerWidth,
-  heith: window.innerHeight
+  height: window.innerHeight
 };
 const yellow = 0xFFC800;
 const red = 0xFF0000;
@@ -37,14 +39,14 @@ scene.add(light, lightBack, rectLight);
 // scene.add(lightHelper1, lightHelper2);
 
 //CAMERA
-const camera = new THREE.PerspectiveCamera(25, sizes.width / sizes.heith, 1, 500);
+const camera = new THREE.PerspectiveCamera(25, sizes.width / sizes.height, 1, 500);
 camera.position.set( -0.3, 0, 5 );
 scene.add(camera);
 
 //RENDERER
 const canvas = document.querySelector('.webgl');
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
-renderer.setSize(sizes.width, sizes.heith);
+renderer.setSize(sizes.width, sizes.height);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.setClearAlpha(0);
 renderer.shadowMap.enabled = false;
@@ -121,10 +123,10 @@ function init() {
 function handleWindowResize() {
   //Update Sizes
   sizes.width = window.innerWidth;
-  sizes.heith = window.innerHeight;
+  sizes.height = window.innerHeight;
   //Update Camera
-  renderer.setSize(sizes.width, sizes.heith);
-  camera.aspect = sizes.width / sizes.heith;
+  renderer.setSize(sizes.width, sizes.height);
+  camera.aspect = sizes.width / sizes.height;
   camera.updateProjectionMatrix();
 }
 window.addEventListener('resize', handleWindowResize, false);
@@ -176,7 +178,7 @@ function handleScroll() {
     currentSection = newSection;
     function highLightNavLink(number) {
       const navLinks = document.querySelectorAll('.navEach');
-      navLinks.forEach((each) => {
+      navLinks.forEach(each => {
         each.style.color = 'beige';
         each.style.fontStyle = "normal";
       });
@@ -191,14 +193,14 @@ function handleScroll() {
       rectLight.color.setHex(ambLight);
     }
     if (currentSection === 0) {
-      document.querySelectorAll('.navEach').forEach((each) => {
+      document.querySelectorAll('.navEach').forEach(each => {
         each.style.color = 'beige';
         each.style.fontStyle = "normal";
       });
       changeColor(yellow, red, purple);
     }
     if (currentSection === 1) {
-      document.querySelectorAll('.navEach').forEach((each) => {
+      document.querySelectorAll('.navEach').forEach(each => {
         each.style.color = 'beige';
         each.style.fontStyle = "normal";
       });
@@ -215,12 +217,29 @@ function handleScroll() {
     if (currentSection === 4) {
       highLightNavLink(currentSection);
     }
-    //Push to view
-    // const element = document.querySelectorAll('section')[currentSection];
-    // element.scrollIntoView(true);
   }
 };
 window.addEventListener('scroll', handleScroll);
+
+
+let lastScroll = 0;
+
+window.onscroll = function() {
+  let currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
+  if (currentScroll > 0 && lastScroll <= currentScroll){
+    lastScroll = currentScroll;
+    console.log("down")
+
+  }else{
+    lastScroll = currentScroll;
+    console.log("up")
+
+  }
+};
+
+
+
+
 
 //UI CLICK queries
 document.querySelector('.hamburger').addEventListener('click', function (event) {
