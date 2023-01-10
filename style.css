@@ -412,6 +412,15 @@ section {
   border-radius: 10px;
 }
 
+.sec5Tit {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  font-size: 40px;
+  line-height: 32px;
+  text-shadow: 0 0 30px white;
+}
 .secContact {
   display: flex;
   flex-wrap: wrap;
@@ -420,6 +429,83 @@ section {
   gap: 20px;
   font-family: "Josefin Sans", sans-serif;
   font-size: 20px;
+}
+.hand {
+  width: 40px;
+  height: 40px;
+  background: url("./image/icon-so-so-96.png") no-repeat;
+  background-size: cover;
+  animation: handWave 1s ease-in-out infinite;
+}
+@-webkit-keyframes handWave {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(-25deg);
+  }
+  20% {
+    transform: rotate(0deg);
+  }
+  30% {
+    transform: rotate(-25deg);
+  }
+  40% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-25deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  }
+  70% {
+    transform: rotate(-25deg);
+  }
+  80% {
+    transform: rotate(0deg);
+  }
+  90% {
+    transform: rotate(-25deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+@keyframes handWave {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(-25deg);
+  }
+  20% {
+    transform: rotate(0deg);
+  }
+  30% {
+    transform: rotate(-25deg);
+  }
+  40% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-25deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  }
+  70% {
+    transform: rotate(-25deg);
+  }
+  80% {
+    transform: rotate(0deg);
+  }
+  90% {
+    transform: rotate(-25deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
 .secSocial {
   display: flex;
