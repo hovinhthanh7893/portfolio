@@ -172,11 +172,7 @@ main {
   overflow-y: scroll;
 }
 
-#section1,
-#section2,
-#section3,
-#section4,
-#section5 {
+section {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -270,14 +266,14 @@ main {
 
 .secPortTit {
   flex-wrap: wrap;
-  font-size: 40px;
-  line-height: 40px;
+  font-size: 32px;
+  line-height: 32px;
   text-shadow: 0 0 30px white;
 }
 .secPortFrame {
-  height: 40vh;
+  height: 50vh;
   background-color: rgba(0, 0, 0, 0.6);
-  border: rgba(71, 0, 36, 0.664) solid 0.8px;
+  border: rgba(88, 0, 44, 0.726) solid 0.8px;
   box-shadow: 1px 0 10px 0 rgba(50, 0, 70, 0.349);
   border-radius: 10px;
 }
@@ -296,7 +292,7 @@ main {
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
-  margin-bottom: 30vh;
+  margin-bottom: 40vh;
 }
 .secPhone {
   width: 194px;
@@ -329,6 +325,7 @@ main {
   animation: moveGradient 8s alternate infinite;
 }
 .phoneNumber {
+  text-decoration: none;
   margin-bottom: 6px;
 }
 .secMail {
