@@ -1,11 +1,9 @@
 import * as THREE from 'three';
 
-gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
-
 //VARIABLES
 const sizes = {
   width: window.innerWidth,
-  height: window.innerHeight
+  height: window.innerHeight,
 };
 const yellow = 0xFFC800;
 const red = 0xFF0000;
@@ -53,7 +51,7 @@ renderer.shadowMap.enabled = false;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 renderer.shadowMap.needsUpdate = true;
 
-//OBJECTS
+//SPACE OBJECTS
 const sceneGroup = new THREE.Object3D();
 const particularGroup = new THREE.Object3D();
 const modularGroup = new THREE.Object3D();
@@ -160,7 +158,7 @@ function onMouseDown(event) {
 window.addEventListener('mousemove', onMouseMove, false);
 window.addEventListener('mousedown', onMouseDown, false);
 
-//TOUCH EVENT
+//TOUCH EVENT FOR MOBILE
 function onTouchMove(event) {
   event.preventDefault();
   mouse.x = (event.changedTouches[0].clientX / window.innerWidth) * 2 - 1;
@@ -168,80 +166,27 @@ function onTouchMove(event) {
 };
 window.addEventListener('touchmove', onTouchMove, false);
 
-//SCROLL SECTION
-let scrollY = window.scrollY;
-let currentSection = 0;
-function handleScroll() {
-  scrollY = window.scrollY;
-  const newSection = Math.round(scrollY / window.innerHeight);
-  if(newSection != currentSection) {
-    currentSection = newSection;
-    function highLightNavLink(number) {
-      const navLinks = document.querySelectorAll('.navEach');
-      navLinks.forEach(each => {
-        each.style.color = 'beige';
-        each.style.fontStyle = "normal";
-      });
-      navLinks[number-2].style.color = 'goldenrod';
-      navLinks[number-2].style.fontStyle = "italic";
-      navLinks[number+1].style.color = 'goldenrod';
-      navLinks[number+1].style.fontStyle = "italic";
-    }
-    function changeColor(spotLight, backLight, ambLight) {
-      light.color.setHex(spotLight);
-      lightBack.color.setHex(backLight);
-      rectLight.color.setHex(ambLight);
-    }
-    if (currentSection === 0) {
-      document.querySelectorAll('.navEach').forEach(each => {
-        each.style.color = 'beige';
-        each.style.fontStyle = "normal";
-      });
-      changeColor(yellow, red, purple);
-    }
-    if (currentSection === 1) {
-      document.querySelectorAll('.navEach').forEach(each => {
-        each.style.color = 'beige';
-        each.style.fontStyle = "normal";
-      });
-      changeColor(green, yellow, purple);
-    }
-    if (currentSection === 2) {
-      highLightNavLink(currentSection);
-      changeColor(cyan, purple, blue);
-    }
-    if (currentSection === 3) {
-      highLightNavLink(currentSection);
-      changeColor(red, purple, blue);
-    }
-    if (currentSection === 4) {
-      highLightNavLink(currentSection);
-    }
-  }
+//SCROLL JUMP SECTION
+let options = {
+  rootMargin: "0px",
+  threshold: 0.75,
 };
-window.addEventListener('scroll', handleScroll);
-
-
-let lastScroll = 0;
-
-window.onscroll = function() {
-  let currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
-  if (currentScroll > 0 && lastScroll <= currentScroll){
-    lastScroll = currentScroll;
-    console.log("down")
-
-  }else{
-    lastScroll = currentScroll;
-    console.log("up")
-
-  }
+const callback = (entries) => {
+  entries.forEach((entry) => {
+    const { target } = entry;
+    if (entry.intersectionRatio >= 0.75) {
+      target.classList.add("is-visible");
+    } else {
+      target.classList.remove("is-visible");
+    }
+  });
 };
+const observer = new IntersectionObserver(callback, options);
+document.querySelectorAll("section").forEach((section) => {
+  observer.observe(section);
+});
 
-
-
-
-
-//UI CLICK queries
+//EXPAND HAMBURGER NAVBAR
 document.querySelector('.hamburger').addEventListener('click', function (event) {
   event.preventDefault();
   this.classList.toggle("is-active");
@@ -253,7 +198,27 @@ document.querySelector('.hamburger').addEventListener('click', function (event) 
 });
 
 //ANIMATION
+//check body position
+let sections = document.querySelectorAll("section");
+let staticSectionNumber = 1;
+function highLightNavLink(number) {
+  const navLinks = document.querySelectorAll('.navEach');
+  navLinks.forEach(each => {
+    each.style.color = 'beige';
+    each.style.fontStyle = "normal";
+  });
+  navLinks[number-3].style.color = 'goldenrod';
+  navLinks[number-3].style.fontStyle = "italic";
+  navLinks[number].style.color = 'goldenrod';
+  navLinks[number].style.fontStyle = "italic";
+}
+function changeColor(spotLight, backLight, ambLight) {
+  light.color.setHex(spotLight);
+  lightBack.color.setHex(backLight);
+  rectLight.color.setHex(ambLight);
+}
 const animate = () => {
+  //Rotate background
   const time = performance.now() * 0.0003;
   for (let i = 0; i<particularGroup.children.length; i++) {
     const newObject = particularGroup.children[i];
@@ -273,7 +238,53 @@ const animate = () => {
   particularGroup.rotation.y += 0.004;
   modularGroup.rotation.y -= ((mouse.x * 4) + modularGroup.rotation.y) * 0.1;
   modularGroup.rotation.x -= ((-mouse.y * 4) + modularGroup.rotation.x) * 0.1;
-  // camera.lookAt(scene.position);
+  //Update navLinks & background color
+  let currentSection = document.querySelector(".is-visible");
+  if (currentSection === sections[0]) {
+    const sectionNumber = 1
+    if (sectionNumber !== staticSectionNumber) {
+      document.querySelectorAll('.navEach').forEach(each => {
+        each.style.color = 'beige';
+        each.style.fontStyle = "normal";
+      });
+      changeColor(yellow, red, purple);
+      staticSectionNumber = sectionNumber;
+    }
+  }
+  if (currentSection === sections[1]) {
+    const sectionNumber = 2
+    if (sectionNumber !== staticSectionNumber) {
+      document.querySelectorAll('.navEach').forEach(each => {
+        each.style.color = 'beige';
+        each.style.fontStyle = "normal";
+      });
+      changeColor(green, yellow, purple);
+      staticSectionNumber = sectionNumber;
+    }
+  }
+  if (currentSection === sections[2]) {
+    const sectionNumber = 3
+    if (sectionNumber !== staticSectionNumber) {
+      highLightNavLink(sectionNumber);
+      changeColor(cyan, purple, blue);
+      staticSectionNumber = sectionNumber;
+    }
+  }
+  if (currentSection === sections[3]) {
+    const sectionNumber = 4
+    if (sectionNumber !== staticSectionNumber) {
+      highLightNavLink(sectionNumber);
+      changeColor(red, purple, blue);
+      staticSectionNumber = sectionNumber;
+    }
+  }
+  if (currentSection === sections[4]) {
+    const sectionNumber = 5
+    if (sectionNumber !== staticSectionNumber) {
+      highLightNavLink(sectionNumber);
+      staticSectionNumber = sectionNumber;
+    }
+  }
   //Update to screen
   renderer.render(scene, camera);
   requestAnimationFrame(animate);

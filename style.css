@@ -50,6 +50,7 @@ nav {
   font-weight: bold;
   font-size: 30px;
   color: white;
+  z-index: 100;
 }
 .logo::after {
   content: '';
@@ -135,13 +136,16 @@ nav ul {
 
 .subMenu{
 	display: none;
-  position: absolute;
+  position: fixed;
   top: 0;
-  right: calc(15vw - 20px);
+  right: 0;
   width: 80px;
-  padding: 90px 20px 20px 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
+  padding: 90px 15vw 60px 80vw;
+  background-image: linear-gradient(
+    to bottom,
+    rgb(0, 0, 0) 70%,
+    rgba(0, 0, 0, 0.5) 90%,
+    rgba(0, 0, 0, 0));
 }
 .subMenu ul{
   list-style: none;
@@ -153,6 +157,12 @@ nav ul {
   gap: 16px;
 }
 
+main {
+  scroll-snap-type: y mandatory;
+  height: 100vh;
+  overflow-y: scroll;
+}
+
 section {
   display: flex;
   flex-direction: column;
@@ -162,6 +172,30 @@ section {
   color: rgb(255, 249, 239);
   margin: 0 15vw 0 15vw;
   z-index: 90;
+  scroll-snap-align: center;
+}
+
+#content1 {
+  opacity: 0;
+  transform: translate3d(0, 4rem, 0);
+  transition: opacity 1s 0.1s,
+    transform 1s cubic-bezier(0.13, 0.07, 0.26, 0.99) 0.1s;
+}
+#content2 {
+  opacity: 0;
+  transform: translate3d(0, 4rem, 0);
+  transition: opacity 1s 0.3s,
+    transform 1s cubic-bezier(0.13, 0.07, 0.26, 0.99) 0.3s;
+}
+#content3 {
+  opacity: 0;
+  transform: translate3d(0, 4rem, 0);
+  transition: opacity 1s 0.6s,
+    transform 1s cubic-bezier(0.13, 0.07, 0.26, 0.99) 0.6s;
+}
+.is-visible #content1, .is-visible #content2, .is-visible #content3 {
+opacity: 1;
+transform: translate3d(0, 1rem, 0);
 }
 
 .sec1Tit {
@@ -292,6 +326,9 @@ section {
 @media only screen and (max-width: 480px) {
   nav {
     padding: 30px 10vw 50px 10vw;
+  }
+  .subMenu{
+    padding: 90px 10vw 60px 80vw;
   }
   section {
     margin: 0 10vw 0 10vw;

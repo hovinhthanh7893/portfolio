@@ -15,9 +15,6 @@
         }
       }
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollToPlugin.min.js"></script>
   </head>
   <body>
     <canvas class="webgl"></canvas>
@@ -44,36 +41,39 @@
         </div>
       </div>
     </nav>
-    <section id="section1">
-      <div class="sec1Tit">Hello,</div>
-      <div class="sec1Name">My name is Thanh</div>
-      <div class="sec1Des">I love creating beautiful things</div>
-      <a href="#section2" class="nextButton">
-        <span class="next"></span>
-        <span class="next"></span>
-        <span class="next"></span>
-      </a>
-    </section>
-    <section id="section2">
-      <h2>About me </h2>
-      <p>Somthing about me</p>
-      <p>section2</p>
-    </section>
-    <section id="section3">
-      <h2>Web </h2>
-      <p>Some projects I've worked on</p>
-      <p>section3</p>
-    </section>
-    <section id="section4">
-      <h2>Game</h2>
-      <p>Some game I've worked on</p>
-      <p>section4</p>
-    </section>
-    <section id="section5">
-      <h2>Contact</h2>
-      <p>Email, Phone</p>
-      <p>end</p>
-    </section>
+    <main>
+      <section id="section1">
+        <div class="sec1Tit" id="content1">Hello,</div>
+        <div class="sec1Name" id="content1">My name is Thanh</div>
+        <div class="sec1Des" id="content2">I love creating beautiful things</div>
+        <a href="#section2" class="nextButton" id="content3">
+          <span class="next"></span>
+          <span class="next"></span>
+          <span class="next"></span>
+        </a>
+      </section>
+      <section id="section2">
+        <h2 id="content1">About me </h2>
+        <p id="content2">Somthing about me</p>
+        <p id="content3">section2</p>
+      </section>
+      <section id="section3">
+        <h2 id="content1">Web </h2>
+        <p id="content2">Some projects I've worked on</p>
+        <p id="content3">section3</p>
+      </section>
+      <section id="section4">
+        <div class="sectionContent">
+        <h2 id="content1">Game</h2>
+        <p id="content2">Some game I've worked on</p>
+        <p id="content3">section4</p>
+      </section>
+      <section id="section5">
+        <h2 id="content1">Contact</h2>
+        <p id="content2">Email, Phone</p>
+        <p id="content3">end</p>
+      </section>
+    </main>
     <div class="foot"></div>
     <script type="module" src="./index.js"></script>
   </body>
