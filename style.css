@@ -175,14 +175,14 @@ section {
   flex-wrap: wrap;
   color: beige;
   font-size: 40px;
-  text-shadow: 0 0 40px black;
+  text-shadow: 0 0 20px black, 0 0 40px black;
 }
 .sec1Des {
   flex-wrap: wrap;
   font-family: 'Josefin Sans', sans-serif;
   font-size: 30px;
   margin: 13px 0 15px 0;
-  text-shadow: 0 0 40px white;
+  text-shadow: 0 0 20px black, 0 0 40px black;
   background-color: gold;
   background-image: linear-gradient(
     60deg,
@@ -265,10 +265,8 @@ section {
 .foot {
   position: fixed;
   bottom: 0;
-  width: 70vw;
-  height: 70px;
-  margin: 0 15vw 0 15vw;
-  padding-top: 40px;
+  width: 100%;
+  height: 10vh;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -276,8 +274,8 @@ section {
   color: beige;
   background-image: linear-gradient(
     to top,
-    rgb(0, 0, 0) 50%,
-    rgba(0, 0, 0, 0.4) 70%,
+    rgb(0, 0, 0) 20%,
+    rgba(0, 0, 0, 0.5) 70%,
     rgba(0, 0, 0, 0));
   z-index: 99;
 }
@@ -300,5 +298,9 @@ section {
   }
   .sec1Tit {
     margin-top: 40vh;
+  }
+  .next {
+    width: 20px;
+    height: 20px;
   }
 }
