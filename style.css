@@ -90,6 +90,7 @@ nav ul {
 }
 .navEach:hover {
   text-shadow: 0 0 30px white;
+  font-weight: bolder;
 }
 .navEach:hover::before {
   opacity: 1;
@@ -341,25 +342,34 @@ section {
   box-shadow: 1px 0 10px 0 rgba(50, 0, 70, 0.349);
   background: linear-gradient(
     132deg,
-    #6424dc,
-    #7a13aa,
-    #cf1bc0,
+    #ff9318,
     #f80759,
-    #ff9318
+    #cf1bc0,
+    #7a13aa,
+    #6424dc
   );
   background-size: 300% 300%;
   background-position: 0 50%;
   animation: moveGradient 8s alternate infinite;
 }
+.secMail:hover {
+  font-weight: bolder;
+  box-shadow: 1px 0 10px 0 rgba(255, 153, 0, 0.582);
+}
+.secMail:active {
+  transform: scale(0.9);
+}
 .social {
   width: 25px;
   height: 25px;
+  border-radius: 5px;
   filter: invert(100%);
 }
 .social:hover {
   filter: invert(48%) sepia(64%) saturate(995%) hue-rotate(17deg)
     brightness(102%) contrast(101%);
   transform: scale(1.1);
+  box-shadow: 1px 0 10px 0 rgba(255, 153, 0, 0.582);
 }
 .social:active {
   filter: invert(100%);
