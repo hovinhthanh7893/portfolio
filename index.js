@@ -5,6 +5,12 @@ const sizes = {
   width: window.innerWidth,
   heith: window.innerHeight
 };
+const yellow = 0xFFC800;
+const red = 0xFF0000;
+const purple = 0xa200ff;
+const green = 0x03fc2c;
+const blue = 0x031cfc;
+const cyan = 0x03d3fc;
 
 //SCENE
 const scene = new THREE.Scene();
@@ -14,18 +20,15 @@ scene.fog = new THREE.Fog(0x000000, 4, 6);
 // scene.add(gridHelper)
 
 //LIGHT
-//yellow
-const light = new THREE.SpotLight(0xFFC800, 10);
+const light = new THREE.SpotLight(yellow, 10);
 light.position.set(5, 5, 2);
 light.castShadow = true;
 light.shadow.mapSize.width = 10000;
 light.shadow.mapSize.height = light.shadow.mapSize.width;
 light.penumbra = 0.5;
-//red
-const lightBack = new THREE.PointLight(0xFF0000, 2);
+const lightBack = new THREE.PointLight(red, 2);
 lightBack.position.set(0, -3, -1);
-//purple
-const rectLight = new THREE.RectAreaLight(0xa200ff, 20, 2, 2);
+const rectLight = new THREE.RectAreaLight(purple, 20, 2, 2);
 rectLight.position.set(1, 1, 1);
 rectLight.lookAt(0, 0, 0);
 scene.add(light, lightBack, rectLight);
@@ -171,15 +174,6 @@ function handleScroll() {
   const newSection = Math.round(scrollY / window.innerHeight);
   if(newSection != currentSection) {
     currentSection = newSection;
-    //Highlight navbar
-    //dedault state
-    if (currentSection === 0 || currentSection === 1) {
-      document.querySelectorAll('.navEach').forEach((each) => {
-        each.style.color = 'beige';
-        each.style.fontStyle = "normal";
-      });
-    }
-    //highlight state
     function highLightNavLink(number) {
       const navLinks = document.querySelectorAll('.navEach');
       navLinks.forEach((each) => {
@@ -191,9 +185,36 @@ function handleScroll() {
       navLinks[number+1].style.color = 'goldenrod';
       navLinks[number+1].style.fontStyle = "italic";
     }
-    if (currentSection === 2) highLightNavLink(currentSection);
-    if (currentSection === 3) highLightNavLink(currentSection);
-    if (currentSection === 4) highLightNavLink(currentSection);
+    function changeColor(spotLight, backLight, ambLight) {
+      light.color.setHex(spotLight);
+      lightBack.color.setHex(backLight);
+      rectLight.color.setHex(ambLight);
+    }
+    if (currentSection === 0) {
+      document.querySelectorAll('.navEach').forEach((each) => {
+        each.style.color = 'beige';
+        each.style.fontStyle = "normal";
+      });
+      changeColor(yellow, red, purple);
+    }
+    if (currentSection === 1) {
+      document.querySelectorAll('.navEach').forEach((each) => {
+        each.style.color = 'beige';
+        each.style.fontStyle = "normal";
+      });
+      changeColor(green, yellow, purple);
+    }
+    if (currentSection === 2) {
+      highLightNavLink(currentSection);
+      changeColor(cyan, purple, blue);
+    }
+    if (currentSection === 3) {
+      highLightNavLink(currentSection);
+      changeColor(red, purple, blue);
+    }
+    if (currentSection === 4) {
+      highLightNavLink(currentSection);
+    }
     //Push to view
     // const element = document.querySelectorAll('section')[currentSection];
     // element.scrollIntoView(true);
