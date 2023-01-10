@@ -58,7 +58,7 @@ const modularGroup = new THREE.Object3D();
 
 function generateParticle(num, amp = 2) {
   const gmaterial = new THREE.MeshPhysicalMaterial({color:0xFFFFFF, side:THREE.DoubleSide});
-  const gparticular = new THREE.CircleGeometry(0.2,5);
+  const gparticular = new THREE.CircleGeometry(0.1,5);
   for (let i = 1; i < num; i++) {
     const pscale = 0.001+Math.abs(mathRandom(0.03));
     const particular = new THREE.Mesh(gparticular, gmaterial);
