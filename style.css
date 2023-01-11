@@ -489,21 +489,8 @@ section {
   font-size: 20px;
 }
 .secPhone {
-  width: 194px;
-  height: 34px;
-  border-radius: 8px;
-  background-color: black;
-  margin: 3px 0 0 3px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.secPhone:before {
-  content: "";
-  position: absolute;
   width: 200px;
   height: 40px;
-  z-index: -1;
   border-radius: 10px;
   box-shadow: 1px 0 10px 0 rgba(50, 0, 70, 0.349);
   background: linear-gradient(
@@ -512,28 +499,53 @@ section {
     #f80759,
     #ff9318
   );
-  background-size: 300% 300%;
-  background-position: 0 50%;
+  background-size: 200%;
+  background-position: 0;
   animation: moveGradient 8s alternate infinite;
+  display: flex;
+  align-items: center;
+}
+.secPhone:after {
+  content: "";
+  position: absolute;
+  width: 155px;
+  height: 34px;
+  margin: 0 3px 0 42px;
+  border-radius: 8px;
+  background-color: black;
 }
 .phone {
-  width: 20px;
-  height: 20px;
-  margin-right: 10px;
+  width: 25px;
+  height: 25px;
+  margin-left: 11px;
+  margin-right: 18px;
   filter: invert(100%);
-  background: url("./image/icon-phone-48.png") no-repeat;
+  background: url("./image/icon-whatsapp-50.png") no-repeat;
   background-size: cover;
+  z-index: 10;
 }
+.phone:hover {
+  filter: invert(0%);
+}
+.phone:active {
+  transform: scale(0.9);
+}
+.phoneNumber {
+  color: white;
+  z-index: 10;
+}
+
 .secMail {
   width: 200px;
   height: 40px;
   border: none;
+  text-decoration: none;
+  color: white;
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-decoration: none;
-  color: white;
+  gap: 10px;
   box-shadow: 1px 0 10px 0 rgba(50, 0, 70, 0.349);
   background: linear-gradient(
     132deg,
@@ -541,8 +553,8 @@ section {
     #f80759,
     #6424dc
   );
-  background-size: 300% 300%;
-  background-position: 0 50%;
+  background-size: 200%;
+  background-position: 0;
   animation: moveGradient 8s alternate infinite;
 }
 .secMail:hover {
@@ -551,6 +563,13 @@ section {
 }
 .secMail:active {
   transform: scale(0.9);
+}
+.mail {
+  width: 30px;
+  height: 30px;
+  filter: invert(100%);
+  background: url("./image/icon-envelope-64.png") no-repeat;
+  background-size: cover;
 }
 
 .secSocial {
