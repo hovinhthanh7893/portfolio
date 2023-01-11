@@ -533,6 +533,7 @@ section {
   background-size: cover;
 }
 .phoneNumber {
+  color: white;
   text-decoration: none;
 }
 .secMail {
