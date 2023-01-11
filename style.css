@@ -376,6 +376,7 @@ section {
   text-shadow: 0 0 20px black, 0 0 40px black;
 }
 .sec1Des {
+  width: fit-content;
   flex-wrap: wrap;
   font-family: "Josefin Sans", sans-serif;
   font-size: 30px;
@@ -383,8 +384,8 @@ section {
   text-shadow: 0 0 20px black, 0 0 40px black;
   background-color: gold;
   background-image: linear-gradient(60deg, #b721ff, #2af598, #ffee37, #fa709a);
-  background-size: 200% 200%;
-  background-position: 0 50%;
+  background-size: 200%;
+  background-position: 0;
   -webkit-animation: moveGradient 6s alternate infinite;
   animation: moveGradient 6s alternate infinite;
   background-clip: text;
@@ -395,12 +396,12 @@ section {
 }
 @-webkit-keyframes moveGradient {
   50% {
-    background-position: 100% 50%;
+    background-position: 100%;
   }
 }
 @keyframes moveGradient {
   50% {
-    background-position: 100% 50%;
+    background-position: 100%;
   }
 }
 
@@ -515,8 +516,6 @@ section {
   background: linear-gradient(
     132deg,
     #6424dc,
-    #7a13aa,
-    #cf1bc0,
     #f80759,
     #ff9318
   );
@@ -550,8 +549,6 @@ section {
     132deg,
     #ff9318,
     #f80759,
-    #cf1bc0,
-    #7a13aa,
     #6424dc
   );
   background-size: 300% 300%;
