@@ -65,7 +65,7 @@ nav {
   text-shadow: 0 0 30px beige;
 }
 
-.logo::after {
+.logo:after {
   content: "";
   position: absolute;
   top: 53px;
@@ -74,7 +74,7 @@ nav {
   -webkit-animation: logoUnderOut 0.5s ease-in-out forwards;
   animation: logoUnderOut 0.5s ease-in-out forwards;
 }
-.logo:hover::after {
+.logo:hover:after {
   -webkit-animation: logoUnderIn 0.5s ease-in-out forwards;
   animation: logoUnderIn 0.5s ease-in-out forwards;
 }
@@ -435,23 +435,29 @@ section {
   height: 40px;
   background: url("./image/icon-so-so-96.png") no-repeat;
   background-size: cover;
-  -webkit-animation: handWave 2s ease-in-out infinite;
-  animation: handWave 2s ease-in-out infinite;
+  -webkit-animation: handWave 2.5s ease-in-out infinite;
+  animation: handWave 2.5s ease-in-out infinite;
 }
 @-webkit-keyframes handWave {
-  5% {
+  4% {
     transform: rotate(-25deg);
   }
-  10% {
+  8% {
     transform: rotate(0deg);
   }
-  15% {
+  12% {
     transform: rotate(-25deg);
+  }
+  16% {
+    transform: rotate(0deg);
   }
   20% {
+    transform: rotate(-25deg);
+  }
+  24% {
     transform: rotate(0deg);
   }
-  25% {
+  28% {
     transform: rotate(-25deg);
   }
   30% {
@@ -459,19 +465,25 @@ section {
   }
 }
 @keyframes handWave {
-  5% {
+  4% {
     transform: rotate(-25deg);
   }
-  10% {
+  8% {
     transform: rotate(0deg);
   }
-  15% {
+  12% {
     transform: rotate(-25deg);
+  }
+  16% {
+    transform: rotate(0deg);
   }
   20% {
+    transform: rotate(-25deg);
+  }
+  24% {
     transform: rotate(0deg);
   }
-  25% {
+  28% {
     transform: rotate(-25deg);
   }
   30% {
@@ -499,7 +511,7 @@ section {
     #f80759,
     #ff9318
   );
-  background-size: 200%;
+  background-size: 300%;
   background-position: 0;
   animation: moveGradient 8s alternate infinite;
   display: flex;
@@ -554,7 +566,7 @@ section {
     #f80759,
     #6424dc
   );
-  background-size: 200%;
+  background-size: 300%;
   background-position: 0;
   animation: moveGradient 8s alternate infinite;
 }
@@ -584,7 +596,36 @@ section {
   width: 25px;
   height: 25px;
   border-radius: 5px;
-  filter: invert(100%);
+}
+.social:nth-of-type(1) {
+  background: url("./image/icon-linkedin-50.png") no-repeat;
+  background-size: cover;
+  filter: invert(91%) sepia(7%) saturate(7014%) hue-rotate(288deg) brightness(103%) contrast(106%);
+}
+.social:nth-of-type(2) {
+  background: url("./image/icon-github-64.png") no-repeat;
+  background-size: cover;
+  filter: invert(85%) sepia(10%) saturate(2692%) hue-rotate(310deg) brightness(101%) contrast(101%);
+}
+.social:nth-of-type(3) {
+  background: url("./image/icon-instagram-64.png") no-repeat;
+  background-size: cover;
+  filter: invert(91%) sepia(5%) saturate(2658%) hue-rotate(357deg) brightness(105%) contrast(103%);
+}
+.social:nth-of-type(4) {
+  background: url("./image/icon-facebook-64.png") no-repeat;
+  background-size: cover;
+  filter: invert(92%) sepia(8%) saturate(1674%) hue-rotate(63deg) brightness(100%) contrast(98%);
+}
+.social:nth-of-type(5) {
+  background: url("./image/icon-youtube-64.png") no-repeat;
+  background-size: cover;
+  filter: invert(68%) sepia(97%) saturate(605%) hue-rotate(182deg) brightness(112%) contrast(114%);
+}
+.social:nth-of-type(6) {
+  background: url("./image/icon-behance-96.png") no-repeat;
+  background-size: cover;
+  filter: invert(75%) sepia(18%) saturate(5710%) hue-rotate(206deg) brightness(103%) contrast(101%);
 }
 .social:hover {
   filter: invert(48%) sepia(64%) saturate(995%) hue-rotate(17deg)
@@ -595,30 +636,6 @@ section {
 .social:active {
   filter: invert(100%);
   transform: scale(0.9);
-}
-.social:nth-of-type(1) {
-  background: url("./image/icon-linkedin-50.png") no-repeat;
-  background-size: cover;
-}
-.social:nth-of-type(2) {
-  background: url("./image/icon-github-64.png") no-repeat;
-  background-size: cover;
-}
-.social:nth-of-type(3) {
-  background: url("./image/icon-instagram-64.png") no-repeat;
-  background-size: cover;
-}
-.social:nth-of-type(4) {
-  background: url("./image/icon-facebook-64.png") no-repeat;
-  background-size: cover;
-}
-.social:nth-of-type(5) {
-  background: url("./image/icon-youtube-64.png") no-repeat;
-  background-size: cover;
-}
-.social:nth-of-type(6) {
-  background: url("./image/icon-behance-96.png") no-repeat;
-  background-size: cover;
 }
 
 .nextButton {
