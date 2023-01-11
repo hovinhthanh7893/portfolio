@@ -3,18 +3,18 @@
     "name": "PORTFOLIO",
     "icons": [
       {
-        "src": "./image/favicon.ico",
+        "src": "./icons/favicon.ico",
         "sizes": "64x64 32x32 24x24 16x16",
-        "type": "image/x-icon"
+        "type": "icons/x-icon"
       },
       {
-        "src": "./image/android-chrome-192x192.png",
-        "type": "image/png",
+        "src": "./icons/android-chrome-192x192.png",
+        "type": "icons/png",
         "sizes": "192x192"
       },
       {
-        "src": "./image/android-chrome-192x192.png",
-        "type": "image/png",
+        "src": "./icons/android-chrome-192x192.png",
+        "type": "icons/png",
         "sizes": "512x512"
       }
     ],

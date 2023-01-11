@@ -432,7 +432,7 @@ section {
 .hand {
   width: 40px;
   height: 40px;
-  background: url("./image/icon-so-so-96.png") no-repeat;
+  background: url("./icons/icon-so-so-96.png") no-repeat;
   background-size: cover;
   -webkit-animation: handWave 2.5s ease-in-out infinite;
   animation: handWave 2.5s ease-in-out infinite;
@@ -512,6 +512,7 @@ section {
   );
   background-size: 300%;
   background-position: 0;
+  -webkit-animation: moveGradient 8s alternate infinite;
   animation: moveGradient 8s alternate infinite;
   display: flex;
   align-items: center;
@@ -531,7 +532,7 @@ section {
   margin-left: 11px;
   margin-right: 18px;
   filter: invert(100%);
-  background: url("./image/icon-whatsapp-50.png") no-repeat;
+  background: url("./icons/icon-whatsapp-50.png") no-repeat;
   background-size: cover;
   z-index: 10;
 }
@@ -565,6 +566,7 @@ section {
   );
   background-size: 300%;
   background-position: 0;
+  -webkit-animation: moveGradient 8s alternate infinite;
   animation: moveGradient 8s alternate infinite;
 }
 .secMail:hover {
@@ -578,7 +580,7 @@ section {
   width: 30px;
   height: 30px;
   filter: invert(100%);
-  background: url("./image/icon-envelope-64.png") no-repeat;
+  background: url("./icons/icon-envelope-64.png") no-repeat;
   background-size: cover;
 }
 
@@ -595,32 +597,32 @@ section {
   border-radius: 5px;
 }
 .social:nth-of-type(1) {
-  background: url("./image/icon-linkedin-50.png") no-repeat;
+  background: url("./icons/icon-linkedin-50.png") no-repeat;
   background-size: cover;
   filter: invert(91%) sepia(7%) saturate(7014%) hue-rotate(288deg) brightness(103%) contrast(106%);
 }
 .social:nth-of-type(2) {
-  background: url("./image/icon-github-64.png") no-repeat;
+  background: url("./icons/icon-github-64.png") no-repeat;
   background-size: cover;
   filter: invert(85%) sepia(10%) saturate(2692%) hue-rotate(310deg) brightness(101%) contrast(101%);
 }
 .social:nth-of-type(3) {
-  background: url("./image/icon-instagram-64.png") no-repeat;
+  background: url("./icons/icon-instagram-64.png") no-repeat;
   background-size: cover;
   filter: invert(91%) sepia(5%) saturate(2658%) hue-rotate(357deg) brightness(105%) contrast(103%);
 }
 .social:nth-of-type(4) {
-  background: url("./image/icon-facebook-64.png") no-repeat;
+  background: url("./icons/icon-facebook-64.png") no-repeat;
   background-size: cover;
   filter: invert(92%) sepia(8%) saturate(1674%) hue-rotate(63deg) brightness(100%) contrast(98%);
 }
 .social:nth-of-type(5) {
-  background: url("./image/icon-youtube-64.png") no-repeat;
+  background: url("./icons/icon-youtube-64.png") no-repeat;
   background-size: cover;
   filter: invert(68%) sepia(97%) saturate(605%) hue-rotate(182deg) brightness(112%) contrast(114%);
 }
 .social:nth-of-type(6) {
-  background: url("./image/icon-behance-96.png") no-repeat;
+  background: url("./icons/icon-behance-96.png") no-repeat;
   background-size: cover;
   filter: invert(75%) sepia(18%) saturate(5710%) hue-rotate(206deg) brightness(103%) contrast(101%);
 }
