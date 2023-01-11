@@ -531,6 +531,7 @@ section {
   transform: scale(0.9);
 }
 .phoneNumber {
+  text-decoration: none;
   color: white;
   z-index: 10;
 }
