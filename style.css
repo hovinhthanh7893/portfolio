@@ -21,7 +21,6 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: black;
   overflow: hidden;
   z-index: 1;
 }
@@ -543,8 +542,6 @@ section {
   transform: scale(0.9);
 }
 .phoneNumber {
-  text-decoration: none;
-  color: white;
   z-index: 10;
 }
 
