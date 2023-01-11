@@ -55,23 +55,64 @@ nav {
   color: beige;
   z-index: 100;
 }
-.logo::after {
-  content: "";
-  position: absolute;
-  top: 56px;
-  width: 0px;
-  height: 1px;
-  background: beige;
-}
-.logo:hover::after {
-  animation: logoUnder 0.5s ease-in-out forwards;
+.logo:hover {
+  font-style: italic;
+  color: goldenrod;
 }
 .logo:active {
   color: gold;
   font-size: 22px;
   text-shadow: 0 0 30px beige;
 }
+
+.logo::after {
+  content: "";
+  position: absolute;
+  top: 53px;
+  height: 1px;
+  background: goldenrod;
+  -webkit-animation: logoUnderOut 0.5s ease-in-out forwards;
+  animation: logoUnderOut 0.5s ease-in-out forwards;
+}
+.logo:hover::after {
+  -webkit-animation: logoUnderIn 0.5s ease-in-out forwards;
+  animation: logoUnderIn 0.5s ease-in-out forwards;
+}
+@-webkit-keyframes logoUnderOut {
+  from {
+    width: 175px;
+  }
+  to {
+    width: 0px;
+  }
+}
+@keyframes logoUnderOut {
+  from {
+    width: 175px;
+  }
+  to {
+    width: 0px;
+  }
+}
+@-webkit-keyframes logoUnderIn {
+  from {
+    width: 0px;
+  }
+  to {
+    width: 175px;
+  }
+}
+@keyframes logoUnderIn {
+  from {
+    width: 0px;
+  }
+  to {
+    width: 175px;
+  }
+}
+
 .logoName {
+  -webkit-animation: logoAnim 10s ease-out infinite;
   animation: logoAnim 10s ease-out infinite;
 }
 .logoName:nth-of-type(1) {
@@ -135,16 +176,9 @@ nav {
   animation-delay: 2.1s;
 }
 @-webkit-keyframes logoAnim {
-  0% {
-    opacity: 1;
-  }
   5% {
     opacity: 0;
     transform: translateY(-15px)
-  }
-  10% {
-    opacity: 0;
-    transform: translateY(15px)
   }
   25% {
     opacity: 0;
@@ -153,22 +187,12 @@ nav {
   30% {
     opacity: 1;
     transform: translateY(0px)
-  }
-  100% {
-    opacity: 1;
   }
 }
 @keyframes logoAnim {
-  0% {
-    opacity: 1;
-  }
   5% {
     opacity: 0;
     transform: translateY(-15px)
-  }
-  10% {
-    opacity: 0;
-    transform: translateY(15px)
   }
   25% {
     opacity: 0;
@@ -177,25 +201,6 @@ nav {
   30% {
     opacity: 1;
     transform: translateY(0px)
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@-webkit-keyframes logoUnder {
-  0% {
-    width: 0px;
-  }
-  100% {
-    width: 175px;
-  }
-}
-@keyframes logoUnder {
-  0% {
-    width: 0px;
-  }
-  100% {
-    width: 175px;
   }
 }
 
@@ -212,7 +217,8 @@ nav ul {
 }
 .navEach:before {
   content: ".";
-  font-size: 30px;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 28px;
   line-height: 1px;
   padding-right: 2px;
   opacity: 0;
@@ -238,7 +244,7 @@ nav ul {
 }
 
 .line {
-  width: 27px;
+  width: 25px;
   height: 2px;
   background-color: beige;
   display: block;
@@ -254,7 +260,7 @@ nav ul {
   background-color: goldenrod;
   height: 2px;
   margin: 6px auto;
-  width: 30px;
+  width: 28px;
 }
 
 .hamburger.is-active .line:nth-child(2) {
@@ -335,7 +341,7 @@ section {
 #content2,
 #content3 {
   opacity: 0;
-  transform: translate3d(0, 4rem, 0);
+  transform: translate3d(0, 80px, 0);
 }
 #content1 {
   transition: opacity 1s 0.1s,
@@ -379,6 +385,7 @@ section {
   background-image: linear-gradient(60deg, #b721ff, #2af598, #ffee37, #fa709a);
   background-size: 200% 200%;
   background-position: 0 50%;
+  -webkit-animation: moveGradient 6s alternate infinite;
   animation: moveGradient 6s alternate infinite;
   background-clip: text;
   -webkit-background-clip: text;
@@ -406,6 +413,7 @@ section {
 }
 .secPortFrame {
   height: 50vh;
+  margin-top: 2vh;
   background-color: rgba(0, 0, 0, 0.6);
   border: rgba(88, 0, 44, 0.726) solid 0.8px;
   box-shadow: 1px 0 10px 0 rgba(50, 0, 70, 0.349);
@@ -435,78 +443,50 @@ section {
   height: 40px;
   background: url("./image/icon-so-so-96.png") no-repeat;
   background-size: cover;
-  animation: handWave 1s ease-in-out infinite;
+  -webkit-animation: handWave 2s ease-in-out infinite;
+  animation: handWave 2s ease-in-out infinite;
 }
 @-webkit-keyframes handWave {
-  0% {
-    transform: rotate(0deg);
+  5% {
+    transform: rotate(-25deg);
   }
   10% {
+    transform: rotate(0deg);
+  }
+  15% {
     transform: rotate(-25deg);
   }
   20% {
     transform: rotate(0deg);
   }
+  25% {
+    transform: rotate(-25deg);
+  }
   30% {
-    transform: rotate(-25deg);
-  }
-  40% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(-25deg);
-  }
-  60% {
-    transform: rotate(0deg);
-  }
-  70% {
-    transform: rotate(-25deg);
-  }
-  80% {
-    transform: rotate(0deg);
-  }
-  90% {
-    transform: rotate(-25deg);
-  }
-  100% {
     transform: rotate(0deg);
   }
 }
 @keyframes handWave {
-  0% {
-    transform: rotate(0deg);
+  5% {
+    transform: rotate(-25deg);
   }
   10% {
+    transform: rotate(0deg);
+  }
+  15% {
     transform: rotate(-25deg);
   }
   20% {
     transform: rotate(0deg);
   }
+  25% {
+    transform: rotate(-25deg);
+  }
   30% {
-    transform: rotate(-25deg);
-  }
-  40% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(-25deg);
-  }
-  60% {
-    transform: rotate(0deg);
-  }
-  70% {
-    transform: rotate(-25deg);
-  }
-  80% {
-    transform: rotate(0deg);
-  }
-  90% {
-    transform: rotate(-25deg);
-  }
-  100% {
     transform: rotate(0deg);
   }
 }
+
 .secSocial {
   display: flex;
   flex-wrap: wrap;
@@ -635,11 +615,10 @@ section {
 .next {
   width: 24px;
   height: 24px;
-
   -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg);
-  -webkit-animation: sdb07 2s infinite;
-  animation: sdb07 2s infinite;
+  -webkit-animation: next 2s infinite;
+  animation: next 2s infinite;
   opacity: 0;
   box-sizing: border-box;
 }
@@ -661,26 +640,14 @@ section {
   -webkit-animation-delay: 0.3s;
   animation-delay: 0.3s;
 }
-@-webkit-keyframes sdb07 {
-  0% {
-    opacity: 0;
-  }
+@-webkit-keyframes next {
   50% {
     opacity: 1;
-  }
-  100% {
-    opacity: 0;
   }
 }
-@keyframes sdb07 {
-  0% {
-    opacity: 0;
-  }
+@keyframes next {
   50% {
     opacity: 1;
-  }
-  100% {
-    opacity: 0;
   }
 }
 
@@ -712,7 +679,7 @@ section {
 
 @media only screen and (max-width: 768px) {
   .logo::after {
-    top: 62px;
+    top: 60px;
   }
   .navBig {
     display: none;
