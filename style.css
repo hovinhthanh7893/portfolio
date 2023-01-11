@@ -488,14 +488,6 @@ section {
   font-family: "Josefin Sans", sans-serif;
   font-size: 20px;
 }
-
-.secSocial {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  margin-bottom: 50vh;
-}
 .secPhone {
   width: 194px;
   height: 34px;
@@ -532,10 +524,6 @@ section {
   background: url("./image/icon-phone-48.png") no-repeat;
   background-size: cover;
 }
-.phoneNumber {
-  color: white;
-  text-decoration: none;
-}
 .secMail {
   width: 200px;
   height: 40px;
@@ -563,6 +551,14 @@ section {
 }
 .secMail:active {
   transform: scale(0.9);
+}
+
+.secSocial {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 50vh;
 }
 .social {
   width: 25px;
