@@ -430,15 +430,6 @@ section {
   line-height: 32px;
   text-shadow: 0 0 30px white;
 }
-.secContact {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 30px;
-  gap: 20px;
-  font-family: "Josefin Sans", sans-serif;
-  font-size: 20px;
-}
 .hand {
   width: 40px;
   height: 40px;
@@ -486,6 +477,16 @@ section {
   30% {
     transform: rotate(0deg);
   }
+}
+
+.secContact {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 30px;
+  gap: 20px;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 20px;
 }
 
 .secSocial {
@@ -699,7 +700,14 @@ section {
   section {
     margin: 0 10vw 0 10vw;
   }
-  .sec1Tit {
-    margin-top: 40vh;
+  .secPortFrame {
+    margin: 0;
+  }
+  .sec5Tit {
+    font-size: 30px;
+  }
+  .hand {
+    width: 30px;
+    height: 30px;
   }
 }
