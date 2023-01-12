@@ -192,6 +192,23 @@ document
     }
 });
 
+//SOUND TOGGLE
+let soundOn = true;
+document
+  .querySelector(".sound")
+  .addEventListener("click", function(event) {
+    event.preventDefault();
+    if (soundOn === true) {
+      this.style.opacity = 1;
+      this.style.backgroundImage = "url('./icons/icon-mute-96.png')";
+      soundOn = false;
+    } else {
+      this.style.opacity = 0.2;
+    this.style.backgroundImage = "url('./icons/icon-sound-96.png')";
+    soundOn = true;
+    }
+});
+
 //COLLAPSE SUBMENU ONCLICK
 const navLinks = document.querySelectorAll(".navEach");
 navLinks.forEach((each) => {

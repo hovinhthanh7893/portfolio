@@ -246,7 +246,6 @@ nav ul {
 .hamburger {
   z-index: 100;
 }
-
 .line {
   width: 25px;
   height: 2px;
@@ -334,7 +333,7 @@ section {
 }
 #section5 {
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   text-align: center;
 }
 
@@ -410,7 +409,7 @@ section {
   flex-wrap: wrap;
   font-size: 32px;
   line-height: 32px;
-  margin-top: 16vh;
+  margin-top: 20vh;
   text-shadow: 0 0 30px white;
 }
 .secPortFrame {
@@ -430,6 +429,7 @@ section {
   font-size: 40px;
   line-height: 32px;
   text-shadow: 0 0 30px white;
+  margin-top: 18vh;
 }
 .hand {
   width: 40px;
@@ -591,7 +591,6 @@ section {
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
-  margin-bottom: 50vh;
 }
 .social {
   width: 25px;
@@ -642,13 +641,14 @@ section {
 .nextButton {
   display: flex;
   flex-direction: column;
-  width: 24px;
   margin-bottom: 20vh;
 }
 .next {
   width: 24px;
   height: 24px;
   -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
   transform: rotate(-45deg);
   -webkit-animation: next 2s infinite;
   animation: next 2s infinite;
@@ -656,20 +656,18 @@ section {
   box-sizing: border-box;
 }
 .next:nth-of-type(1) {
-  border-left: 1px solid rgb(255, 111, 92);
-  border-bottom: 1px solid rgb(255, 111, 92);
-  -webkit-animation-delay: 0s;
-  animation-delay: 0s;
+  border-left: 1px solid rgb(80, 255, 197);
+  border-bottom: 1px solid rgb(80, 255, 197);
 }
 .next:nth-of-type(2) {
-  border-left: 1px solid rgb(255, 40, 105);
-  border-bottom: 1px solid rgb(255, 40, 105);
+  border-left: 1px solid rgb(255, 203, 80);
+  border-bottom: 1px solid rgb(255, 203, 80);
   -webkit-animation-delay: 0.15s;
   animation-delay: 0.15s;
 }
 .next:nth-of-type(3) {
-  border-left: 1px solid rgb(255, 0, 98);
-  border-bottom: 1px solid rgb(255, 0, 98);
+  border-left: 1px solid rgb(255, 80, 159);
+  border-bottom: 1px solid rgb(255, 80, 159);
   -webkit-animation-delay: 0.3s;
   animation-delay: 0.3s;
 }
@@ -689,16 +687,47 @@ section {
   bottom: 0;
   width: 100%;
   height: 10vh;
+  padding: 3vh 15vw 0 15vw;
   display: flex;
-  align-items: center;
+  justify-content: flex-end;
+  gap: 10vw;
   background-image: linear-gradient(
     to top,
     rgb(0, 0, 0) 20%,
     rgba(0, 0, 0, 0.5) 70%,
     rgba(0, 0, 0, 0)
   );
+  box-sizing: border-box;
   z-index: 99;
 }
+.sound {
+  width: 30px;
+  height: 30px;
+  filter: invert(28%) sepia(36%) saturate(1905%) hue-rotate(20deg) brightness(99%) contrast(98%);
+  background: url("./icons/icon-sound-96.png") no-repeat;
+  background-size: cover;
+  -webkit-animation: sound 5s infinite;
+  animation: sound 5s infinite;
+  opacity: 0.2;
+}
+.sound:hover {
+  cursor: url("./icons/pointer-yellow.png"), pointer;
+}
+.sound:active {
+  transform: scale(0.9);
+}
+@-webkit-keyframes sound {
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes sound {
+  50% {
+    opacity: 1;
+  }
+}
+
+
 
 @media only screen and (max-width: 1366px) {
   .next {
@@ -718,7 +747,7 @@ section {
     display: flex;
   }
   .secPortTit {
-    margin-top: 10vh;
+    margin-top: 15vh;
   }
 }
 
@@ -737,9 +766,13 @@ section {
   }
   .sec5Tit {
     font-size: 30px;
+    margin-top: 15vh;
   }
   .hand {
     width: 30px;
     height: 30px;
+  }
+  .foot {
+    padding: 0 10vw 0 10vw;
   }
 }
