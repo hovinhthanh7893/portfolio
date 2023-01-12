@@ -142,35 +142,13 @@ function handleWindowResize() {
 window.addEventListener("resize", handleWindowResize, false);
 
 //MOUSE EVENT
-const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
-let intersected, touchedObject;
 function onMouseMove(event) {
   event.preventDefault();
   mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
   mouse.y = (event.clientY / window.innerHeight) * 2 + 1;
 }
-function onMouseDown(event) {
-  event.preventDefault();
-  onMouseMove(event);
-  raycaster.setFromCamera(mouse, camera);
-  intersected = raycaster.intersectObjects(modularGroup.children);
-  if (intersected.length > 0) {
-    if (touchedObject != intersected[0].object) {
-      if (touchedObject)
-        touchedObject.material.emissive.setHex(touchedObject.currentHex);
-      touchedObject = intersected[0].object;
-      touchedObject.currentHex = touchedObject.material.emissive.getHex();
-      touchedObject.material.emissive.setHex(0xffff00);
-    } else {
-      if (touchedObject)
-        touchedObject.material.emissive.setHex(touchedObject.currentHex);
-      touchedObject = null;
-    }
-  }
-}
 window.addEventListener("mousemove", onMouseMove, false);
-window.addEventListener("mousedown", onMouseDown, false);
 
 //TOUCH EVENT FOR MOBILE
 function onTouchMove(event) {
@@ -203,31 +181,43 @@ document.querySelectorAll("section").forEach((section) => {
 //EXPAND HAMBURGER NAVBAR
 document
   .querySelector(".hamburger")
-  .addEventListener("click", function (event) {
+  .addEventListener("click", function(event) {
     event.preventDefault();
-    this.classList.toggle("is-active");
     if (document.querySelector(".subMenu").style.display === "block") {
+      this.classList.remove("is-active");
       document.querySelector(".subMenu").style.display = "none";
     } else {
+      this.classList.add("is-active");
       document.querySelector(".subMenu").style.display = "block";
     }
-  });
+});
+
+//COLLAPSE SUBMENU ONCLICK
+const navLinks = document.querySelectorAll(".navEach");
+navLinks.forEach((each) => {
+  each.addEventListener("click", function(event) {
+    if (document.querySelector(".subMenu").style.display === "block") {
+      document.querySelector(".subMenu").style.display = "none";
+      document.querySelector(".hamburger").classList.remove("is-active");
+    } 
+  })
+})
 
 //Function for Animation
-//check body position
+//highlight navlink according to section
 let sections = document.querySelectorAll("section");
 let staticSectionNumber = 1;
 function highLightNavLink(number) {
-  const navLinks = document.querySelectorAll(".navEach");
   navLinks.forEach((each) => {
     each.style.color = "beige";
     each.style.fontStyle = "normal";
   });
-  navLinks[number - 3].style.color = "goldenrod";
-  navLinks[number - 3].style.fontStyle = "italic";
-  navLinks[number].style.color = "goldenrod";
-  navLinks[number].style.fontStyle = "italic";
+  navLinks[number - 2].style.color = "goldenrod";
+  navLinks[number - 2].style.fontStyle = "italic";
+  navLinks[number + 2].style.color = "goldenrod";
+  navLinks[number + 2].style.fontStyle = "italic";
 }
+//change color of background space
 function changeColor(spotLight, backLight, ambLight) {
   light.color.setHex(spotLight);
   lightBack.color.setHex(backLight);
@@ -236,17 +226,9 @@ function changeColor(spotLight, backLight, ambLight) {
 //move camera
 function moveCam(setting) {
   if (setting === 0) {
-    camera.translateX(0.3);
-    camera.translateY(-10);
-    // camera.position.lerp(new THREE.Vector3(0, -10, 5), 1);
+    camera.position.set(0, -10, 5);
   } else {
-    if (camera.position.y === 0) {
-      return;
-    } else {
-      camera.translateX(-0.3);
-      camera.translateY(10);
-      // camera.position.lerp(new THREE.Vector3(-0.3, 0, 5), 1);
-    }
+    camera.position.set(-0.3, 0, 5);
   }
 }
 
@@ -275,7 +257,7 @@ const animate = () => {
   particularGroup.rotation.y += 0.004;
   modularGroup.rotation.y -= (mouse.x * 4 + modularGroup.rotation.y) * 0.1;
   modularGroup.rotation.x -= (-mouse.y * 4 + modularGroup.rotation.x) * 0.1;
-  //Update navLinks & background color
+  //Check current section on screen
   let currentSection = document.querySelector(".is-visible");
   if (currentSection === sections[0]) {
     const sectionNumber = 1;
@@ -291,11 +273,9 @@ const animate = () => {
   if (currentSection === sections[1]) {
     const sectionNumber = 2;
     if (sectionNumber !== staticSectionNumber) {
-      document.querySelectorAll(".navEach").forEach((each) => {
-        each.style.color = "beige";
-        each.style.fontStyle = "normal";
-      });
+      highLightNavLink(sectionNumber);
       changeColor(green, yellow, purple);
+      moveCam(1);
       staticSectionNumber = sectionNumber;
     }
   }
@@ -304,6 +284,7 @@ const animate = () => {
     if (sectionNumber !== staticSectionNumber) {
       highLightNavLink(sectionNumber);
       changeColor(cyan, purple, blue);
+      moveCam(1);
       staticSectionNumber = sectionNumber;
     }
   }
@@ -324,7 +305,7 @@ const animate = () => {
       staticSectionNumber = sectionNumber;
     }
   }
-  //Update to screen
+  //Update screen
   renderer.render(scene, camera);
   requestAnimationFrame(animate);
 };

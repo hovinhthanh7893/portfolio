@@ -9,10 +9,15 @@ body {
   box-sizing: border-box;
   overflow-x: hidden;
   overflow-y: scroll;
+  cursor: url("./icons/cursor-yellow.png"), auto;
 }
 ::-webkit-scrollbar {
   width: 0;
   background: transparent;
+}
+
+a {
+  cursor: url("./icons/pointer-yellow.png"), pointer;
 }
 
 .webgl {
@@ -253,29 +258,26 @@ nav ul {
   transition: all 0.3s ease-in-out;
 }
 .hamburger:hover {
-  cursor: pointer;
+  cursor: url("./icons/pointer-yellow.png"), pointer;
 }
-.hamburger:hover .line {
+.hamburger.is-active .line:nth-child(1) {
+  width: 20px;
   background-color: goldenrod;
-  height: 2px;
-  margin: 6px auto;
-  width: 28px;
+  -webkit-transform: translateY(8px) translateX(-5px) rotate(45deg);
+  -ms-transform: translateY(8px) translateX(-5px) rotate(45deg);
+  -o-transform: translateY(8px) translateX(-5px) rotate(45deg);
+  transform: translateY(8px) translateX(-5px) rotate(45deg);
 }
-
 .hamburger.is-active .line:nth-child(2) {
   opacity: 0;
 }
-.hamburger.is-active .line:nth-child(1) {
-  -webkit-transform: translateY(8px) rotate(45deg);
-  -ms-transform: translateY(8px) rotate(45deg);
-  -o-transform: translateY(8px) rotate(45deg);
-  transform: translateY(8px) rotate(45deg);
-}
 .hamburger.is-active .line:nth-child(3) {
-  -webkit-transform: translateY(-8px) rotate(-45deg);
-  -ms-transform: translateY(-8px) rotate(-45deg);
-  -o-transform: translateY(-8px) rotate(-45deg);
-  transform: translateY(-8px) rotate(-45deg);
+  width: 20px;
+  background-color: goldenrod;
+  -webkit-transform: translateY(-8px) translateX(9px) rotate(-45deg);
+  -ms-transform: translateY(-8px) translateX(9px) rotate(-45deg);
+  -o-transform: translateY(-8px) translateX(9px) rotate(-45deg);
+  transform: translateY(-8px) translateX(9px) rotate(-45deg);
 }
 
 .subMenu {
@@ -284,7 +286,7 @@ nav ul {
   top: 0;
   right: 0;
   width: 80px;
-  padding: 90px 15vw 60px 80vw;
+  padding: 75px 15vw 100px 80vw;
   background-image: linear-gradient(
     to bottom,
     rgb(0, 0, 0) 70%,
@@ -340,19 +342,19 @@ section {
   opacity: 0;
   transform: translate3d(0, 80px, 0);
   transition: opacity 1s 0.1s,
-    transform 1s cubic-bezier(0.13, 0.07, 0.26, 0.99) 0.1s;
+    transform 1s cubic-bezier(0.13, 0.07, 0.26, 0.99) 0s;
 }
 #content2 {
   opacity: 0;
   transform: translate3d(0, 80px, 0);
   transition: opacity 1s 0.3s,
-    transform 1s cubic-bezier(0.13, 0.07, 0.26, 0.99) 0.3s;
+    transform 1s cubic-bezier(0.13, 0.07, 0.26, 0.99) 0.2s;
 }
 #content3 {
   opacity: 0;
   transform: translate3d(0, 80px, 0);
   transition: opacity 1s 0.6s,
-    transform 1s cubic-bezier(0.13, 0.07, 0.26, 0.99) 0.6s;
+    transform 1s cubic-bezier(0.13, 0.07, 0.26, 0.99) 0.4s;
 }
 .is-visible #content1,
 .is-visible #content2,
@@ -599,32 +601,32 @@ section {
 .social:nth-of-type(1) {
   background: url("./icons/icon-linkedin-50.png") no-repeat;
   background-size: cover;
-  filter: invert(91%) sepia(7%) saturate(7014%) hue-rotate(288deg) brightness(103%) contrast(106%);
+  filter: invert(39%) sepia(57%) saturate(2362%) hue-rotate(297deg) brightness(101%) contrast(101%);
 }
 .social:nth-of-type(2) {
   background: url("./icons/icon-github-64.png") no-repeat;
   background-size: cover;
-  filter: invert(85%) sepia(10%) saturate(2692%) hue-rotate(310deg) brightness(101%) contrast(101%);
+  filter: invert(54%) sepia(80%) saturate(935%) hue-rotate(347deg) brightness(101%) contrast(103%);
 }
 .social:nth-of-type(3) {
   background: url("./icons/icon-instagram-64.png") no-repeat;
   background-size: cover;
-  filter: invert(91%) sepia(5%) saturate(2658%) hue-rotate(357deg) brightness(105%) contrast(103%);
+  filter: invert(93%) sepia(32%) saturate(1390%) hue-rotate(338deg) brightness(109%) contrast(102%);
 }
 .social:nth-of-type(4) {
   background: url("./icons/icon-facebook-64.png") no-repeat;
   background-size: cover;
-  filter: invert(92%) sepia(8%) saturate(1674%) hue-rotate(63deg) brightness(100%) contrast(98%);
+  filter: invert(85%) sepia(61%) saturate(1211%) hue-rotate(68deg) brightness(102%) contrast(104%);
 }
 .social:nth-of-type(5) {
   background: url("./icons/icon-youtube-64.png") no-repeat;
   background-size: cover;
-  filter: invert(68%) sepia(97%) saturate(605%) hue-rotate(182deg) brightness(112%) contrast(114%);
+  filter: invert(68%) sepia(66%) saturate(1835%) hue-rotate(152deg) brightness(101%) contrast(104%);
 }
 .social:nth-of-type(6) {
   background: url("./icons/icon-behance-96.png") no-repeat;
   background-size: cover;
-  filter: invert(75%) sepia(18%) saturate(5710%) hue-rotate(206deg) brightness(103%) contrast(101%);
+  filter: invert(16%) sepia(99%) saturate(6552%) hue-rotate(260deg) brightness(118%) contrast(121%);
 }
 .social:hover {
   filter: invert(48%) sepia(64%) saturate(995%) hue-rotate(17deg)
@@ -725,7 +727,7 @@ section {
     padding: 30px 10vw 50px 10vw;
   }
   .subMenu {
-    padding: 90px 10vw 60px 80vw;
+    padding: 75px 10vw 100px 80vw;
   }
   section {
     margin: 0 10vw 0 10vw;
