@@ -69,32 +69,17 @@ nav {
   text-shadow: 0 0 30px beige;
 }
 
-.logo:after {
+.logo::after {
   content: "";
   position: absolute;
   top: 53px;
   height: 1px;
+  width: 0px;
   background: goldenrod;
-  animation: logoUnderOut 0.5s ease-in-out forwards;
+  transition: width 0.6s ease-out;
 }
-.logo:hover:after {
-  animation: logoUnderIn 0.5s ease-in-out forwards;
-}
-@keyframes logoUnderOut {
-  from {
-    width: 175px;
-  }
-  to {
-    width: 0px;
-  }
-}
-@keyframes logoUnderIn {
-  from {
-    width: 0px;
-  }
-  to {
-    width: 175px;
-  }
+.logo:hover::after {
+  width: 175px;
 }
 
 .logoName {
@@ -148,22 +133,19 @@ nav {
 @keyframes logoAnim {
   5% {
     opacity: 0;
-    transform: translateY(-15px)
+    translate: 0 -15px;
   }
   25% {
     opacity: 0;
-    transform: translateY(15px)
+    translate: 0 15px;
   }
   30% {
     opacity: 1;
-    transform: translateY(0px)
+    translate: 0 0;
   }
 }
 
-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.navBig {
   display: flex;
   gap: 30px;
 }
@@ -171,7 +153,7 @@ nav ul {
   text-decoration: none;
   color: beige;
 }
-.navEach:before {
+.navEach::before {
   content: ".";
   font-family: "Josefin Sans", sans-serif;
   font-size: 28px;
@@ -190,6 +172,63 @@ nav ul {
   font-size: 14px;
   text-shadow: 0 0 30px white;
 }
+
+#navLink1::after {
+  content: "";
+  height: 1px;
+  width: 0;
+  background: goldenrod;
+  position: absolute;
+  top: 55px;
+  translate: -45px 0;
+  transition: width 0.5s ease-out;
+}
+#navLink1.is-on::after {
+  width: 48px;
+}
+
+#navLink2::after {
+  content: "";
+  height: 1px;
+  width: 0;
+  background: goldenrod;
+  position: absolute;
+  top: 55px;
+  translate: -32px 0;
+  transition: width 0.5s ease-out;
+}
+#navLink2.is-on::after {
+  width: 34px;
+}
+
+#navLink3::after {
+  content: "";
+  height: 1px;
+  width: 0;
+  background: goldenrod;
+  position: absolute;
+  top: 55px;
+  translate: -42px 0;
+  transition: width 0.5s ease-out;
+}
+#navLink3.is-on::after {
+  width: 44px;
+}
+
+#navLink4::after {
+  content: "";
+  height: 1px;
+  width: 0;
+  background: goldenrod;
+  position: absolute;
+  top: 55px;
+  translate: -56px 0;
+  transition: width 0.5s ease-out;
+}
+#navLink4.is-on::after {
+  width: 57px;
+}
+
 
 .navSmall {
   display: none;
@@ -238,12 +277,6 @@ nav ul {
     rgba(0, 0, 0, 0.5) 90%,
     rgba(0, 0, 0, 0)
   );
-}
-.subMenu ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
   flex-direction: column;
   align-items: flex-end;
   gap: 16px;
@@ -285,27 +318,24 @@ section {
 
 #content1 {
   opacity: 0;
-  transform: translate3d(0, 80px, 0);
-  transition: opacity 1s 0.1s,
-    transform 1s cubic-bezier(0.13, 0.07, 0.26, 0.99) 0s;
+  translate: 0 80px;
+  transition: opacity 1s 0.1s, translate 1s cubic-bezier(0.13, 0.07, 0.26, 0.99);
 }
 #content2 {
   opacity: 0;
-  transform: translate3d(0, 80px, 0);
-  transition: opacity 1s 0.3s,
-    transform 1s cubic-bezier(0.13, 0.07, 0.26, 0.99) 0.2s;
+  translate: 0 80px;
+  transition: opacity 1s 0.3s, translate 1s cubic-bezier(0.13, 0.07, 0.26, 0.99) 0.2s;
 }
 #content3 {
   opacity: 0;
-  transform: translate3d(0, 80px, 0);
-  transition: opacity 1s 0.6s,
-    transform 1s cubic-bezier(0.13, 0.07, 0.26, 0.99) 0.4s;
+  translate: 0 80px;
+  transition: opacity 1s 0.5s, translate 1s cubic-bezier(0.13, 0.07, 0.26, 0.99) 0.4s;
 }
 .is-visible #content1,
 .is-visible #content2,
 .is-visible #content3 {
   opacity: 1;
-  transform: translate3d(0, 0, 0);
+  translate: 0 0;
 }
 
 .sec1Tit {
@@ -428,7 +458,7 @@ section {
   display: flex;
   align-items: center;
 }
-.secPhone:after {
+.secPhone::after {
   content: "";
   position: absolute;
   width: 155px;

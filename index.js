@@ -366,12 +366,12 @@ document
   .querySelector(".hamburger")
   .addEventListener("click", function(event) {
     event.preventDefault();
-    if (document.querySelector(".subMenu").style.display === "block") {
+    if (this.classList.contains("is-active")) {
       this.classList.remove("is-active");
       document.querySelector(".subMenu").style.display = "none";
     } else {
       this.classList.add("is-active");
-      document.querySelector(".subMenu").style.display = "block";
+      document.querySelector(".subMenu").style.display = "flex";
     }
 });
 
@@ -379,7 +379,7 @@ document
 const navLinks = document.querySelectorAll(".navEach");
 navLinks.forEach((each) => {
   each.addEventListener("click", function(event) {
-    if (document.querySelector(".subMenu").style.display === "block") {
+    if (document.querySelector(".subMenu").style.display === "flex") {
       document.querySelector(".subMenu").style.display = "none";
       document.querySelector(".hamburger").classList.remove("is-active");
     } 
@@ -408,6 +408,7 @@ document
 document
   .querySelector(".backToTop")
   .addEventListener("click", function(event) {
+    highLightNavLink(1);
     changeColor(green, yellow, purple);
     moveCam(1);
     changeFooter(2);
@@ -453,11 +454,15 @@ function highLightNavLink(number) {
   navLinks.forEach((each) => {
     each.style.color = "beige";
     each.style.fontStyle = "normal";
+    each.classList.remove("is-on");
   });
-  navLinks[number - 2].style.color = "goldenrod";
-  navLinks[number - 2].style.fontStyle = "italic";
-  navLinks[number + 2].style.color = "goldenrod";
-  navLinks[number + 2].style.fontStyle = "italic";
+  if (number > 1) {
+    navLinks[number - 2].style.color = "goldenrod";
+    navLinks[number - 2].style.fontStyle = "italic";
+    navLinks[number - 2].classList.add("is-on");
+    navLinks[number + 2].style.color = "goldenrod";
+    navLinks[number + 2].style.fontStyle = "italic";
+  }
 }
 //change color of lights
 function changeColor(spotLight, backLight, ambLight) {
@@ -555,10 +560,7 @@ const animate = () => {
   if (currentSection === sections[0]) {
     const sectionNumber = 1;
     if (sectionNumber !== staticSectionNumber) {
-      document.querySelectorAll(".navEach").forEach((each) => {
-        each.style.color = "beige";
-        each.style.fontStyle = "normal";
-      });
+      highLightNavLink(sectionNumber);
       changeColor(yellow, red, purple);
       changeFooter(2)
       staticSectionNumber = sectionNumber;

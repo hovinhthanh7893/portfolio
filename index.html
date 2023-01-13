@@ -13,13 +13,6 @@
     <link rel="stylesheet" type="text/css" href="./style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&family=Playfair+Display&family=Roboto+Slab&display=swap" rel="stylesheet">
     <script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
-    <script type="importmap">
-      {
-        "imports": {
-          "three": "https://unpkg.com/three@v0.148.0/build/three.module.js"
-        }
-      }
-    </script>
   </head>
   <body>
     <canvas class="webgl"></canvas>
@@ -42,12 +35,10 @@
         <span class="logoName">3</span>
       </a>
       <div class="navBig">
-        <ul>
-            <li><a href="#section2" class="navEach">About</a></li>
-            <li><a href="#section3" class="navEach">Web</a></li>
-            <li><a href="#section4" class="navEach">Game</a></li>
-            <li><a href="#section5" class="navEach">Contact</a></li>
-        </ul>
+        <a href="#section2" class="navEach" id="navLink1">About</a>
+        <a href="#section3" class="navEach" id="navLink2">Web</a>
+        <a href="#section4" class="navEach" id="navLink3">Game</a>
+        <a href="#section5" class="navEach" id="navLink4">Contact</a>
       </div>
       <div class="navSmall">
         <div class="hamburger">
@@ -56,12 +47,10 @@
           <span class="line"></span>
         </div>
         <div class="subMenu">
-          <ul>
-            <li><a href="#section2" class="navEach">About</a></li>
-            <li><a href="#section3" class="navEach">Web</a></li>
-            <li><a href="#section4" class="navEach">Game</a></li>
-            <li><a href="#section5" class="navEach">Contact</a></li>
-        </div>
+          <a href="#section2" class="navEach">About</a>
+          <a href="#section3" class="navEach">Web</a>
+          <a href="#section4" class="navEach">Game</a>
+          <a href="#section5" class="navEach">Contact</a>
       </div>
     </nav>
     <main>
