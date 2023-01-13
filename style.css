@@ -212,8 +212,7 @@ nav ul {
 .hamburger.is-active .line:nth-child(1) {
   width: 20px;
   background-color: goldenrod;
-  transform: translate(-5px, 8px);
-  -webkit-transform: translate(-5px, 8px);
+  translate: -6px 8px;
   rotate: 45deg;
 }
 .hamburger.is-active .line:nth-child(2) {
@@ -222,8 +221,7 @@ nav ul {
 .hamburger.is-active .line:nth-child(3) {
   width: 20px;
   background-color: goldenrod;
-  transform: translate(9px, -8px);
-  -webkit-transform: translate(9px, -8px);
+  translate: 6px -8px;
   rotate: -45deg;
 }
 
