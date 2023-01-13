@@ -621,8 +621,9 @@ section {
 
 .backToTop {
   display: none;
-  width: 40px;
-  height: 40px;
+  width: 34px;
+  height: 34px;
+  margin-top: 3px;
   background: url("./icons/icon-top-arrow-64.png") no-repeat;
   background-size: cover;
   animation: sound 5s infinite;
@@ -637,8 +638,9 @@ section {
 
 .moveUp {
   display: none;
-  width: 40px;
-  height: 40px;
+  width: 34px;
+  height: 34px;
+  margin-top: 3px;
   border: none;
   background: url("./icons/icon-up-arrow-64.png") no-repeat;
   background-size: cover;
@@ -673,11 +675,6 @@ section {
 }
 
 
-@media only screen and (max-width: 1366px) {
-  .foot {
-    gap: 20px;
-  }
-}
 
 @media only screen and (max-width: 768px) {
   .logo::after {
@@ -692,17 +689,22 @@ section {
   .secPortTit {
     margin-top: 15vh;
   }
+  .foot {
+    gap: 20px;
+  }
   .sound {
     width: 30px;
     height: 30px;
   }
   .backToTop {
-    width: 30px;
-    height: 30px;
+    width: 27px;
+    height: 27px;
+    margin-top: 2px;
   }
   .moveUp {
-    width: 30px;
-    height: 30px;
+    width: 27px;
+    height: 27px;
+    margin-top: 2px;
   }
 }
 
