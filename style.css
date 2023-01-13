@@ -233,7 +233,7 @@ nav ul {
   top: 0;
   right: 0;
   width: 80px;
-  padding: 75px 15vw 80px 80vw;
+  padding: 75px 15vw 60px 80vw;
   background-image: linear-gradient(
     to bottom,
     rgb(0, 0, 0) 70%,
@@ -717,6 +717,9 @@ section {
   }
   section {
     margin: 0 10vw 0 10vw;
+  }
+  .secPortTit{
+    margin-top: 24vh;
   }
   .secPortFrame {
     margin: 0 0 2vh 0;
