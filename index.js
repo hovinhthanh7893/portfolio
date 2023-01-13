@@ -411,13 +411,20 @@ document
     } else {
       this.style.opacity = 0.2;
       backgroundSound.play();
-      backgroundSound.volume = 0.2;
+      backgroundSound.volume = 0.5;
       backgroundSound.loop = true;
       this.style.backgroundImage = "url('./icons/icon-sound-96.png')";
     soundOn = true;
     }
 });
 
+//WHOOSH SOUND
+document.querySelectorAll("a").forEach((each) => {
+  each.addEventListener("click", function(event) {
+    const whoosh = new Audio("./audios/Whoosh.mp3");
+    whoosh.play();
+  });
+});
 
 //FUNCTIONS FOR ANIMATION
 let noise = openSimplexNoise.makeNoise4D(Date.now());
@@ -453,10 +460,8 @@ function moveCam(setting) {
 function changeFooter(setting) {
   if (setting === 0) {
     document.querySelector(".foot").style.justifyContent = "center";
-    document.querySelector(".foot").style.paddingTop = "5vh";
   } else {
     document.querySelector(".foot").style.justifyContent = "flex-end";
-    document.querySelector(".foot").style.paddingTop = "3vh";
   }
 }
 
