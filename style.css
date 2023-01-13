@@ -270,7 +270,7 @@ nav {
   top: 0;
   right: 0;
   width: 80px;
-  padding: 75px 15vw 30px 80vw;
+  padding: 75px 15vw 100px 80vw;
   background-image: linear-gradient(
     to bottom,
     rgb(0, 0, 0) 70%,
@@ -386,6 +386,35 @@ section {
   border: rgba(88, 0, 44, 0.726) solid 0.8px;
   box-shadow: 1px 0 10px 0 rgba(50, 0, 70, 0.349);
   border-radius: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.leftright {
+  position: absolute;
+  top: 25vh;
+  width: 50px;
+  height: 50px;
+  border: none;
+  background: url("./icons/icon-slide-up-100.png") no-repeat;
+  background-size: cover;
+  filter: invert(39%) sepia(57%) saturate(2362%) hue-rotate(297deg) brightness(101%) contrast(101%);
+}
+.leftright:nth-of-type(1) {
+  left: 0;
+  rotate: -90deg;
+  translate: -20px 0;
+}
+.leftright:nth-of-type(2) {
+  right: 0;
+  rotate: 90deg;
+  translate: 20px 0;
+}
+.leftright:hover {
+  cursor: url("./icons/pointer-yellow.png"), pointer;
+}
+.leftright:active {
+  transform: scale(0.9);
 }
 
 .sec5Tit {
@@ -743,7 +772,7 @@ section {
     padding: 30px 10vw 50px 10vw;
   }
   .subMenu {
-    padding: 75px 10vw 200px 80vw;
+    padding: 75px 10vw 100px 80vw;
   }
   section {
     margin: 0 10vw 0 10vw;
