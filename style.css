@@ -75,20 +75,10 @@ nav {
   top: 53px;
   height: 1px;
   background: goldenrod;
-  -webkit-animation: logoUnderOut 0.5s ease-in-out forwards;
   animation: logoUnderOut 0.5s ease-in-out forwards;
 }
 .logo:hover:after {
-  -webkit-animation: logoUnderIn 0.5s ease-in-out forwards;
   animation: logoUnderIn 0.5s ease-in-out forwards;
-}
-@-webkit-keyframes logoUnderOut {
-  from {
-    width: 175px;
-  }
-  to {
-    width: 0px;
-  }
 }
 @keyframes logoUnderOut {
   from {
@@ -96,14 +86,6 @@ nav {
   }
   to {
     width: 0px;
-  }
-}
-@-webkit-keyframes logoUnderIn {
-  from {
-    width: 0px;
-  }
-  to {
-    width: 175px;
   }
 }
 @keyframes logoUnderIn {
@@ -116,82 +98,52 @@ nav {
 }
 
 .logoName {
-  -webkit-animation: logoAnim 10s ease-out infinite;
   animation: logoAnim 10s ease-out infinite;
 }
 .logoName:nth-of-type(1) {
-  -webkit-animation-delay: 0s;
   animation-delay: 0s;
 }
 .logoName:nth-of-type(2) {
-  -webkit-animation-delay: 0.15s;
   animation-delay: 0.15s;
 }
 .logoName:nth-of-type(3) {
-  -webkit-animation-delay: 0.3s;
   animation-delay: 0.3s;
 }
 .logoName:nth-of-type(4) {
-  -webkit-animation-delay: 0.45s;
   animation-delay: 0.45s;
 }
 .logoName:nth-of-type(5) {
-  -webkit-animation-delay: 0.6s;
   animation-delay: 0.6s;
 }
 .logoName:nth-of-type(6) {
-  -webkit-animation-delay: 0.75s;
   animation-delay: 0.75s;
 }
 .logoName:nth-of-type(7) {
-  -webkit-animation-delay: 0.9s;
   animation-delay: 0.9s;
 }
 .logoName:nth-of-type(8) {
-  -webkit-animation-delay: 1.05s;
   animation-delay: 1.05s;
 }
 .logoName:nth-of-type(9) {
-  -webkit-animation-delay: 1.2s;
   animation-delay: 1.2s;
 }
 .logoName:nth-of-type(10) {
-  -webkit-animation-delay: 1.35s;
   animation-delay: 1.35s;
 }
 .logoName:nth-of-type(11) {
-  -webkit-animation-delay: 1.5s;
   animation-delay: 1.5s;
 }
 .logoName:nth-of-type(12) {
-  -webkit-animation-delay: 1.65s;
   animation-delay: 1.65s;
 }
 .logoName:nth-of-type(13) {
-  -webkit-animation-delay: 1.8s;
   animation-delay: 1.8s;
 }
 .logoName:nth-of-type(14) {
-  -webkit-animation-delay: 1.95s;
   animation-delay: 1.95s;
 }
 .logoName:nth-of-type(15) {
-  -webkit-animation-delay: 2.1s;
   animation-delay: 2.1s;
-}
-@-webkit-keyframes logoAnim {
-  5% {
-    opacity: 0;
-    transform: translateY(-15px)
-  }
-  25% {
-    opacity: 0;
-    transform: translateY(15px)
-  }
-  30% {
-    opacity: 1;
-    transform: translateY(0px)
-  }
 }
 @keyframes logoAnim {
   5% {
@@ -252,8 +204,6 @@ nav ul {
   background-color: beige;
   display: block;
   margin: 6px auto;
-  -webkit-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
 .hamburger:hover {
@@ -262,10 +212,9 @@ nav ul {
 .hamburger.is-active .line:nth-child(1) {
   width: 20px;
   background-color: goldenrod;
-  -webkit-transform: translateY(8px) translateX(-5px) rotate(45deg);
-  -ms-transform: translateY(8px) translateX(-5px) rotate(45deg);
-  -o-transform: translateY(8px) translateX(-5px) rotate(45deg);
-  transform: translateY(8px) translateX(-5px) rotate(45deg);
+  transform: translate(-5px, 8px);
+  -webkit-transform: translate(-5px, 8px);
+  rotate: 45deg;
 }
 .hamburger.is-active .line:nth-child(2) {
   opacity: 0;
@@ -273,10 +222,9 @@ nav ul {
 .hamburger.is-active .line:nth-child(3) {
   width: 20px;
   background-color: goldenrod;
-  -webkit-transform: translateY(-8px) translateX(9px) rotate(-45deg);
-  -ms-transform: translateY(-8px) translateX(9px) rotate(-45deg);
-  -o-transform: translateY(-8px) translateX(9px) rotate(-45deg);
-  transform: translateY(-8px) translateX(9px) rotate(-45deg);
+  transform: translate(9px, -8px);
+  -webkit-transform: translate(9px, -8px);
+  rotate: -45deg;
 }
 
 .subMenu {
@@ -382,22 +330,13 @@ section {
   font-size: 30px;
   margin: 13px 0 13px 0;
   text-shadow: 0 0 20px black, 0 0 40px black;
-  background-color: gold;
   background-image: linear-gradient(60deg, #b721ff, #26ff9d, #ffec19, #ff417a);
   background-size: 200%;
   background-position: 0;
-  -webkit-animation: moveGradient 6s alternate infinite;
   animation: moveGradient 6s alternate infinite;
   background-clip: text;
   -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-@-webkit-keyframes moveGradient {
-  50% {
-    background-position: 100%;
-  }
+  color: transparent;
 }
 @keyframes moveGradient {
   50% {
@@ -436,34 +375,7 @@ section {
   height: 40px;
   background: url("./icons/icon-so-so-96.png") no-repeat;
   background-size: cover;
-  -webkit-animation: handWave 2.5s ease-in-out infinite;
   animation: handWave 2.5s ease-in-out infinite;
-}
-@-webkit-keyframes handWave {
-  4% {
-    transform: rotate(-25deg);
-  }
-  8% {
-    transform: rotate(0deg);
-  }
-  12% {
-    transform: rotate(-25deg);
-  }
-  16% {
-    transform: rotate(0deg);
-  }
-  20% {
-    transform: rotate(-25deg);
-  }
-  24% {
-    transform: rotate(0deg);
-  }
-  28% {
-    transform: rotate(-25deg);
-  }
-  30% {
-    transform: rotate(0deg);
-  }
 }
 @keyframes handWave {
   4% {
@@ -514,7 +426,6 @@ section {
   );
   background-size: 300%;
   background-position: 0;
-  -webkit-animation: moveGradient 8s alternate infinite;
   animation: moveGradient 8s alternate infinite;
   display: flex;
   align-items: center;
@@ -541,7 +452,7 @@ section {
   filter: invert(100%);
 }
 .phone:active {
-  transform: scale(0.9);
+  scale: 0.9;
 }
 .phoneNumber {
   z-index: 10;
@@ -567,7 +478,6 @@ section {
   );
   background-size: 300%;
   background-position: 0;
-  -webkit-animation: moveGradient 8s alternate infinite;
   animation: moveGradient 8s alternate infinite;
 }
 .secMail:hover {
@@ -575,7 +485,7 @@ section {
   box-shadow: 0px 0 15px 0 rgb(255, 145, 0);
 }
 .secMail:active {
-  transform: scale(0.9);
+  scale: 0.9;
 }
 .mail {
   width: 30px;
@@ -628,12 +538,12 @@ section {
 .social:hover {
   filter: invert(48%) sepia(64%) saturate(995%) hue-rotate(17deg)
     brightness(102%) contrast(101%);
-  transform: scale(1.1);
+  scale: 1.1;
   box-shadow: 0px 0 15px 0 black;
 }
 .social:active {
   filter: invert(100%);
-  transform: scale(0.9);
+  scale: 0.9;
 }
 
 .nextButton {
@@ -644,7 +554,6 @@ section {
 .next {
   width: 24px;
   height: 24px;
-  -webkit-animation: next 2s infinite;
   animation: next 2s infinite;
   opacity: 0;
   box-sizing: border-box;
@@ -652,35 +561,19 @@ section {
 .next:nth-of-type(1) {
   border-left: 1px solid rgb(168, 255, 80);
   border-bottom: 1px solid rgb(168, 255, 80);
-  -webkit-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
-  transform: rotate(-45deg);
+  rotate: -45deg;
 }
 .next:nth-of-type(2) {
   border-left: 1px solid rgb(255, 203, 80);
   border-bottom: 1px solid rgb(255, 203, 80);
-  -webkit-transform: translateY(-5px) rotate(-45deg);
-  -ms-transform: translateY(-5px) rotate(-45deg);
-  -o-transform: translateY(-5px) rotate(-45deg);
-  transform: translateY(-5px) rotate(-45deg);
-  -webkit-animation-delay: 0.15s;
+  rotate: -45deg;
   animation-delay: 0.15s;
 }
 .next:nth-of-type(3) {
   border-left: 1px solid rgb(255, 80, 159);
   border-bottom: 1px solid rgb(255, 80, 159);
-  -webkit-transform: translateY(-10px) rotate(-45deg);
-  -ms-transform: translateY(-10px) rotate(-45deg);
-  -o-transform: translateY(-10px) rotate(-45deg);
-  transform: translateY(-10px) rotate(-45deg);
-  -webkit-animation-delay: 0.3s;
+  rotate: -45deg;
   animation-delay: 0.3s;
-}
-@-webkit-keyframes next {
-  50% {
-    opacity: 1;
-  }
 }
 @keyframes next {
   50% {
@@ -707,42 +600,52 @@ section {
   z-index: 99;
 }
 
-.back {
+.backToTop {
   display: none;
   width: 40px;
   height: 40px;
-  background: url("./icons/icon-up-arrow-64.png") no-repeat;
+  background: url("./icons/icon-top-arrow-64.png") no-repeat;
   background-size: cover;
-  -webkit-animation: sound 5s infinite;
   animation: sound 5s infinite;
   opacity: 0.3;
 }
-.back:hover {
-  cursor: url("./icons/pointer-yellow.png"), pointer;
+.backToTop:hover {
   opacity: 1;
 }
-.back:active {
+.backToTop:active {
   transform: scale(0.9);
+}
+
+.moveUp {
+  display: none;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: url("./icons/icon-up-arrow-64.png") no-repeat;
+  background-size: cover;
+  animation: sound 5s ease-in-out infinite;
+  opacity: 0.4;
+}
+.moveUp:hover {
+  opacity: 1;
+}
+.moveUp:active {
+  scale: 0.9;
 }
 
 .sound {
   width: 40px;
   height: 40px;
+  border: none;
   background: url("./icons/icon-mute-96.png") no-repeat;
   background-size: cover;
-  -webkit-animation: sound 5s infinite;
-  animation: sound 5s infinite;
+  animation: sound 6s infinite;
 }
 .sound:hover {
   cursor: url("./icons/pointer-yellow.png"), pointer;
 }
 .sound:active {
   transform: scale(0.9);
-}
-@-webkit-keyframes sound {
-  50% {
-    opacity: 1;
-  }
 }
 @keyframes sound {
   50% {
@@ -756,6 +659,9 @@ section {
   .next {
     width: 20px;
     height: 20px;
+  }
+  .foot {
+    gap: 20px;
   }
 }
 
@@ -776,7 +682,7 @@ section {
     width: 30px;
     height: 30px;
   }
-  .back {
+  .backToTop {
     width: 30px;
     height: 30px;
   }

@@ -375,7 +375,7 @@ document
     }
 });
 
-//COLLAPSE SUBMENU ONCLICK
+//COLLAPSE SUBMENU ON CHOOSE
 const navLinks = document.querySelectorAll(".navEach");
 navLinks.forEach((each) => {
   each.addEventListener("click", function(event) {
@@ -386,14 +386,31 @@ navLinks.forEach((each) => {
   })
 })
 
+//BUTTON PAGE UP
+document
+  .querySelector(".moveUp")
+  .addEventListener("click", function(event) {
+    if (staticSectionNumber === 2) {
+      this.getAttribute("href");
+      this.setAttribute("href", "#section1");
+    }
+    if (staticSectionNumber === 3) {
+      this.getAttribute("href");
+      this.setAttribute("href", "#section2");
+    }
+    if (staticSectionNumber === 4) {
+      this.getAttribute("href");
+      this.setAttribute("href", "#section3");
+    }
+});
+
 //BACK TO TOP BUTTON
 document
-  .querySelector(".back")
+  .querySelector(".backToTop")
   .addEventListener("click", function(event) {
     changeColor(green, yellow, purple);
     moveCam(1);
-    changeFooter(1)
-    this.style.display = "none";
+    changeFooter(2);
 });
 
 //SOUND TOGGLE
@@ -460,8 +477,18 @@ function moveCam(setting) {
 function changeFooter(setting) {
   if (setting === 0) {
     document.querySelector(".foot").style.justifyContent = "center";
+    document.querySelector(".backToTop").style.display = "block";
+    document.querySelector(".moveUp").style.display = "none";
+  } else if (setting === 1) {
+    document.querySelector(".foot").style.justifyContent = "flex-end";
+    document.querySelector(".backToTop").style.display = "none";
+    if (window.innerWidth <= 768) {
+      document.querySelector(".moveUp").style.display = "block";
+    };
   } else {
     document.querySelector(".foot").style.justifyContent = "flex-end";
+    document.querySelector(".backToTop").style.display = "none";
+    document.querySelector(".moveUp").style.display = "none";
   }
 }
 
@@ -527,7 +554,7 @@ const animate = () => {
         each.style.fontStyle = "normal";
       });
       changeColor(yellow, red, purple);
-      document.querySelector(".back").style.display = "none";
+      changeFooter(2)
       staticSectionNumber = sectionNumber;
     }
   }
@@ -538,7 +565,6 @@ const animate = () => {
       changeColor(green, yellow, purple);
       moveCam(1);
       changeFooter(1)
-      document.querySelector(".back").style.display = "none";
       staticSectionNumber = sectionNumber;
     }
   }
@@ -549,7 +575,6 @@ const animate = () => {
       changeColor(cyan, purple, blue);
       moveCam(1);
       changeFooter(1)
-      document.querySelector(".back").style.display = "none";
       staticSectionNumber = sectionNumber;
     }
   }
@@ -560,7 +585,6 @@ const animate = () => {
       changeColor(red, purple, blue);
       moveCam(1);
       changeFooter(1)
-      document.querySelector(".back").style.display = "none";
       staticSectionNumber = sectionNumber;
     }
   }
@@ -571,7 +595,6 @@ const animate = () => {
       changeColor(black, black, black);
       moveCam(0);
       changeFooter(0)
-      document.querySelector(".back").style.display = "block";
       staticSectionNumber = sectionNumber;
     }
   }
