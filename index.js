@@ -386,6 +386,16 @@ navLinks.forEach((each) => {
   })
 })
 
+//BACK TO TOP BUTTON
+document
+  .querySelector(".back")
+  .addEventListener("click", function(event) {
+    changeColor(green, yellow, purple);
+    moveCam(1);
+    changeFooter(1)
+    this.style.display = "none";
+});
+
 //SOUND TOGGLE
 const backgroundSound = new Audio("./audios/Gratitude_Spiritual-Moment.mp3");
 let soundOn = false;
@@ -401,7 +411,7 @@ document
     } else {
       this.style.opacity = 0.2;
       backgroundSound.play();
-      backgroundSound.volume = 0.3;
+      backgroundSound.volume = 0.2;
       backgroundSound.loop = true;
       this.style.backgroundImage = "url('./icons/icon-sound-96.png')";
     soundOn = true;
@@ -437,6 +447,16 @@ function moveCam(setting) {
     camera.position.set(0, -4.5, 10);
   } else {
     camera.position.set(-0.3, 0, 5);
+  }
+}
+//Foot page end
+function changeFooter(setting) {
+  if (setting === 0) {
+    document.querySelector(".foot").style.justifyContent = "center";
+    document.querySelector(".foot").style.paddingTop = "5vh";
+  } else {
+    document.querySelector(".foot").style.justifyContent = "flex-end";
+    document.querySelector(".foot").style.paddingTop = "3vh";
   }
 }
 
@@ -502,6 +522,7 @@ const animate = () => {
         each.style.fontStyle = "normal";
       });
       changeColor(yellow, red, purple);
+      document.querySelector(".back").style.display = "none";
       staticSectionNumber = sectionNumber;
     }
   }
@@ -511,6 +532,8 @@ const animate = () => {
       highLightNavLink(sectionNumber);
       changeColor(green, yellow, purple);
       moveCam(1);
+      changeFooter(1)
+      document.querySelector(".back").style.display = "none";
       staticSectionNumber = sectionNumber;
     }
   }
@@ -520,6 +543,8 @@ const animate = () => {
       highLightNavLink(sectionNumber);
       changeColor(cyan, purple, blue);
       moveCam(1);
+      changeFooter(1)
+      document.querySelector(".back").style.display = "none";
       staticSectionNumber = sectionNumber;
     }
   }
@@ -529,6 +554,8 @@ const animate = () => {
       highLightNavLink(sectionNumber);
       changeColor(red, purple, blue);
       moveCam(1);
+      changeFooter(1)
+      document.querySelector(".back").style.display = "none";
       staticSectionNumber = sectionNumber;
     }
   }
@@ -538,6 +565,8 @@ const animate = () => {
       highLightNavLink(sectionNumber);
       changeColor(black, black, black);
       moveCam(0);
+      changeFooter(0)
+      document.querySelector(".back").style.display = "block";
       staticSectionNumber = sectionNumber;
     }
   }

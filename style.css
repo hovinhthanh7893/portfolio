@@ -696,7 +696,7 @@ section {
   padding: 3vh 15vw 0 15vw;
   display: flex;
   justify-content: flex-end;
-  gap: 10vw;
+  gap: 50px;
   background-image: linear-gradient(
     to top,
     rgb(0, 0, 0) 20%,
@@ -705,6 +705,24 @@ section {
   );
   box-sizing: border-box;
   z-index: 99;
+}
+
+.back {
+  display: none;
+  width: 40px;
+  height: 40px;
+  background: url("./icons/icon-up-arrow-64.png") no-repeat;
+  background-size: cover;
+  -webkit-animation: sound 5s infinite;
+  animation: sound 5s infinite;
+  opacity: 0.3;
+}
+.back:hover {
+  cursor: url("./icons/pointer-yellow.png"), pointer;
+  opacity: 1;
+}
+.back:active {
+  transform: scale(0.9);
 }
 
 .sound {
@@ -758,6 +776,10 @@ section {
     width: 30px;
     height: 30px;
   }
+  .back {
+    width: 30px;
+    height: 30px;
+  }
 }
 
 @media only screen and (max-width: 480px) {
@@ -782,6 +804,6 @@ section {
     height: 30px;
   }
   .foot {
-    padding: 2vh 10vw 0 10vw;
+    padding: 3vh 10vw 0 10vw;
   }
 }
