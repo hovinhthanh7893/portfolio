@@ -26,18 +26,21 @@ scene.fog = new THREE.Fog(black, 4, 6);
 // scene.add(gridHelper)
 
 //LIGHT SCENE1
-const light = new THREE.PointLight(yellow, 10);
-light.position.set(5, 5, 2);
-light.castShadow = true;
-light.shadow.mapSize.width = 10000;
-light.shadow.mapSize.height = light.shadow.mapSize.width;
-light.penumbra = 0.5;
+const lightTop = new THREE.PointLight(yellow, 10);
+lightTop.position.set(5, 5, 2);
+lightTop.castShadow = true;
+lightTop.shadow.mapSize.width = 10000;
+lightTop.shadow.mapSize.height = 10000;
+lightTop.penumbra = 0.5;
+
 const lightBack = new THREE.SpotLight(red, 2);
 lightBack.position.set(0, -3, -1);
+
 const rectLight = new THREE.RectAreaLight(purple, 20, 2, 2);
 rectLight.position.set(1, 1, 1);
 rectLight.lookAt(0, 0, 0);
-scene.add(light, lightBack, rectLight);
+
+scene.add(lightTop, lightBack, rectLight);
 
 //LIGHT SCENE2
 const targetScene2 = new THREE.Object3D();
@@ -322,6 +325,7 @@ window.addEventListener("resize", handleWindowResize, false);
 
 //MOUSE EVENT
 const mouse = new THREE.Vector2();
+const mouseScene2 = new THREE.Vector2();
 function onMouseMove(event) {
   event.preventDefault();
   mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
@@ -423,7 +427,7 @@ function highLightNavLink(number) {
 }
 //change color of lights
 function changeColor(spotLight, backLight, ambLight) {
-  light.color.setHex(spotLight);
+  lightTop.color.setHex(spotLight);
   lightBack.color.setHex(backLight);
   rectLight.color.setHex(ambLight);
 }

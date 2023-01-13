@@ -383,7 +383,7 @@ section {
   margin: 13px 0 13px 0;
   text-shadow: 0 0 20px black, 0 0 40px black;
   background-color: gold;
-  background-image: linear-gradient(60deg, #b721ff, #2af598, #ffee37, #fa709a);
+  background-image: linear-gradient(60deg, #b721ff, #26ff9d, #ffec19, #ff417a);
   background-size: 200%;
   background-position: 0;
   -webkit-animation: moveGradient 6s alternate infinite;
@@ -765,7 +765,7 @@ section {
     padding: 30px 10vw 50px 10vw;
   }
   .subMenu {
-    padding: 75px 10vw 100px 80vw;
+    padding: 75px 10vw 200px 80vw;
   }
   section {
     margin: 0 10vw 0 10vw;
@@ -782,6 +782,6 @@ section {
     height: 30px;
   }
   .foot {
-    padding: 0 10vw 0 10vw;
+    padding: 2vh 10vw 0 10vw;
   }
 }
