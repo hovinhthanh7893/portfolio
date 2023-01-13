@@ -380,7 +380,7 @@ section {
   flex-wrap: wrap;
   font-family: "Josefin Sans", sans-serif;
   font-size: 30px;
-  margin: 13px 0 15px 0;
+  margin: 13px 0 13px 0;
   text-shadow: 0 0 20px black, 0 0 40px black;
   background-color: gold;
   background-image: linear-gradient(60deg, #b721ff, #2af598, #ffee37, #fa709a);
@@ -505,7 +505,7 @@ section {
   width: 200px;
   height: 40px;
   border-radius: 10px;
-  box-shadow: 1px 0 10px 0 rgba(50, 0, 70, 0.349);
+  box-shadow: 1px 0 10px 0 rgb(220, 103, 0);
   background: linear-gradient(
     132deg,
     #6424dc,
@@ -533,13 +533,12 @@ section {
   height: 25px;
   margin-left: 11px;
   margin-right: 18px;
-  filter: invert(100%);
   background: url("./icons/icon-whatsapp-50.png") no-repeat;
   background-size: cover;
   z-index: 10;
 }
 .phone:hover {
-  filter: invert(0%);
+  filter: invert(100%);
 }
 .phone:active {
   transform: scale(0.9);
@@ -559,7 +558,7 @@ section {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  box-shadow: 1px 0 10px 0 rgba(50, 0, 70, 0.349);
+  box-shadow: 1px 0 10px 0 rgb(216, 0, 220);
   background: linear-gradient(
     132deg,
     #ff9318,
@@ -573,7 +572,7 @@ section {
 }
 .secMail:hover {
   font-weight: bolder;
-  box-shadow: 1px 0 10px 0 rgba(255, 153, 0, 0.582);
+  box-shadow: 0px 0 15px 0 rgb(255, 145, 0);
 }
 .secMail:active {
   transform: scale(0.9);
@@ -581,7 +580,6 @@ section {
 .mail {
   width: 30px;
   height: 30px;
-  filter: invert(100%);
   background: url("./icons/icon-envelope-64.png") no-repeat;
   background-size: cover;
 }
@@ -631,7 +629,7 @@ section {
   filter: invert(48%) sepia(64%) saturate(995%) hue-rotate(17deg)
     brightness(102%) contrast(101%);
   transform: scale(1.1);
-  box-shadow: 1px 0 10px 0 rgba(255, 153, 0, 0.582);
+  box-shadow: 0px 0 15px 0 black;
 }
 .social:active {
   filter: invert(100%);
@@ -646,28 +644,36 @@ section {
 .next {
   width: 24px;
   height: 24px;
-  -webkit-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
-  transform: rotate(-45deg);
   -webkit-animation: next 2s infinite;
   animation: next 2s infinite;
   opacity: 0;
   box-sizing: border-box;
 }
 .next:nth-of-type(1) {
-  border-left: 1px solid rgb(80, 255, 197);
-  border-bottom: 1px solid rgb(80, 255, 197);
+  border-left: 1px solid rgb(168, 255, 80);
+  border-bottom: 1px solid rgb(168, 255, 80);
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }
 .next:nth-of-type(2) {
   border-left: 1px solid rgb(255, 203, 80);
   border-bottom: 1px solid rgb(255, 203, 80);
+  -webkit-transform: translateY(-5px) rotate(-45deg);
+  -ms-transform: translateY(-5px) rotate(-45deg);
+  -o-transform: translateY(-5px) rotate(-45deg);
+  transform: translateY(-5px) rotate(-45deg);
   -webkit-animation-delay: 0.15s;
   animation-delay: 0.15s;
 }
 .next:nth-of-type(3) {
   border-left: 1px solid rgb(255, 80, 159);
   border-bottom: 1px solid rgb(255, 80, 159);
+  -webkit-transform: translateY(-10px) rotate(-45deg);
+  -ms-transform: translateY(-10px) rotate(-45deg);
+  -o-transform: translateY(-10px) rotate(-45deg);
+  transform: translateY(-10px) rotate(-45deg);
   -webkit-animation-delay: 0.3s;
   animation-delay: 0.3s;
 }
@@ -700,15 +706,14 @@ section {
   box-sizing: border-box;
   z-index: 99;
 }
+
 .sound {
-  width: 30px;
-  height: 30px;
-  filter: invert(28%) sepia(36%) saturate(1905%) hue-rotate(20deg) brightness(99%) contrast(98%);
-  background: url("./icons/icon-sound-96.png") no-repeat;
+  width: 40px;
+  height: 40px;
+  background: url("./icons/icon-mute-96.png") no-repeat;
   background-size: cover;
   -webkit-animation: sound 5s infinite;
   animation: sound 5s infinite;
-  opacity: 0.2;
 }
 .sound:hover {
   cursor: url("./icons/pointer-yellow.png"), pointer;
@@ -748,6 +753,10 @@ section {
   }
   .secPortTit {
     margin-top: 15vh;
+  }
+  .sound {
+    width: 30px;
+    height: 30px;
   }
 }
 
