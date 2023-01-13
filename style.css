@@ -618,8 +618,8 @@ section {
 
 .moveUp {
   display: none;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   border: none;
   background: url("./icons/icon-up-arrow-64.png") no-repeat;
   background-size: cover;
@@ -683,6 +683,10 @@ section {
     height: 30px;
   }
   .backToTop {
+    width: 30px;
+    height: 30px;
+  }
+  .moveUp {
     width: 30px;
     height: 30px;
   }
