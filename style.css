@@ -233,7 +233,7 @@ nav ul {
   top: 0;
   right: 0;
   width: 80px;
-  padding: 75px 15vw 100px 80vw;
+  padding: 75px 15vw 80px 80vw;
   background-image: linear-gradient(
     to bottom,
     rgb(0, 0, 0) 70%,
@@ -353,7 +353,7 @@ section {
 }
 .secPortFrame {
   height: 50vh;
-  margin-top: 2vh;
+  margin: 2vh 0 3vh 0;
   background-color: rgba(0, 0, 0, 0.6);
   border: rgba(88, 0, 44, 0.726) solid 0.8px;
   box-shadow: 1px 0 10px 0 rgba(50, 0, 70, 0.349);
@@ -546,33 +546,54 @@ section {
   scale: 0.9;
 }
 
-.nextButton {
+.nextButton1 {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  max-width: 24px;
   margin-bottom: 20vh;
 }
+.nextButton2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 24px;
+  margin-bottom: 10vh;
+  scale: 0.6;
+}
 .next {
-  width: 24px;
+  width: 2px;
   height: 24px;
+  border-radius: 1px;
+  background:inherit;
+  box-shadow: inherit;
   animation: next 2s infinite;
+  rotate: -45deg;
   opacity: 0;
-  box-sizing: border-box;
+}
+.next::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 24px;
+  height: 2px;
+  background:inherit;
+  box-shadow: inherit;
 }
 .next:nth-of-type(1) {
-  border-left: 1px solid rgb(168, 255, 80);
-  border-bottom: 1px solid rgb(168, 255, 80);
-  rotate: -45deg;
+  background:rgb(189, 255, 123);
+  box-shadow: 0px 0 5px 2px rgba(128, 255, 0, 0.725);
 }
 .next:nth-of-type(2) {
-  border-left: 1px solid rgb(255, 203, 80);
-  border-bottom: 1px solid rgb(255, 203, 80);
-  rotate: -45deg;
+  background:rgb(255, 214, 117);
+  box-shadow: 0px 0 5px 2px rgba(255, 203, 80, 0.725);
+  translate: 0 -3px;
   animation-delay: 0.15s;
 }
 .next:nth-of-type(3) {
-  border-left: 1px solid rgb(255, 80, 159);
-  border-bottom: 1px solid rgb(255, 80, 159);
-  rotate: -45deg;
+  background:rgb(255, 128, 185);
+  box-shadow: 0px 0 5px 2px rgba(255, 80, 159, 0.725);
+  translate: 0 -6px;
   animation-delay: 0.3s;
 }
 @keyframes next {
@@ -654,12 +675,7 @@ section {
 }
 
 
-
 @media only screen and (max-width: 1366px) {
-  .next {
-    width: 20px;
-    height: 20px;
-  }
   .foot {
     gap: 20px;
   }
@@ -703,7 +719,7 @@ section {
     margin: 0 10vw 0 10vw;
   }
   .secPortFrame {
-    margin: 0;
+    margin: 0 0 2vh 0;
   }
   .sec5Tit {
     font-size: 30px;
