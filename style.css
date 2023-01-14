@@ -659,7 +659,7 @@ section {
   }
 }
 
-.foot {
+footer {
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -748,7 +748,7 @@ section {
   .secPortTit {
     margin-top: 15vh;
   }
-  .foot {
+  footer {
     gap: 20px;
   }
   .sound {
@@ -791,7 +791,7 @@ section {
     width: 30px;
     height: 30px;
   }
-  .foot {
+  footer {
     padding: 3vh 10vw 0 10vw;
   }
 }

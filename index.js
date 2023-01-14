@@ -481,19 +481,19 @@ function moveCam(setting) {
 //Foot page end
 function changeFooter(setting) {
   if (setting === 0) {
-    document.querySelector(".foot").style.justifyContent = "center";
+    document.querySelector("footer").style.justifyContent = "center";
     document.querySelector(".backToTop").style.display = "block";
     document.querySelector(".moveUp").style.display = "none";
   } else if (setting === 1) {
-    document.querySelector(".foot").style.justifyContent = "flex-end";
+    document.querySelector("footer").style.justifyContent = "flex-end";
     document.querySelector(".backToTop").style.display = "none";
     document.querySelector(".moveUp").style.display = "block";
   } else if (setting === 2) {
-    document.querySelector(".foot").style.justifyContent = "flex-end";
+    document.querySelector("footer").style.justifyContent = "flex-end";
     document.querySelector(".backToTop").style.display = "none";
     document.querySelector(".moveUp").style.display = "none";
   } else  {
-    document.querySelector(".foot").style.justifyContent = "flex-end";
+    document.querySelector("footer").style.justifyContent = "flex-end";
     document.querySelector(".backToTop").style.display = "none";
     if (window.innerWidth <= 768) {
       document.querySelector(".moveUp").style.display = "block";
