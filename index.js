@@ -26,17 +26,20 @@ scene.fog = new THREE.Fog(black, 4, 6);
 // scene.add(gridHelper)
 
 //LIGHT SCENE1
-const lightTop = new THREE.PointLight(yellow, 10);
+let lightTopColor = new THREE.Color(yellow);
+let lightBackColor = new THREE.Color(red);
+let rectLightColor = new THREE.Color(purple);
+
+const lightTop = new THREE.PointLight(lightTopColor, 10);
 lightTop.position.set(5, 5, 2);
 lightTop.castShadow = true;
-lightTop.shadow.mapSize.width = 10000;
-lightTop.shadow.mapSize.height = 10000;
+lightTop.shadow.mapSize.width = lightTop.shadow.mapSize.height = 10000;
 lightTop.penumbra = 0.5;
 
-const lightBack = new THREE.SpotLight(red, 2);
+const lightBack = new THREE.SpotLight(lightBackColor, 2);
 lightBack.position.set(0, -3, -1);
 
-const rectLight = new THREE.RectAreaLight(purple, 20, 2, 2);
+const rectLight = new THREE.RectAreaLight(rectLightColor, 20, 2, 2);
 rectLight.position.set(1, 1, 1);
 rectLight.lookAt(0, 0, 0);
 
@@ -66,12 +69,8 @@ scene.add(lightRight,lightLeft, lightMidSpot, lightMidPoint);
 
 
 //CAMERA
-const camera = new THREE.PerspectiveCamera(
-  25,
-  sizes.width / sizes.height,
-  1,
-  500
-);
+let updateCamPos = new THREE.Vector3(-0.3, 0, 5);
+const camera = new THREE.PerspectiveCamera(25, sizes.width / sizes.height, 1, 500);
 camera.position.set(-0.3, 0, 5);
 scene.add(camera);
 
@@ -152,13 +151,17 @@ function generateParticle(number, spaceSize) {
 
 //SCENE2 OBJECTS
 //globe
+let wave = new THREE.Vector3();
+let noise = openSimplexNoise.makeNoise4D(Date.now());
+let clock = new THREE.Clock();
+
 const earthGroup = new THREE.Object3D();
 earthGroup.position.set(0, 0, -10);
 earthGroup.applyMatrix4(new THREE.Matrix4().makeRotationX(-Math.PI/2));
 scene.add(earthGroup);
-let v3Earth = new THREE.Vector3();
+
 function generateEarth() {
-  const geometry = new THREE.CylinderGeometry(4,3,10,40,10,true);
+  const geometry = new THREE.CylinderGeometry(4, 3, 10, 60, 30, true);
   const material = new THREE.MeshStandardMaterial({
     color: 0x00ffa6,
     roughness: 0.5,
@@ -168,22 +171,23 @@ function generateEarth() {
   });
   geometry.positionData = [];
   for (let i = 0; i < geometry.attributes.position.count; i++){
-    v3Earth.fromBufferAttribute(geometry.attributes.position, i);
-    geometry.positionData.push(v3Earth.clone());
+    wave.fromBufferAttribute(geometry.attributes.position, i);
+    geometry.positionData.push(wave.clone());
   }
   const earth = new THREE.Mesh(geometry, material);
   earth.castShadow = true;
   earth.receiveShadow = true;
   earthGroup.add(earth);
 }
+
 //Clouds
 function generateCloud(number) {
   const shape = new THREE.Shape();
-  shape.moveTo( 0,0 );
-  shape.lineTo( 0, 10 );
-  shape.lineTo( 10, 10 );
-  shape.lineTo( 10, 0 );
-  shape.lineTo( 0, 0 );
+  shape.moveTo(0, 0);
+  shape.lineTo(0, 10);
+  shape.lineTo(10, 10);
+  shape.lineTo(10, 0);
+  shape.lineTo(0, 0);
   const extrudeSettings = {
     steps: 1,
     depth: 12,
@@ -195,7 +199,7 @@ function generateCloud(number) {
   };
   const material = new THREE.MeshStandardMaterial({
     color: 0xffd000,
-    roughness: 0.5,
+    roughness: 0.4,
     metalness: 1,
     fog: false,
   });
@@ -213,19 +217,25 @@ function generateCloud(number) {
       cloud.receiveShadow = true;
       cloudGroup.add(cloud);
     }
-    cloudGroup.position.set(0, Math.random()*4+3, Math.random()+5);
+    cloudGroup.position.set(0, Math.random()*5+2, Math.random()+4.5);
     cloudGroup.applyMatrix4(new THREE.Matrix4().makeRotationY(Math.PI*2*(Math.random()*10)));
     earthGroup.add(cloudGroup);
   }
 }
+
 //Airplane
+let airPlaneNewPos = new THREE.Vector3(0, -5, -5);
+let count = 1;
+
 const airPlaneGroup = new THREE.Object3D();
-airPlaneGroup.position.set(0,-5,-5);
-airPlaneGroup.scale.set(0.5,0.5,0.5),
+airPlaneGroup.position.set(0, -5, -5);
+airPlaneGroup.scale.set(0.35, 0.35, 0.35),
 scene.add(airPlaneGroup);
+
 function generateAirPlane() {
   const matWhite = new THREE.MeshStandardMaterial({
     color: white,
+    emissive: 0x5e5e5e,
     roughness: 0.5,
     metalness: 1,
     flatShading: true,
@@ -233,6 +243,7 @@ function generateAirPlane() {
   });
   const matPurple = new THREE.MeshStandardMaterial({
     color: violet,
+    emissive: 0x1c0f45,
     roughness: 0.5,
     metalness: 1,
     flatShading: true,
@@ -245,70 +256,85 @@ function generateAirPlane() {
     flatShading: true,
     fog: false,
   });
+  const flagText = new THREE.TextureLoader().load("./images/peace-flag.jpg");
+  const matFlag = new THREE.MeshStandardMaterial({
+    map: flagText,
+    roughness: 0.5,
+    metalness: 1,
+    flatShading: true,
+    fog: false,
+  });
 
-  const fan1Geo = new THREE.BoxGeometry( 0.05, 1.2, 0.2);
-  const fan1 = new THREE.Mesh(fan1Geo,matWhite);
-  fan1.position.set(1, 0, 0);
+  const fan1Geo = new THREE.BoxGeometry(0.05, 1.2, 0.2);
+  const fan1 = new THREE.Mesh(fan1Geo, matWhite);
+  fan1.position.set(1.3, 0, 0);
   airPlaneGroup.add(fan1);
 
-  const fan2Geo = new THREE.BoxGeometry( 0.05, 0.2, 1.2);
-  const fan2 = new THREE.Mesh(fan2Geo,matWhite);
-  fan2.position.set(1, 0, 0);
+  const fan2Geo = new THREE.BoxGeometry(0.05, 0.2, 1.2);
+  const fan2 = new THREE.Mesh(fan2Geo, matWhite);
+  fan2.position.set(1.3, 0, 0);
   airPlaneGroup.add(fan2);
 
-  const headGeo = new THREE.TorusGeometry(0.35, 0.2, 12, 18);
-  const head = new THREE.Mesh(headGeo,matWhite);
-  head.rotation.set( 0, Math.PI/2, 0);
-  head.position.set(0.65, 0, 0);
+  const flagGeo = new THREE.PlaneGeometry(1.4, 0.8, 10, 1);
+  const flag = new THREE.Mesh(flagGeo, matFlag);
+  flag.position.set(-1.45, 0, 0);
+  airPlaneGroup.add(flag);
+  count = flagGeo.attributes.position.count;
+
+  const headGeo = new THREE.TorusGeometry(0.35, 0.2, 8, 20);
+  const head = new THREE.Mesh(headGeo, matWhite);
+  head.rotation.set(0, Math.PI/2, 0);
+  head.position.set(0.95, 0, 0);
   airPlaneGroup.add(head);
 
   const bodyGeo = new THREE.CylinderGeometry(0.5, 0.5, 0.5, 20, 1, true);
-  const body = new THREE.Mesh(bodyGeo,matPurple);
-  body.rotation.set( 0, 0, Math.PI/2);
-  body.position.set(0.3, 0, 0);
+  const body = new THREE.Mesh(bodyGeo, matPurple);
+  body.rotation.set(0, 0, Math.PI/2);
+  body.position.set(0.6, 0, 0);
   airPlaneGroup.add(body);
 
   const tailGeo = new THREE.CylinderGeometry(0.3, 0.5, 0.7, 20, 1, true);
-  const tail = new THREE.Mesh(tailGeo,matPurple);
-  tail.rotation.set( 0, 0, Math.PI/2);
-  tail.position.set(-0.3, 0, 0);
+  const tail = new THREE.Mesh(tailGeo, matPurple);
+  tail.rotation.set(0, 0, Math.PI/2);
+  tail.position.set(0, 0, 0);
   airPlaneGroup.add(tail);
 
   const endGeo = new THREE.ConeGeometry(0.3, 0.3, 20, 1, true);
-  const end = new THREE.Mesh(endGeo,matPurple);
-  end.rotation.set( 0, 0, Math.PI/2);
-  end.position.set(-0.8, 0, 0);
+  const end = new THREE.Mesh(endGeo, matPurple);
+  end.rotation.set(0, 0, Math.PI/2);
+  end.position.set(-0.5, 0, 0);
   airPlaneGroup.add(end);
 
   const fanCenGeo = new THREE.ConeGeometry(0.2, 0.3, 20, 1, true);
-  const fanCen = new THREE.Mesh(fanCenGeo,matPurple);
-  fanCen.rotation.set( 0, 0, -Math.PI/2);
-  fanCen.position.set(1, 0, 0);
+  const fanCen = new THREE.Mesh(fanCenGeo, matBlack);
+  fanCen.rotation.set(0, 0, -Math.PI/2);
+  fanCen.position.set(1.3, 0, 0);
   airPlaneGroup.add(fanCen);
 
-  const wingGeo = new THREE.BoxGeometry( 0.7, 0.06, 4);
-  const wing = new THREE.Mesh(wingGeo,matWhite);
-  wing.position.set(0.2, 0.15, 0);
+  const wingGeo = new THREE.BoxGeometry( 0.7, 0.06, 3);
+  const wing = new THREE.Mesh(wingGeo, matWhite);
+  wing.position.set(0.4, 0.15, 0);
+  wing.rotation.set(0, 0, Math.PI/20);
   airPlaneGroup.add(wing);
 
-  const wingTailGeo = new THREE.BoxGeometry( 0.3, 0.06, 0.8);
-  const wingTail = new THREE.Mesh(wingTailGeo,matWhite);
-  wingTail.position.set(-0.7, 0, 0);
-  airPlaneGroup.add(wingTail);
-
-  const wingTailCenGeo = new THREE.BoxGeometry( 0.3, 0.3, 0.06);
-  const wingTailCen = new THREE.Mesh(wingTailCenGeo,matWhite);
-  wingTailCen.rotation.set( 0, 0, Math.PI/10);
-  wingTailCen.position.set(-0.8, 0.2, 0);
-  airPlaneGroup.add(wingTailCen);
-
-  const wheelGeo = new THREE.TorusGeometry(0.1, 0.1, 10, 10);
-  const wheel1 = new THREE.Mesh(wheelGeo,matBlack);
-  wheel1.position.set(0.1, -0.3, 1);
+  const wheelGeo = new THREE.TorusGeometry(0.12, 0.13, 10, 10);
+  const wheel1 = new THREE.Mesh(wheelGeo, matBlack);
+  wheel1.position.set(0.4, -0.4, 0.6);
   airPlaneGroup.add(wheel1);
-  const wheel2 = new THREE.Mesh(wheelGeo,matBlack);
-  wheel2.position.set(0.1, -0.3, -1);
+  const wheel2 = new THREE.Mesh(wheelGeo, matBlack);
+  wheel2.position.set(0.4, -0.4, -0.6);
   airPlaneGroup.add(wheel2);
+
+  const pilotGeo = new THREE.SphereGeometry(0.3, 10, 10);
+  const pilot = new THREE.Mesh(pilotGeo, matWhite);
+  pilot.position.set(0.23, 0.55, 0);
+  airPlaneGroup.add(pilot);
+
+  const helmet = new THREE.Mesh(wheelGeo, matBlack);
+  helmet.scale.set(1, 1.5, 1);
+  helmet.position.set(0.375, 0.65, 0);
+  helmet.rotation.set(Math.PI/2, 0, 0);
+  airPlaneGroup.add(helmet);
 }
 
 //RESIZE WINDOW
@@ -325,11 +351,14 @@ window.addEventListener("resize", handleWindowResize, false);
 
 //MOUSE EVENT
 const mouse = new THREE.Vector2();
-const mouseScene2 = new THREE.Vector2();
 function onMouseMove(event) {
   event.preventDefault();
   mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
   mouse.y = (event.clientY / window.innerHeight) * 2 + 1;
+  //Update airplane
+  airPlaneNewPos.x = (event.clientX * 3 / window.innerWidth) - 1.5;
+  airPlaneNewPos.y = - (event.clientY * 1.6 / window.innerHeight) - 4.2;
+  airPlaneGroup.rotation.z = airPlaneGroup.rotation.x = airPlaneNewPos.y - airPlaneGroup.position.y;
 }
 window.addEventListener("mousemove", onMouseMove, false);
 
@@ -338,14 +367,15 @@ function onTouchMove(event) {
   event.preventDefault();
   mouse.x = (event.changedTouches[0].clientX / window.innerWidth) * 2 - 1;
   mouse.y = (event.changedTouches[0].clientY / window.innerHeight) * 2 + 1;
+  //Update airplane
+  airPlaneNewPos.x = (event.clientX * 3 / window.innerWidth) - 1.5;
+  airPlaneNewPos.y = - (event.clientY * 1.6 / window.innerHeight) - 4.2;
+  airPlaneGroup.rotation.z = airPlaneGroup.rotation.x = airPlaneNewPos.y - airPlaneGroup.position.y;
 }
 window.addEventListener("touchmove", onTouchMove, false);
 
 //UPDATE ACTIVE SECTION ON SCREEN
-let options = {
-  rootMargin: "0px",
-  threshold: 0.75,
-};
+let options = {rootMargin: "0px", threshold: 0.75};
 const callback = (entries) => {
   entries.forEach((entry) => {
     const { target } = entry;
@@ -409,9 +439,11 @@ document
   .querySelector(".backToTop")
   .addEventListener("click", function(event) {
     highLightNavLink(1);
-    changeColor(green, yellow, purple);
-    moveCam(1);
     changeFooter(2);
+    lightTopColor.setHex(yellow);
+    lightBackColor.setHex(red);
+    rectLightColor.setHex(purple);
+    updateCamPos.set(-0.3, 0, 5);
 });
 
 //SOUND TOGGLE
@@ -445,8 +477,6 @@ document.querySelectorAll("a").forEach((each) => {
 });
 
 //FUNCTIONS FOR ANIMATION
-let noise = openSimplexNoise.makeNoise4D(Date.now());
-let clock = new THREE.Clock();
 //highlight navlink according to section
 let sections = document.querySelectorAll("section");
 let staticSectionNumber = 1;
@@ -464,37 +494,27 @@ function highLightNavLink(number) {
     navLinks[number + 2].style.fontStyle = "italic";
   }
 }
-//change color of lights
-function changeColor(spotLight, backLight, ambLight) {
-  lightTop.color.setHex(spotLight);
-  lightBack.color.setHex(backLight);
-  rectLight.color.setHex(ambLight);
-}
-//move camera to another scene
-function moveCam(setting) {
-  if (setting === 0) {
-    camera.position.set(0, -4.5, 10);
-  } else {
-    camera.position.set(-0.3, 0, 5);
-  }
-}
-//Foot page end
+//change footer according to section
 function changeFooter(setting) {
   if (setting === 0) {
-    document.querySelector("footer").style.justifyContent = "center";
+    document.querySelector("footer").style.justifyContent = "space-between";
     document.querySelector(".backToTop").style.display = "block";
+    document.querySelector(".copyright").style.display = "flex";
     document.querySelector(".moveUp").style.display = "none";
   } else if (setting === 1) {
     document.querySelector("footer").style.justifyContent = "flex-end";
     document.querySelector(".backToTop").style.display = "none";
+    document.querySelector(".copyright").style.display = "none";
     document.querySelector(".moveUp").style.display = "block";
   } else if (setting === 2) {
     document.querySelector("footer").style.justifyContent = "flex-end";
     document.querySelector(".backToTop").style.display = "none";
+    document.querySelector(".copyright").style.display = "none";
     document.querySelector(".moveUp").style.display = "none";
   } else  {
     document.querySelector("footer").style.justifyContent = "flex-end";
     document.querySelector(".backToTop").style.display = "none";
+    document.querySelector(".copyright").style.display = "none";
     if (window.innerWidth <= 768) {
       document.querySelector(".moveUp").style.display = "block";
     } else {
@@ -509,27 +529,28 @@ const animate = () => {
   //Scene1
   //Particles spin around
   particlesGroup.rotation.y += 0.004;
+  
   //Particles rotate
   const time = performance.now() * 0.0003;
   for (let i = 0; i < particlesGroup.children.length; i++) {
-    const particle = particlesGroup.children[i];
-    particle.rotation.x += particle.speedValue / 10;
-    particle.rotation.y += particle.speedValue / 10;
-    particle.rotation.z += particle.speedValue / 10;
+    particlesGroup.children[i].rotation.x += particlesGroup.children[i].speedValue / 10;
+    particlesGroup.children[i].rotation.y += particlesGroup.children[i].speedValue / 10;
+    particlesGroup.children[i].rotation.z += particlesGroup.children[i].speedValue / 10;
   }
+  
   //Cubes rotate & fly around
   for (let i = 0; i < cubesGroup.children.length; i++) {
-    const cube = cubesGroup.children[i];
-    cube.rotation.x += 0.001;
-    cube.rotation.y += 0.002;
-    cube.rotation.z += 0.003;
-    cube.position.x =
-      Math.sin(time * cube.positionZ) * cube.positionY;
-    cube.position.y =
-      Math.cos(time * cube.positionX) * cube.positionZ;
-    cube.position.z =
-      Math.sin(time * cube.positionY) * cube.positionX;
+    cubesGroup.children[i].rotation.x += 0.001;
+    cubesGroup.children[i].rotation.y += 0.002;
+    cubesGroup.children[i].rotation.z += 0.003;
+    cubesGroup.children[i].position.x =
+      Math.sin(time * cubesGroup.children[i].positionZ) * cubesGroup.children[i].positionY;
+    cubesGroup.children[i].position.y =
+      Math.cos(time * cubesGroup.children[i].positionX) * cubesGroup.children[i].positionZ;
+    cubesGroup.children[i].position.z =
+      Math.sin(time * cubesGroup.children[i].positionY) * cubesGroup.children[i].positionX;
   }
+  
   //Cube group rotate follow mouse
   cubesGroup.rotation.y -= (mouse.x * 4 + cubesGroup.rotation.y) * 0.1;
   cubesGroup.rotation.x -= (-mouse.y * 4 + cubesGroup.rotation.x) * 0.1;
@@ -537,32 +558,47 @@ const animate = () => {
   //Scene2
   //Earth spin around
   earthGroup.rotation.y -= 0.005;
-  //Earth wave
-  const earth = earthGroup.children[0];
-  let t = clock.getElapsedTime();
-  earth.geometry.positionData.forEach((p, idx) => {
-    let setNoise = noise(p.x, p.y, p.z, t);
-    v3Earth.copy(p).addScaledVector(p, setNoise);
-    // earth.geometry.attributes.position.setXYZ(idx, v3Earth.x, v3Earth.y, v3Earth.z);
-    earth.geometry.attributes.position.setY(idx, v3Earth.y);
-  })
-  earth.geometry.computeVertexNormals();
-  earth.geometry.attributes.position.needsUpdate = true;
-  //Airplane fan
-  const fan1 = airPlaneGroup.children[0];
-  const fan2 = airPlaneGroup.children[1];
-  fan1.rotation.x += 0.3;
-  fan2.rotation.x += 0.3;
-  //Airplane move follow mouse
   
+  //Earth wave
+  earthGroup.children[0].geometry.positionData.forEach((p, idx) => {
+    let setNoise = noise(p.x, p.y, p.z, clock.getElapsedTime());
+    wave.copy(p).addScaledVector(p, setNoise);
+    // earth.geometry.attributes.position.setXYZ(idx, wave.x, wave.y, wave.z);
+    earthGroup.children[0].geometry.attributes.position.setY(idx, wave.y);
+  })
+  earthGroup.children[0].geometry.computeVertexNormals();
+  earthGroup.children[0].geometry.attributes.position.needsUpdate = true;
+  
+  //Airplane fan
+  airPlaneGroup.children[0].rotation.x += 0.3;
+  airPlaneGroup.children[1].rotation.x += 0.3;
+  
+  //Airplane flag
+  for (let i = 0; i < count; i++) {
+    const x = airPlaneGroup.children[2].geometry.attributes.position.getX(i);
+    const y = airPlaneGroup.children[2].geometry.attributes.position.getY(i);
+    const xangle = x + Date.now() / 200;
+    const xsin = Math.sin(xangle) * 0.6;
+    const yangle = y + Date.now() / 200;
+    const ycos = Math.cos(yangle) * 0.1;
+    airPlaneGroup.children[2].geometry.attributes.position.setZ(i, xsin + ycos)
+  }
+  airPlaneGroup.children[2].geometry.computeVertexNormals();
+  airPlaneGroup.children[2].geometry.attributes.position.needsUpdate = true;
+
+  //Move airplane follow mouse
+  airPlaneGroup.position.lerp(airPlaneNewPos, 0.1);
+
   //Check current section on screen
   let currentSection = document.querySelector(".is-visible");
   if (currentSection === sections[0]) {
     const sectionNumber = 1;
     if (sectionNumber !== staticSectionNumber) {
       highLightNavLink(sectionNumber);
-      changeColor(yellow, red, purple);
-      changeFooter(2)
+      changeFooter(2);
+      lightTopColor.setHex(yellow);
+      lightBackColor.setHex(red);
+      rectLightColor.setHex(purple);
       staticSectionNumber = sectionNumber;
     }
   }
@@ -570,9 +606,11 @@ const animate = () => {
     const sectionNumber = 2;
     if (sectionNumber !== staticSectionNumber) {
       highLightNavLink(sectionNumber);
-      changeColor(green, yellow, purple);
-      moveCam(1);
-      changeFooter(1)
+      changeFooter(1);
+      lightTopColor.setHex(green);
+      lightBackColor.setHex(yellow);
+      rectLightColor.setHex(purple);
+      updateCamPos.set(-0.3, 0, 5);
       staticSectionNumber = sectionNumber;
     }
   }
@@ -580,9 +618,11 @@ const animate = () => {
     const sectionNumber = 3;
     if (sectionNumber !== staticSectionNumber) {
       highLightNavLink(sectionNumber);
-      changeColor(cyan, purple, blue);
-      moveCam(1);
-      changeFooter(3)
+      changeFooter(3);
+      lightTopColor.setHex(cyan);
+      lightBackColor.setHex(purple);
+      rectLightColor.setHex(blue);
+      updateCamPos.set(-0.3, 0, 5);
       staticSectionNumber = sectionNumber;
     }
   }
@@ -590,9 +630,11 @@ const animate = () => {
     const sectionNumber = 4;
     if (sectionNumber !== staticSectionNumber) {
       highLightNavLink(sectionNumber);
-      changeColor(red, purple, blue);
-      moveCam(1);
-      changeFooter(3)
+      changeFooter(3);
+      lightTopColor.setHex(red);
+      lightBackColor.setHex(purple);
+      rectLightColor.setHex(blue);
+      updateCamPos.set(-0.3, 0, 5);
       staticSectionNumber = sectionNumber;
     }
   }
@@ -600,14 +642,21 @@ const animate = () => {
     const sectionNumber = 5;
     if (sectionNumber !== staticSectionNumber) {
       highLightNavLink(sectionNumber);
-      changeColor(black, black, black);
-      moveCam(0);
-      changeFooter(0)
+      changeFooter(0);
+      lightTopColor.setHex(black);
+      lightBackColor.setHex(black);
+      rectLightColor.setHex(black);
+      updateCamPos.set(0, -4.5, 10);
       staticSectionNumber = sectionNumber;
     }
   }
 
   //Update screen
+  camera.position.lerp(updateCamPos, 0.1);
+  lightTop.color.lerp(lightTopColor, 0.1);
+  lightBack.color.lerp(lightBackColor, 0.1);
+  rectLight.color.lerp(rectLightColor, 0.1);
+
   renderer.render(scene, camera);
   requestAnimationFrame(animate);
 };
@@ -616,6 +665,6 @@ window.scrollTo({ top: 0, behavior: "smooth" });
 generateParticle(200, 2);
 generateCube(30);
 generateEarth();
-generateCloud(50);
+generateCloud(60);
 generateAirPlane();
 animate();

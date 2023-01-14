@@ -291,6 +291,7 @@ main {
 section {
   display: flex;
   flex-direction: column;
+  height: fit-content;
   min-height: 100vh;
   position: relative;
   font-family: "Roboto Slab", serif;
@@ -713,6 +714,12 @@ footer {
   scale: 0.9;
 }
 
+.endPage {
+  display: flex;
+  justify-content: flex-end;
+  gap: 50px;
+}
+
 .sound {
   width: 40px;
   height: 40px;
@@ -733,6 +740,15 @@ footer {
   }
 }
 
+.copyright {
+  display: none;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 18px;
+  color: beige;
+  align-items: center;
+  translate: 0 -10px;
+}
+
 
 
 @media only screen and (max-width: 768px) {
@@ -751,6 +767,9 @@ footer {
   footer {
     gap: 20px;
   }
+  .endPage {
+    gap: 20px;
+  }
   .sound {
     width: 30px;
     height: 30px;
@@ -764,6 +783,9 @@ footer {
     width: 27px;
     height: 27px;
     margin-top: 2px;
+  }
+  .copyright {
+    font-size: 16px;
   }
 }
 
