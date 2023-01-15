@@ -356,6 +356,10 @@ function onTouchMove(event) {
   event.preventDefault();
   mouse.x = (event.changedTouches[0].clientX / window.innerWidth) * 2 - 1;
   mouse.y = (event.changedTouches[0].clientY / window.innerHeight) * 2 + 1;
+  //Update airplane
+  airPlaneNewPos.x = (event.changedTouches[0].clientX * 3 / window.innerWidth) - 1.5;
+  airPlaneNewPos.y = - (event.changedTouches[0].clientY * 1.6 / window.innerHeight) - 4.2;
+  airPlaneGroup.rotation.z = airPlaneGroup.rotation.x = airPlaneNewPos.y - airPlaneGroup.position.y;
 }
 window.addEventListener("touchmove", onTouchMove, false);
 
