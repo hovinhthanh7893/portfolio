@@ -475,7 +475,7 @@ section {
   width: 200px;
   height: 40px;
   border-radius: 10px;
-  box-shadow: 1px 0 10px 0 rgb(220, 103, 0);
+  box-shadow: 1px 0 10px 0 rgb(216, 0, 220);
   background: linear-gradient(
     132deg,
     #6424dc,
@@ -487,6 +487,8 @@ section {
   animation: moveGradient 8s alternate infinite;
   display: flex;
   align-items: center;
+  text-decoration: none;
+  color: white;
 }
 .secPhone::after {
   content: "";
@@ -506,10 +508,13 @@ section {
   background-size: cover;
   z-index: 10;
 }
-.phone:hover {
+.secPhone:hover {
+  box-shadow: 0px 0 15px 0 rgb(255, 145, 0);
+}
+.secPhone:hover .phone {
   filter: invert(100%);
 }
-.phone:active {
+.secPhone:active {
   scale: 0.9;
 }
 .phoneNumber {

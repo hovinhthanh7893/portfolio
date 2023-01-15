@@ -89,64 +89,63 @@ renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 renderer.shadowMap.needsUpdate = true;
 
 //SCENE1 OBJECTS
-//Cubes
-const cubesGroup = new THREE.Object3D();
-scene.add(cubesGroup);
-function mathRandom(num = 1) {
+//Space size
+function spaceRandom(num = 1) {
   var setNumber = -Math.random() * num + Math.random() * num;
   return setNumber;
 }
-function generateCube(number) {
-  for (let i = 0; i < number; i++) {
-    //Throw random shape
-    const oneOrZero = Math.round(Math.random());
-    let geometry;
-    if (oneOrZero === 0) {
-      geometry = new THREE.IcosahedronGeometry(1);
-    } else {
-      geometry = new THREE.DodecahedronGeometry(1);
-    }
-    //Init object
-    const material = new THREE.MeshStandardMaterial({
-      color: 0x111111,
-      roughness: 0.4,
-      metalness: 0.5,
-    });
-    const cube = new THREE.Mesh(geometry, material);
-    cube.speedRotation = Math.random() * 0.1;
-    cube.positionX = mathRandom();
-    cube.positionY = mathRandom();
-    cube.positionZ = mathRandom();
-    cube.castShadow = true;
-    cube.receiveShadow = true;
-    //Behavior
-    const newScaleValue = mathRandom(0.3);
-    cube.scale.set(newScaleValue, newScaleValue, newScaleValue);
-    cube.rotation.x = mathRandom((180 * Math.PI) / 180);
-    cube.rotation.y = mathRandom((180 * Math.PI) / 180);
-    cube.rotation.z = mathRandom((180 * Math.PI) / 180);
-    cube.position.set(cube.positionX, cube.positionY, cube.positionZ);
-    cubesGroup.add(cube);
+
+//Cubes
+const cubesGroup = new THREE.Object3D();
+scene.add(cubesGroup);
+function generateCube() {
+  //Throw random shape
+  const oneOrZero = Math.round(Math.random());
+  let geometry;
+  if (oneOrZero === 0) {
+    geometry = new THREE.IcosahedronGeometry(1);
+  } else {
+    geometry = new THREE.DodecahedronGeometry(1);
   }
+  //Init object
+  const material = new THREE.MeshStandardMaterial({
+    color: 0x111111,
+    roughness: 0.4,
+    metalness: 0.5,
+  });
+  const cube = new THREE.Mesh(geometry, material);
+  cube.speedRotation = Math.random() * 0.1;
+  cube.positionX = spaceRandom();
+  cube.positionY = spaceRandom();
+  cube.positionZ = spaceRandom();
+  cube.castShadow = true;
+  cube.receiveShadow = true;
+  //Behavior
+  const newScaleValue = spaceRandom(0.3);
+  cube.scale.set(newScaleValue, newScaleValue, newScaleValue);
+  cube.rotation.x = spaceRandom((180 * Math.PI) / 180);
+  cube.rotation.y = spaceRandom((180 * Math.PI) / 180);
+  cube.rotation.z = spaceRandom((180 * Math.PI) / 180);
+  cube.position.set(cube.positionX, cube.positionY, cube.positionZ);
+  cubesGroup.add(cube);
 }
+
 //Particles
 const particlesGroup = new THREE.Object3D();
 scene.add(particlesGroup);
-function generateParticle(number, spaceSize) {
+function generateParticle() {
   const geometry = new THREE.CircleGeometry(0.1, 5);
   const material = new THREE.MeshPhysicalMaterial({
     color: white,
     side: THREE.DoubleSide,
   });
-  for (let i = 0; i < number; i++) {
-    const particle = new THREE.Mesh(geometry, material);
-    particle.position.set(mathRandom(spaceSize), mathRandom(spaceSize), mathRandom(spaceSize));
-    particle.rotation.set(mathRandom(), mathRandom(), mathRandom());
-    const scale = 0.001 + Math.abs(mathRandom(0.03));
+  const particle = new THREE.Mesh(geometry, material);
+    particle.position.set(spaceRandom(2), spaceRandom(2), spaceRandom(2));
+    particle.rotation.set(spaceRandom(), spaceRandom(), spaceRandom());
+    const scale = 0.001 + Math.abs(spaceRandom(0.03));
     particle.scale.set(scale, scale, scale);
-    particle.speedValue = mathRandom(1);
+    particle.speedValue = spaceRandom(1);
     particlesGroup.add(particle);
-  }
 }
 
 //SCENE2 OBJECTS
@@ -173,13 +172,11 @@ function generateEarth() {
     geometry.positionData.push(wave.clone());
   }
   const earth = new THREE.Mesh(geometry, material);
-  earth.castShadow = true;
-  earth.receiveShadow = true;
   earthGroup.add(earth);
 }
 
 //Clouds
-function generateCloud(number) {
+function generateCloud() {
   const material = new THREE.MeshStandardMaterial({
     color: 0xffd000,
     transparent: true,
@@ -187,24 +184,20 @@ function generateCloud(number) {
     wireframe: true,
     fog: false,
   });
-  for (let i = 0; i < number; i++ ) {
-    const cloudGroup = new THREE.Object3D();
-    const cloudAmount = Math.floor(Math.random()*3+2);
-    for (let i = 0; i < cloudAmount; i++ ) {
-      const geometry = new THREE.IcosahedronGeometry(1);
-      const cloud = new THREE.Mesh(geometry, material);
-      const scale = 0.27/Math.floor(Math.random()*2+1);
-      cloud.scale.set(scale, scale, scale);
-      cloud.position.set(Math.random()/2, Math.random()/2, 0)
-      cloud.rotation.set(Math.random()*Math.PI*2, Math.random()*Math.PI*2, Math.random()*Math.PI*2);
-      cloud.castShadow = true;
-      cloud.receiveShadow = true;
-      cloudGroup.add(cloud);
-    }
-    cloudGroup.position.set(0, Math.random()*5+2, Math.random()+4.5);
-    cloudGroup.applyMatrix4(new THREE.Matrix4().makeRotationY(Math.PI*2*(Math.random()*10)));
-    earthGroup.add(cloudGroup);
+  const cloudGroup = new THREE.Object3D();
+  const cloudAmount = Math.floor(Math.random()*3+2);
+  for (let i = 0; i < cloudAmount; i++ ) {
+    const geometry = new THREE.IcosahedronGeometry(1);
+    const cloud = new THREE.Mesh(geometry, material);
+    const scale = 0.27/Math.floor(Math.random()*2+1);
+    cloud.scale.set(scale, scale, scale);
+    cloud.position.set(Math.random()+0.5, -Math.random()/2, Math.random()/3)
+    cloud.rotation.set(Math.random()*Math.PI*2, Math.random()*Math.PI*2, Math.random()*Math.PI*2);
+    cloudGroup.add(cloud);
   }
+  cloudGroup.position.set(0, Math.random()*5+2, Math.random()+4.5);
+  cloudGroup.applyMatrix4(new THREE.Matrix4().makeRotationY(Math.PI*2*(Math.random()*10)));
+  earthGroup.add(cloudGroup);
 }
 
 //Stars
@@ -221,7 +214,7 @@ function generateStar() {
 
 //Airplane
 let airPlaneNewPos = new THREE.Vector3(0, -5, -5);
-let count = 1;
+let flagVertexCount;
 
 const airPlaneGroup = new THREE.Object3D();
 airPlaneGroup.position.set(0, -5, -5);
@@ -275,7 +268,7 @@ function generateAirPlane() {
   const flag = new THREE.Mesh(flagGeo, matFlag);
   flag.position.set(-1.45, 0, 0);
   airPlaneGroup.add(flag);
-  count = flagGeo.attributes.position.count;
+  flagVertexCount = flagGeo.attributes.position.count;
 
   const headGeo = new THREE.TorusGeometry(0.35, 0.2, 8, 20);
   const head = new THREE.Mesh(headGeo, matWhite);
@@ -363,10 +356,6 @@ function onTouchMove(event) {
   event.preventDefault();
   mouse.x = (event.changedTouches[0].clientX / window.innerWidth) * 2 - 1;
   mouse.y = (event.changedTouches[0].clientY / window.innerHeight) * 2 + 1;
-  //Update airplane
-  airPlaneNewPos.x = (event.clientX * 3 / window.innerWidth) - 1.5;
-  airPlaneNewPos.y = - (event.clientY * 1.6 / window.innerHeight) - 4.2;
-  airPlaneGroup.rotation.z = airPlaneGroup.rotation.x = airPlaneNewPos.y - airPlaneGroup.position.y;
 }
 window.addEventListener("touchmove", onTouchMove, false);
 
@@ -574,7 +563,7 @@ const animate = () => {
   airPlaneGroup.children[1].rotation.x += 0.3;
   
   //Airplane flag
-  for (let i = 0; i < count; i++) {
+  for (let i = 0; i < flagVertexCount; i++) {
     const x = airPlaneGroup.children[2].geometry.attributes.position.getX(i);
     const y = airPlaneGroup.children[2].geometry.attributes.position.getY(i);
     const xangle = x + Date.now() / 200;
@@ -666,10 +655,10 @@ const animate = () => {
 };
 
 window.scrollTo({ top: 0, behavior: "smooth" });
-generateParticle(200, 2);
-generateCube(30);
+Array(30).fill().forEach(generateCube);
+Array(200).fill().forEach(generateParticle);
 generateEarth();
-generateCloud(60);
+Array(60).fill().forEach(generateCloud);
 Array(80).fill().forEach(generateStar);
 generateAirPlane();
 animate();
