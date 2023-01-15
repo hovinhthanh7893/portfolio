@@ -163,10 +163,8 @@ scene.add(earthGroup);
 function generateEarth() {
   const geometry = new THREE.CylinderGeometry(4, 3, 10, 60, 30, true);
   const material = new THREE.MeshStandardMaterial({
-    color: 0x00ffa6,
-    roughness: 0.5,
-    metalness: 1,
-    flatShading: true,
+    color: 0x00ffb7,
+    wireframe: true,
     fog: false,
   });
   geometry.positionData = [];
@@ -184,17 +182,16 @@ function generateEarth() {
 function generateCloud(number) {
   const material = new THREE.MeshStandardMaterial({
     color: 0xffd000,
-    roughness: 0.4,
-    metalness: 1,
     transparent: true,
-    opacity: 0.7,
+    opacity: 0.5,
+    wireframe: true,
     fog: false,
   });
   for (let i = 0; i < number; i++ ) {
     const cloudGroup = new THREE.Object3D();
     const cloudAmount = Math.floor(Math.random()*3+2);
     for (let i = 0; i < cloudAmount; i++ ) {
-      const geometry = new THREE.BoxGeometry(1, 1, 1);
+      const geometry = new THREE.IcosahedronGeometry(1);
       const cloud = new THREE.Mesh(geometry, material);
       const scale = 0.27/Math.floor(Math.random()*2+1);
       cloud.scale.set(scale, scale, scale);
@@ -305,7 +302,7 @@ function generateAirPlane() {
   airPlaneGroup.add(end);
 
   const fanCenGeo = new THREE.ConeGeometry(0.2, 0.3, 20, 1, true);
-  const fanCen = new THREE.Mesh(fanCenGeo, matBlack);
+  const fanCen = new THREE.Mesh(fanCenGeo, matPurple);
   fanCen.rotation.set(0, 0, -Math.PI/2);
   fanCen.position.set(1.3, 0, 0);
   airPlaneGroup.add(fanCen);
@@ -538,24 +535,21 @@ const animate = () => {
   
   //Particles rotate
   const time = performance.now() * 0.0003;
-  for (let i = 0; i < particlesGroup.children.length; i++) {
-    particlesGroup.children[i].rotation.x += particlesGroup.children[i].speedValue / 10;
-    particlesGroup.children[i].rotation.y += particlesGroup.children[i].speedValue / 10;
-    particlesGroup.children[i].rotation.z += particlesGroup.children[i].speedValue / 10;
-  }
+  particlesGroup.children.forEach((each) => {
+    each.rotation.x += each.speedValue / 10;
+    each.rotation.y += each.speedValue / 10;
+    each.rotation.z += each.speedValue / 10;
+  })
   
   //Cubes rotate & fly around
-  for (let i = 0; i < cubesGroup.children.length; i++) {
-    cubesGroup.children[i].rotation.x += 0.001;
-    cubesGroup.children[i].rotation.y += 0.002;
-    cubesGroup.children[i].rotation.z += 0.003;
-    cubesGroup.children[i].position.x =
-      Math.sin(time * cubesGroup.children[i].positionZ) * cubesGroup.children[i].positionY;
-    cubesGroup.children[i].position.y =
-      Math.cos(time * cubesGroup.children[i].positionX) * cubesGroup.children[i].positionZ;
-    cubesGroup.children[i].position.z =
-      Math.sin(time * cubesGroup.children[i].positionY) * cubesGroup.children[i].positionX;
-  }
+  cubesGroup.children.forEach((each) => {
+    each.rotation.x += 0.001;
+    each.rotation.y += 0.002;
+    each.rotation.z += 0.003;
+    each.position.x = Math.sin(time * each.positionZ) * each.positionY;
+    each.position.y = Math.cos(time * each.positionX) * each.positionZ;
+    each.position.z = Math.sin(time * each.positionY) * each.positionX;
+  })
   
   //Cube group rotate follow mouse
   cubesGroup.rotation.y -= (mouse.x * 4 + cubesGroup.rotation.y) * 0.1;
