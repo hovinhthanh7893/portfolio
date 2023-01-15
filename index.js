@@ -68,7 +68,7 @@ lightMidPoint.position.set(0, 0, -23);
 scene.add(lightRight,lightLeft, lightMidSpot, lightMidPoint);
 
 
-//CAMERA
+//CAMERA  scene1(-0.3, 0, 5)   scene2(0, -4.5, 10)
 let updateCamPos = new THREE.Vector3(-0.3, 0, 5);
 const camera = new THREE.PerspectiveCamera(25, sizes.width / sizes.height, 1, 500);
 camera.position.set(-0.3, 0, 5);
@@ -150,7 +150,7 @@ function generateParticle(number, spaceSize) {
 }
 
 //SCENE2 OBJECTS
-//globe
+//Globe
 let wave = new THREE.Vector3();
 let noise = openSimplexNoise.makeNoise4D(Date.now());
 let clock = new THREE.Clock();
@@ -182,34 +182,21 @@ function generateEarth() {
 
 //Clouds
 function generateCloud(number) {
-  const shape = new THREE.Shape();
-  shape.moveTo(0, 0);
-  shape.lineTo(0, 10);
-  shape.lineTo(10, 10);
-  shape.lineTo(10, 0);
-  shape.lineTo(0, 0);
-  const extrudeSettings = {
-    steps: 1,
-    depth: 12,
-    bevelEnabled: true,
-    bevelThickness: 3,
-    bevelSize: 2,
-    bevelOffset: 3,
-    bevelSegments: 1
-  };
   const material = new THREE.MeshStandardMaterial({
     color: 0xffd000,
     roughness: 0.4,
     metalness: 1,
+    transparent: true,
+    opacity: 0.7,
     fog: false,
   });
   for (let i = 0; i < number; i++ ) {
     const cloudGroup = new THREE.Object3D();
-    const cloudAmount = Math.floor(Math.random()*4+1);
+    const cloudAmount = Math.floor(Math.random()*3+2);
     for (let i = 0; i < cloudAmount; i++ ) {
-      const geometry = new THREE.ExtrudeGeometry( shape, extrudeSettings );
+      const geometry = new THREE.BoxGeometry(1, 1, 1);
       const cloud = new THREE.Mesh(geometry, material);
-      const scale = 0.015/Math.floor(Math.random()*2+1);
+      const scale = 0.27/Math.floor(Math.random()*2+1);
       cloud.scale.set(scale, scale, scale);
       cloud.position.set(Math.random()/2, Math.random()/2, 0)
       cloud.rotation.set(Math.random()*Math.PI*2, Math.random()*Math.PI*2, Math.random()*Math.PI*2);
@@ -221,6 +208,18 @@ function generateCloud(number) {
     cloudGroup.applyMatrix4(new THREE.Matrix4().makeRotationY(Math.PI*2*(Math.random()*10)));
     earthGroup.add(cloudGroup);
   }
+}
+
+//Stars
+const starGroup = new THREE.Object3D();
+scene.add(starGroup);
+function generateStar() {
+  const ranSize = Math.random()*0.01+0.01;
+  const geometry = new THREE.SphereGeometry(ranSize, 8, 8);
+  const material = new THREE.MeshStandardMaterial({ color: black, fog: false });
+  const star = new THREE.Mesh(geometry, material);
+  star.position.set(Math.random()*18-9, Math.random()*10-9, Math.random()*20-30);
+  starGroup.add(star);
 }
 
 //Airplane
@@ -434,12 +433,13 @@ document
     }
 });
 
-//BACK TO TOP BUTTON
+//BUTTON BACK TO TOP
 document
   .querySelector(".backToTop")
   .addEventListener("click", function(event) {
     highLightNavLink(1);
     changeFooter(2);
+    toggleStars(black);
     lightTopColor.setHex(yellow);
     lightBackColor.setHex(red);
     rectLightColor.setHex(purple);
@@ -521,6 +521,12 @@ function changeFooter(setting) {
       document.querySelector(".moveUp").style.display = "none";
     }
   }
+}
+//toggle stars
+function toggleStars(color) {
+  starGroup.children.forEach((each) => {
+    each.material.color.setHex(color);
+  })
 }
 
 
@@ -607,6 +613,7 @@ const animate = () => {
     if (sectionNumber !== staticSectionNumber) {
       highLightNavLink(sectionNumber);
       changeFooter(1);
+      toggleStars(black);
       lightTopColor.setHex(green);
       lightBackColor.setHex(yellow);
       rectLightColor.setHex(purple);
@@ -619,6 +626,7 @@ const animate = () => {
     if (sectionNumber !== staticSectionNumber) {
       highLightNavLink(sectionNumber);
       changeFooter(3);
+      toggleStars(black);
       lightTopColor.setHex(cyan);
       lightBackColor.setHex(purple);
       rectLightColor.setHex(blue);
@@ -631,6 +639,7 @@ const animate = () => {
     if (sectionNumber !== staticSectionNumber) {
       highLightNavLink(sectionNumber);
       changeFooter(3);
+      toggleStars(black);
       lightTopColor.setHex(red);
       lightBackColor.setHex(purple);
       rectLightColor.setHex(blue);
@@ -643,6 +652,7 @@ const animate = () => {
     if (sectionNumber !== staticSectionNumber) {
       highLightNavLink(sectionNumber);
       changeFooter(0);
+      toggleStars(0x545454);
       lightTopColor.setHex(black);
       lightBackColor.setHex(black);
       rectLightColor.setHex(black);
@@ -666,5 +676,6 @@ generateParticle(200, 2);
 generateCube(30);
 generateEarth();
 generateCloud(60);
+Array(80).fill().forEach(generateStar);
 generateAirPlane();
 animate();
