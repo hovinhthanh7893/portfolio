@@ -327,7 +327,7 @@ function generateAirPlane() {
 }
 
 //RESIZE WINDOW
-function handleWindowResize() {
+function onWindowResize() {
   //Update Sizes
   sizes.width = window.innerWidth;
   sizes.height = window.innerHeight;
@@ -341,7 +341,7 @@ function handleWindowResize() {
   gameSlidePos = 0;
   currentGameSlide = Math.ceil(totalGameSlide / 2);
 }
-window.addEventListener("resize", handleWindowResize, false);
+window.addEventListener("resize", onWindowResize, false);
 
 //MOUSE EVENT
 const mouse = new THREE.Vector2();
