@@ -335,6 +335,11 @@ function handleWindowResize() {
   renderer.setSize(sizes.width, sizes.height);
   camera.aspect = sizes.width / sizes.height;
   camera.updateProjectionMatrix();
+  //Update project screen
+  webSlidePos = 0;
+  currentWebSlide = Math.ceil(totalWebSlide / 2);
+  gameSlidePos = 0;
+  currentGameSlide = Math.ceil(totalGameSlide / 2);
 }
 window.addEventListener("resize", handleWindowResize, false);
 
@@ -404,6 +409,64 @@ navLinks.forEach((each) => {
     } 
   })
 })
+
+//WEB SLIDE
+const totalWebSlide = document.querySelectorAll("#webProject").length;
+let webSlidePos = 0;
+let currentWebSlide = Math.ceil(totalWebSlide / 2);
+//Next web
+document
+  .querySelector("#nextWebButton")
+  .addEventListener("click", function(event) {
+    event.preventDefault();
+    const whoosh = new Audio("./audios/Whoosh.mp3");
+    whoosh.play();
+    webSlidePos = webSlidePos - document.querySelector("#webWrapper").getBoundingClientRect().width / totalWebSlide;
+    currentWebSlide = currentWebSlide + 1;
+    document.querySelectorAll("#dotWeb")[currentWebSlide-2].classList.remove("is-at");
+    document.querySelectorAll("#dotWeb")[currentWebSlide-1].classList.add("is-at");
+});
+//Previous web
+document
+  .querySelector("#prevWebButton")
+  .addEventListener("click", function(event) {
+    event.preventDefault();
+    const whoosh = new Audio("./audios/Whoosh.mp3");
+    whoosh.play();
+    webSlidePos = document.querySelector("#webWrapper").getBoundingClientRect().width / totalWebSlide + webSlidePos;
+    currentWebSlide = currentWebSlide - 1;
+    document.querySelectorAll("#dotWeb")[currentWebSlide].classList.remove("is-at");
+    document.querySelectorAll("#dotWeb")[currentWebSlide-1].classList.add("is-at");
+});
+
+//GAME SLIDE
+const totalGameSlide = document.querySelectorAll("#gameProject").length;
+let gameSlidePos = 0;
+let currentGameSlide = Math.ceil(totalGameSlide / 2);
+//Next game
+document
+  .querySelector("#nextGameButton")
+  .addEventListener("click", function(event) {
+    event.preventDefault();
+    const whoosh = new Audio("./audios/Whoosh.mp3");
+    whoosh.play();
+    gameSlidePos = gameSlidePos - document.querySelector("#gameWrapper").getBoundingClientRect().width / totalGameSlide;
+    currentGameSlide = currentGameSlide + 1;
+    document.querySelectorAll("#dotGame")[currentGameSlide-2].classList.remove("is-at");
+    document.querySelectorAll("#dotGame")[currentGameSlide-1].classList.add("is-at");
+});
+//Previous game
+document
+  .querySelector("#prevGameButton")
+  .addEventListener("click", function(event) {
+    event.preventDefault();
+    const whoosh = new Audio("./audios/Whoosh.mp3");
+    whoosh.play();
+    gameSlidePos = document.querySelector("#gameWrapper").getBoundingClientRect().width / totalGameSlide + gameSlidePos;
+    currentGameSlide = currentGameSlide - 1;
+    document.querySelectorAll("#dotGame")[currentGameSlide].classList.remove("is-at");
+    document.querySelectorAll("#dotGame")[currentGameSlide-1].classList.add("is-at");
+});
 
 //BUTTON PAGE UP
 document
@@ -512,7 +575,7 @@ function changeFooter(setting) {
     }
   }
 }
-//toggle stars
+//Change stars color
 function toggleStars(color) {
   starGroup.children.forEach((each) => {
     each.material.color.setHex(color);
@@ -613,6 +676,10 @@ const animate = () => {
     if (sectionNumber !== staticSectionNumber) {
       highLightNavLink(sectionNumber);
       changeFooter(3);
+      webSlidePos = 0;
+      currentWebSlide = Math.ceil(totalWebSlide / 2);
+      document.querySelectorAll("#dotWeb").forEach((each) => each.classList.remove("is-at"))
+      document.querySelectorAll("#dotWeb")[currentWebSlide-1].classList.add("is-at");
       toggleStars(black);
       lightTopColor.setHex(cyan);
       lightBackColor.setHex(purple);
@@ -626,6 +693,10 @@ const animate = () => {
     if (sectionNumber !== staticSectionNumber) {
       highLightNavLink(sectionNumber);
       changeFooter(3);
+      gameSlidePos = 0;
+      currentGameSlide = Math.ceil(totalGameSlide / 2);
+      document.querySelectorAll("#dotGame").forEach((each) => each.classList.remove("is-at"))
+      document.querySelectorAll("#dotGame")[currentGameSlide-1].classList.add("is-at");
       toggleStars(black);
       lightTopColor.setHex(red);
       lightBackColor.setHex(purple);
@@ -646,6 +717,40 @@ const animate = () => {
       updateCamPos.set(0, -4.5, 10);
       staticSectionNumber = sectionNumber;
     }
+  }
+
+  //Update web project slide
+  document.querySelector("#webWrapper").style.translate = webSlidePos + "px";
+  
+  //Turn on/off next/prev button
+  if (currentWebSlide > 1 && currentWebSlide < totalWebSlide) {
+    document.querySelector("#prevWebButton").style.display = "block";
+    document.querySelector("#prevWebButtonDis").style.display = "none";
+    document.querySelector("#nextWebButton").style.display = "block";
+    document.querySelector("#nextWebButtonDis").style.display = "none";
+  } else if (currentWebSlide === 1) {
+    document.querySelector("#prevWebButton").style.display = "none";
+    document.querySelector("#prevWebButtonDis").style.display = "block";
+  } else if (currentWebSlide === totalWebSlide) {
+    document.querySelector("#nextWebButton").style.display = "none";
+    document.querySelector("#nextWebButtonDis").style.display = "block";
+  }
+
+  //Update game project slide
+  document.querySelector("#gameWrapper").style.translate = gameSlidePos + "px";
+
+  //Turn on/off next/prev button
+  if (currentGameSlide > 1 && currentGameSlide < totalGameSlide) {
+    document.querySelector("#prevGameButton").style.display = "block";
+    document.querySelector("#prevGameButtonDis").style.display = "none";
+    document.querySelector("#nextGameButton").style.display = "block";
+    document.querySelector("#nextGameButtonDis").style.display = "none";
+  } else if (currentGameSlide === 1) {
+    document.querySelector("#prevGameButton").style.display = "none";
+    document.querySelector("#prevGameButtonDis").style.display = "block";
+  } else if (currentGameSlide === totalGameSlide) {
+    document.querySelector("#nextGameButton").style.display = "none";
+    document.querySelector("#nextGameButtonDis").style.display = "block";
   }
 
   //Update screen

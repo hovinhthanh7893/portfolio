@@ -390,6 +390,25 @@ section {
   display: flex;
   justify-content: center;
 }
+.container {
+  width: 69vw;
+  margin: 0 20px 5px 20px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.wrapper {
+  display: flex;
+  transition: all 0.5s ease-out;
+}
+.project {
+  width: 40vw;
+  height: 47vh;
+  margin: 0 10px 0 10px;
+  background: black;
+}
 
 .leftright {
   position: absolute;
@@ -397,25 +416,73 @@ section {
   width: 50px;
   height: 50px;
   border: none;
-  background: url("./icons/icon-slide-up-100.png") no-repeat;
+  background: url("./icons/icon-slide-next-100.png") no-repeat;
   background-size: cover;
-  filter: invert(39%) sepia(57%) saturate(2362%) hue-rotate(297deg) brightness(101%) contrast(101%);
+  z-index: 10;
 }
 .leftright:nth-of-type(1) {
   left: 0;
-  rotate: -90deg;
+  rotate: 180deg;
   translate: -20px 0;
 }
 .leftright:nth-of-type(2) {
   right: 0;
-  rotate: 90deg;
   translate: 20px 0;
 }
 .leftright:hover {
   cursor: url("./icons/pointer-yellow.png"), pointer;
 }
 .leftright:active {
-  transform: scale(0.9);
+  scale: 0.9;
+}
+
+.leftrightDis {
+  display: none;
+  position: absolute;
+  top: 25vh;
+  width: 50px;
+  height: 50px;
+  border: none;
+  background: url("./icons/icon-slide-disable-100.png") no-repeat;
+  background-size: cover;
+  z-index: 10;
+}
+.leftrightDis:nth-of-type(1) {
+  left: 0;
+  rotate: 180deg;
+  translate: -20px 0;
+}
+.leftrightDis:nth-of-type(2) {
+  right: 0;
+  translate: 20px 0;
+}
+.leftrightDis:active {
+  scale: 0.9;
+}
+
+.dotIndex {
+  position: absolute;
+  bottom: 0;
+  height: fit-content;
+  width: fit-content;
+  background: black;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  translate: 0 5px;
+}
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #580041;
+  transition: all 0.4s ease-out;
+}
+.dot.is-at {
+  scale: 1.2;
+  background: #d537ab;
+  margin: 0 10px 0 10px;
 }
 
 .sec5Tit {
@@ -768,6 +835,9 @@ footer {
   }
   .secPortTit {
     margin-top: 15vh;
+  }
+  .project {
+    width: 64vw;
   }
   footer {
     gap: 20px;
