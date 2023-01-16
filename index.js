@@ -421,10 +421,15 @@ document
     event.preventDefault();
     const whoosh = new Audio("./audios/Whoosh.mp3");
     whoosh.play();
-    webSlidePos = webSlidePos - document.querySelector("#webWrapper").getBoundingClientRect().width / totalWebSlide;
-    currentWebSlide = currentWebSlide + 1;
-    document.querySelectorAll("#dotWeb")[currentWebSlide-2].classList.remove("is-at");
-    document.querySelectorAll("#dotWeb")[currentWebSlide-1].classList.add("is-at");
+    if (currentWebSlide === totalWebSlide) {
+      document.querySelectorAll("#dotWeb")[currentWebSlide-1].classList.remove("is-at");
+      webSlidePos = -(webSlidePos);
+      currentWebSlide = 1;
+    } else {
+      document.querySelectorAll("#dotWeb")[currentWebSlide-1].classList.remove("is-at");
+      webSlidePos = webSlidePos - document.querySelector("#webWrapper").getBoundingClientRect().width / totalWebSlide;
+      currentWebSlide = currentWebSlide + 1;
+    }
 });
 //Previous web
 document
@@ -433,10 +438,15 @@ document
     event.preventDefault();
     const whoosh = new Audio("./audios/Whoosh.mp3");
     whoosh.play();
-    webSlidePos = document.querySelector("#webWrapper").getBoundingClientRect().width / totalWebSlide + webSlidePos;
-    currentWebSlide = currentWebSlide - 1;
-    document.querySelectorAll("#dotWeb")[currentWebSlide].classList.remove("is-at");
-    document.querySelectorAll("#dotWeb")[currentWebSlide-1].classList.add("is-at");
+    if (currentWebSlide === 1) {
+      document.querySelectorAll("#dotWeb")[currentWebSlide-1].classList.remove("is-at");
+      webSlidePos = -(webSlidePos);
+      currentWebSlide = totalWebSlide;
+    } else {
+      document.querySelectorAll("#dotWeb")[currentWebSlide-1].classList.remove("is-at");
+      webSlidePos = document.querySelector("#webWrapper").getBoundingClientRect().width / totalWebSlide + webSlidePos;
+      currentWebSlide = currentWebSlide - 1;
+    }
 });
 
 //GAME SLIDE
@@ -450,10 +460,15 @@ document
     event.preventDefault();
     const whoosh = new Audio("./audios/Whoosh.mp3");
     whoosh.play();
-    gameSlidePos = gameSlidePos - document.querySelector("#gameWrapper").getBoundingClientRect().width / totalGameSlide;
-    currentGameSlide = currentGameSlide + 1;
-    document.querySelectorAll("#dotGame")[currentGameSlide-2].classList.remove("is-at");
-    document.querySelectorAll("#dotGame")[currentGameSlide-1].classList.add("is-at");
+    if (currentGameSlide === totalGameSlide) {
+      document.querySelectorAll("#dotGame")[currentGameSlide-1].classList.remove("is-at");
+      gameSlidePos = -(gameSlidePos);
+      currentGameSlide = 1;
+    } else {
+      document.querySelectorAll("#dotGame")[currentGameSlide-1].classList.remove("is-at");
+      gameSlidePos = gameSlidePos - document.querySelector("#gameWrapper").getBoundingClientRect().width / totalGameSlide;
+      currentGameSlide = currentGameSlide + 1;
+    }
 });
 //Previous game
 document
@@ -462,27 +477,14 @@ document
     event.preventDefault();
     const whoosh = new Audio("./audios/Whoosh.mp3");
     whoosh.play();
-    gameSlidePos = document.querySelector("#gameWrapper").getBoundingClientRect().width / totalGameSlide + gameSlidePos;
-    currentGameSlide = currentGameSlide - 1;
-    document.querySelectorAll("#dotGame")[currentGameSlide].classList.remove("is-at");
-    document.querySelectorAll("#dotGame")[currentGameSlide-1].classList.add("is-at");
-});
-
-//BUTTON PAGE UP
-document
-  .querySelector(".moveUp")
-  .addEventListener("click", function(event) {
-    if (staticSectionNumber === 2) {
-      this.getAttribute("href");
-      this.setAttribute("href", "#section1");
-    }
-    if (staticSectionNumber === 3) {
-      this.getAttribute("href");
-      this.setAttribute("href", "#section2");
-    }
-    if (staticSectionNumber === 4) {
-      this.getAttribute("href");
-      this.setAttribute("href", "#section3");
+    if (currentGameSlide === 1) {
+      document.querySelectorAll("#dotGame")[currentGameSlide-1].classList.remove("is-at");
+      gameSlidePos = -(gameSlidePos);
+      currentGameSlide = totalGameSlide;
+    } else {
+      document.querySelectorAll("#dotGame")[currentGameSlide-1].classList.remove("is-at");
+      gameSlidePos = document.querySelector("#gameWrapper").getBoundingClientRect().width / totalGameSlide + gameSlidePos;
+      currentGameSlide = currentGameSlide - 1;
     }
 });
 
@@ -491,7 +493,7 @@ document
   .querySelector(".backToTop")
   .addEventListener("click", function(event) {
     highLightNavLink(1);
-    changeFooter(2);
+    changeFooter(1);
     toggleStars(black);
     lightTopColor.setHex(yellow);
     lightBackColor.setHex(red);
@@ -549,30 +551,21 @@ function highLightNavLink(number) {
 }
 //change footer according to section
 function changeFooter(setting) {
-  if (setting === 0) {
+  if (setting === 5) {
     document.querySelector("footer").style.justifyContent = "space-between";
     document.querySelector(".backToTop").style.display = "block";
     document.querySelector(".copyright").style.display = "flex";
     document.querySelector(".moveUp").style.display = "none";
-  } else if (setting === 1) {
-    document.querySelector("footer").style.justifyContent = "flex-end";
-    document.querySelector(".backToTop").style.display = "none";
-    document.querySelector(".copyright").style.display = "none";
-    document.querySelector(".moveUp").style.display = "block";
   } else if (setting === 2) {
     document.querySelector("footer").style.justifyContent = "flex-end";
     document.querySelector(".backToTop").style.display = "none";
     document.querySelector(".copyright").style.display = "none";
-    document.querySelector(".moveUp").style.display = "none";
-  } else  {
+    document.querySelector(".moveUp").style.display = "block";
+  } else {
     document.querySelector("footer").style.justifyContent = "flex-end";
     document.querySelector(".backToTop").style.display = "none";
     document.querySelector(".copyright").style.display = "none";
-    if (window.innerWidth <= 768) {
-      document.querySelector(".moveUp").style.display = "block";
-    } else {
-      document.querySelector(".moveUp").style.display = "none";
-    }
+    document.querySelector(".moveUp").style.display = "none";
   }
 }
 //Change stars color
@@ -651,7 +644,7 @@ const animate = () => {
     const sectionNumber = 1;
     if (sectionNumber !== staticSectionNumber) {
       highLightNavLink(sectionNumber);
-      changeFooter(2);
+      changeFooter(sectionNumber);
       lightTopColor.setHex(yellow);
       lightBackColor.setHex(red);
       rectLightColor.setHex(purple);
@@ -662,7 +655,7 @@ const animate = () => {
     const sectionNumber = 2;
     if (sectionNumber !== staticSectionNumber) {
       highLightNavLink(sectionNumber);
-      changeFooter(1);
+      changeFooter(sectionNumber);
       toggleStars(black);
       lightTopColor.setHex(green);
       lightBackColor.setHex(yellow);
@@ -675,11 +668,7 @@ const animate = () => {
     const sectionNumber = 3;
     if (sectionNumber !== staticSectionNumber) {
       highLightNavLink(sectionNumber);
-      changeFooter(3);
-      webSlidePos = 0;
-      currentWebSlide = Math.ceil(totalWebSlide / 2);
-      document.querySelectorAll("#dotWeb").forEach((each) => each.classList.remove("is-at"))
-      document.querySelectorAll("#dotWeb")[currentWebSlide-1].classList.add("is-at");
+      changeFooter(sectionNumber);
       toggleStars(black);
       lightTopColor.setHex(cyan);
       lightBackColor.setHex(purple);
@@ -692,11 +681,7 @@ const animate = () => {
     const sectionNumber = 4;
     if (sectionNumber !== staticSectionNumber) {
       highLightNavLink(sectionNumber);
-      changeFooter(3);
-      gameSlidePos = 0;
-      currentGameSlide = Math.ceil(totalGameSlide / 2);
-      document.querySelectorAll("#dotGame").forEach((each) => each.classList.remove("is-at"))
-      document.querySelectorAll("#dotGame")[currentGameSlide-1].classList.add("is-at");
+      changeFooter(sectionNumber);
       toggleStars(black);
       lightTopColor.setHex(red);
       lightBackColor.setHex(purple);
@@ -709,7 +694,7 @@ const animate = () => {
     const sectionNumber = 5;
     if (sectionNumber !== staticSectionNumber) {
       highLightNavLink(sectionNumber);
-      changeFooter(0);
+      changeFooter(sectionNumber);
       toggleStars(0x545454);
       lightTopColor.setHex(black);
       lightBackColor.setHex(black);
@@ -721,37 +706,11 @@ const animate = () => {
 
   //Update web project slide
   document.querySelector("#webWrapper").style.translate = webSlidePos + "px";
-  
-  //Turn on/off next/prev button
-  if (currentWebSlide > 1 && currentWebSlide < totalWebSlide) {
-    document.querySelector("#prevWebButton").style.display = "block";
-    document.querySelector("#prevWebButtonDis").style.display = "none";
-    document.querySelector("#nextWebButton").style.display = "block";
-    document.querySelector("#nextWebButtonDis").style.display = "none";
-  } else if (currentWebSlide === 1) {
-    document.querySelector("#prevWebButton").style.display = "none";
-    document.querySelector("#prevWebButtonDis").style.display = "block";
-  } else if (currentWebSlide === totalWebSlide) {
-    document.querySelector("#nextWebButton").style.display = "none";
-    document.querySelector("#nextWebButtonDis").style.display = "block";
-  }
+  document.querySelectorAll("#dotWeb")[currentWebSlide-1].classList.add("is-at");
 
   //Update game project slide
   document.querySelector("#gameWrapper").style.translate = gameSlidePos + "px";
-
-  //Turn on/off next/prev button
-  if (currentGameSlide > 1 && currentGameSlide < totalGameSlide) {
-    document.querySelector("#prevGameButton").style.display = "block";
-    document.querySelector("#prevGameButtonDis").style.display = "none";
-    document.querySelector("#nextGameButton").style.display = "block";
-    document.querySelector("#nextGameButtonDis").style.display = "none";
-  } else if (currentGameSlide === 1) {
-    document.querySelector("#prevGameButton").style.display = "none";
-    document.querySelector("#prevGameButtonDis").style.display = "block";
-  } else if (currentGameSlide === totalGameSlide) {
-    document.querySelector("#nextGameButton").style.display = "none";
-    document.querySelector("#nextGameButtonDis").style.display = "block";
-  }
+  document.querySelectorAll("#dotGame")[currentGameSlide-1].classList.add("is-at");
 
   //Update screen
   camera.position.lerp(updateCamPos, 0.1);
@@ -770,4 +729,7 @@ generateEarth();
 Array(60).fill().forEach(generateCloud);
 Array(80).fill().forEach(generateStar);
 generateAirPlane();
+if (navigator.userAgentData.mobile === false) {
+  console.log("generate game");
+}
 animate();

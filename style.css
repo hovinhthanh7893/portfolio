@@ -380,6 +380,7 @@ section {
   margin-top: 20vh;
   text-shadow: 0 0 30px white;
 }
+
 .secPortFrame {
   height: 50vh;
   margin: 2vh 0 3vh 0;
@@ -391,20 +392,18 @@ section {
   justify-content: center;
 }
 .container {
-  width: 69vw;
   margin: 0 20px 5px 20px;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
 }
 .wrapper {
   display: flex;
   transition: all 0.5s ease-out;
 }
 .project {
-  width: 40vw;
+  width: 50vw;
   height: 47vh;
   margin: 0 10px 0 10px;
   background: black;
@@ -433,30 +432,6 @@ section {
   cursor: url("./icons/pointer-yellow.png"), pointer;
 }
 .leftright:active {
-  scale: 0.9;
-}
-
-.leftrightDis {
-  display: none;
-  position: absolute;
-  top: 25vh;
-  width: 50px;
-  height: 50px;
-  border: none;
-  background: url("./icons/icon-slide-disable-100.png") no-repeat;
-  background-size: cover;
-  z-index: 10;
-}
-.leftrightDis:nth-of-type(1) {
-  left: 0;
-  rotate: 180deg;
-  translate: -20px 0;
-}
-.leftrightDis:nth-of-type(2) {
-  right: 0;
-  translate: 20px 0;
-}
-.leftrightDis:active {
   scale: 0.9;
 }
 
@@ -822,8 +797,10 @@ footer {
 }
 
 
-
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 480px) {
+  nav {
+    padding: 30px 10vw 50px 10vw;
+  }
   .logo::after {
     top: 60px;
   }
@@ -832,41 +809,6 @@ footer {
   }
   .navSmall {
     display: flex;
-  }
-  .secPortTit {
-    margin-top: 15vh;
-  }
-  .project {
-    width: 64vw;
-  }
-  footer {
-    gap: 20px;
-  }
-  .endPage {
-    gap: 20px;
-  }
-  .sound {
-    width: 30px;
-    height: 30px;
-  }
-  .backToTop {
-    width: 27px;
-    height: 27px;
-    margin-top: 2px;
-  }
-  .moveUp {
-    width: 27px;
-    height: 27px;
-    margin-top: 2px;
-  }
-  .copyright {
-    font-size: 16px;
-  }
-}
-
-@media only screen and (max-width: 480px) {
-  nav {
-    padding: 30px 10vw 50px 10vw;
   }
   .subMenu {
     padding: 75px 10vw 100px 80vw;
@@ -880,6 +822,16 @@ footer {
   .secPortFrame {
     margin: 0 0 2vh 0;
   }
+  .container {
+    margin: 0 10px 5px 10px;
+  }
+  .project {
+    width: 73vw;
+  }
+  .leftright {
+    width: 40px;
+    height: 40px;
+  }
   .sec5Tit {
     font-size: 30px;
     margin-top: 15vh;
@@ -890,5 +842,26 @@ footer {
   }
   footer {
     padding: 3vh 10vw 0 10vw;
+    gap: 20px;
+  }
+  .endPage {
+    gap: 20px;
+  }
+  .sound {
+    width: 30px;
+    height: 30px;
+  }
+  .moveUp {
+    width: 27px;
+    height: 27px;
+    margin-top: 2px;
+  }
+  .backToTop {
+    width: 27px;
+    height: 27px;
+    margin-top: 2px;
+  }
+  .copyright {
+    font-size: 16px;
   }
 }
