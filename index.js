@@ -336,6 +336,10 @@ function onWindowResize() {
   camera.aspect = sizes.width / sizes.height;
   camera.updateProjectionMatrix();
   //Update project screen
+  document.querySelectorAll("#webProject")[currentWebSlide-1].classList.remove("is-in");
+  document.querySelectorAll("#dotWeb")[currentWebSlide-1].classList.remove("is-at");
+  document.querySelectorAll("#gameProject")[currentGameSlide-1].classList.remove("is-in");
+  document.querySelectorAll("#dotGame")[currentGameSlide-1].classList.remove("is-at");
   webSlidePos = 0;
   currentWebSlide = Math.ceil(totalWebSlide / 2);
   gameSlidePos = 0;
@@ -346,7 +350,6 @@ window.addEventListener("resize", onWindowResize, false);
 //MOUSE EVENT
 const mouse = new THREE.Vector2();
 function onMouseMove(event) {
-  event.preventDefault();
   mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
   mouse.y = (event.clientY / window.innerHeight) * 2 + 1;
   //Update airplane
@@ -358,7 +361,6 @@ window.addEventListener("mousemove", onMouseMove, false);
 
 //TOUCH EVENT FOR MOBILE
 function onTouchMove(event) {
-  event.preventDefault();
   mouse.x = (event.changedTouches[0].clientX / window.innerWidth) * 2 - 1;
   mouse.y = (event.changedTouches[0].clientY / window.innerHeight) * 2 + 1;
   //Update airplane
@@ -389,7 +391,6 @@ document.querySelectorAll("section").forEach((section) => {
 document
   .querySelector(".hamburger")
   .addEventListener("click", function(event) {
-    event.preventDefault();
     if (this.classList.contains("is-active")) {
       this.classList.remove("is-active");
       document.querySelector(".subMenu").style.display = "none";
@@ -418,15 +419,14 @@ let currentWebSlide = Math.ceil(totalWebSlide / 2);
 document
   .querySelector("#nextWebButton")
   .addEventListener("click", function(event) {
-    event.preventDefault();
     const whoosh = new Audio("./audios/Whoosh.mp3");
     whoosh.play();
+    document.querySelectorAll("#webProject")[currentWebSlide-1].classList.remove("is-in");
+    document.querySelectorAll("#dotWeb")[currentWebSlide-1].classList.remove("is-at");
     if (currentWebSlide === totalWebSlide) {
-      document.querySelectorAll("#dotWeb")[currentWebSlide-1].classList.remove("is-at");
       webSlidePos = -(webSlidePos);
       currentWebSlide = 1;
     } else {
-      document.querySelectorAll("#dotWeb")[currentWebSlide-1].classList.remove("is-at");
       webSlidePos = webSlidePos - document.querySelector("#webWrapper").getBoundingClientRect().width / totalWebSlide;
       currentWebSlide = currentWebSlide + 1;
     }
@@ -435,15 +435,14 @@ document
 document
   .querySelector("#prevWebButton")
   .addEventListener("click", function(event) {
-    event.preventDefault();
     const whoosh = new Audio("./audios/Whoosh.mp3");
     whoosh.play();
+    document.querySelectorAll("#webProject")[currentWebSlide-1].classList.remove("is-in");
+    document.querySelectorAll("#dotWeb")[currentWebSlide-1].classList.remove("is-at");
     if (currentWebSlide === 1) {
-      document.querySelectorAll("#dotWeb")[currentWebSlide-1].classList.remove("is-at");
       webSlidePos = -(webSlidePos);
       currentWebSlide = totalWebSlide;
     } else {
-      document.querySelectorAll("#dotWeb")[currentWebSlide-1].classList.remove("is-at");
       webSlidePos = document.querySelector("#webWrapper").getBoundingClientRect().width / totalWebSlide + webSlidePos;
       currentWebSlide = currentWebSlide - 1;
     }
@@ -457,15 +456,14 @@ let currentGameSlide = Math.ceil(totalGameSlide / 2);
 document
   .querySelector("#nextGameButton")
   .addEventListener("click", function(event) {
-    event.preventDefault();
     const whoosh = new Audio("./audios/Whoosh.mp3");
     whoosh.play();
+    document.querySelectorAll("#gameProject")[currentGameSlide-1].classList.remove("is-in");
+    document.querySelectorAll("#dotGame")[currentGameSlide-1].classList.remove("is-at");
     if (currentGameSlide === totalGameSlide) {
-      document.querySelectorAll("#dotGame")[currentGameSlide-1].classList.remove("is-at");
       gameSlidePos = -(gameSlidePos);
       currentGameSlide = 1;
     } else {
-      document.querySelectorAll("#dotGame")[currentGameSlide-1].classList.remove("is-at");
       gameSlidePos = gameSlidePos - document.querySelector("#gameWrapper").getBoundingClientRect().width / totalGameSlide;
       currentGameSlide = currentGameSlide + 1;
     }
@@ -474,15 +472,14 @@ document
 document
   .querySelector("#prevGameButton")
   .addEventListener("click", function(event) {
-    event.preventDefault();
     const whoosh = new Audio("./audios/Whoosh.mp3");
     whoosh.play();
+    document.querySelectorAll("#gameProject")[currentGameSlide-1].classList.remove("is-in");
+    document.querySelectorAll("#dotGame")[currentGameSlide-1].classList.remove("is-at");
     if (currentGameSlide === 1) {
-      document.querySelectorAll("#dotGame")[currentGameSlide-1].classList.remove("is-at");
       gameSlidePos = -(gameSlidePos);
       currentGameSlide = totalGameSlide;
     } else {
-      document.querySelectorAll("#dotGame")[currentGameSlide-1].classList.remove("is-at");
       gameSlidePos = document.querySelector("#gameWrapper").getBoundingClientRect().width / totalGameSlide + gameSlidePos;
       currentGameSlide = currentGameSlide - 1;
     }
@@ -507,7 +504,6 @@ let soundOn = false;
 document
   .querySelector(".sound")
   .addEventListener("click", function(event) {
-    event.preventDefault();
     if (soundOn === true) {
       this.style.opacity = 1;
       backgroundSound.pause();
@@ -707,10 +703,12 @@ const animate = () => {
   //Update web project slide
   document.querySelector("#webWrapper").style.translate = webSlidePos + "px";
   document.querySelectorAll("#dotWeb")[currentWebSlide-1].classList.add("is-at");
+  document.querySelectorAll("#webProject")[currentWebSlide-1].classList.add("is-in");
 
   //Update game project slide
   document.querySelector("#gameWrapper").style.translate = gameSlidePos + "px";
   document.querySelectorAll("#dotGame")[currentGameSlide-1].classList.add("is-at");
+  document.querySelectorAll("#gameProject")[currentGameSlide-1].classList.add("is-in");
 
   //Update screen
   camera.position.lerp(updateCamPos, 0.1);

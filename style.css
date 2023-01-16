@@ -380,33 +380,46 @@ section {
   margin-top: 20vh;
   text-shadow: 0 0 30px white;
 }
+.secPortDes {
+  width: fit-content;
+  flex-wrap: wrap;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 30px;
+  margin: 13px 0 13px 0;
+  text-shadow: 0 0 20px black, 0 0 40px black;
+  background-image: linear-gradient(60deg, #b721ff, #26ff9d, #ffec19, #ff417a);
+  background-size: 200%;
+  background-position: 0;
+  animation: moveGradient 6s alternate infinite;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
 
 .secPortFrame {
-  height: 50vh;
+  height: 52vh;
   margin: 2vh 0 3vh 0;
-  background-color: rgba(0, 0, 0, 0.6);
-  border: rgba(88, 0, 44, 0.726) solid 0.8px;
-  box-shadow: 1px 0 10px 0 rgba(50, 0, 70, 0.349);
-  border-radius: 10px;
   display: flex;
   justify-content: center;
-}
-.container {
-  margin: 0 20px 5px 20px;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 .wrapper {
   display: flex;
   transition: all 0.5s ease-out;
 }
 .project {
-  width: 50vw;
-  height: 47vh;
+  width: 60vw;
+  height: 50vh;
   margin: 0 10px 0 10px;
+  border-radius: 10px;
+  border: rgba(88, 0, 44, 0.726) solid 0.8px;
+  box-shadow: 0px 0 10px 0 rgba(74, 0, 103, 0.741);
   background: black;
+  opacity: 0.2;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+}
+.project.is-in {
+  opacity: 1;
 }
 
 .leftright {
@@ -418,6 +431,8 @@ section {
   background: url("./icons/icon-slide-next-100.png") no-repeat;
   background-size: cover;
   z-index: 10;
+  animation: sound 4s ease-in-out infinite;
+  opacity: 0.4;
 }
 .leftright:nth-of-type(1) {
   left: 0;
@@ -452,7 +467,7 @@ section {
   height: 10px;
   border-radius: 50%;
   background: #580041;
-  transition: all 0.4s ease-out;
+  transition: all 0.4s ease-in-out;
 }
 .dot.is-at {
   scale: 1.2;
@@ -662,7 +677,7 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 24px;
+  max-width: 30px;
   margin-bottom: 10vh;
   scale: 0.6;
 }
@@ -675,6 +690,7 @@ section {
   animation: next 2s infinite;
   rotate: -45deg;
   opacity: 0;
+  border: red solid 1px;
 }
 .next::after {
   content: "";
@@ -817,13 +833,15 @@ footer {
     margin: 0 10vw 0 10vw;
   }
   .secPortTit{
-    margin-top: 24vh;
+    margin-top: 19vh;
+    font-size: 25px;
+    line-height: 25px;
+  }
+  .secPortDes {
+    font-size: 24px;
   }
   .secPortFrame {
-    margin: 0 0 2vh 0;
-  }
-  .container {
-    margin: 0 10px 5px 10px;
+    margin: 1vh 0 2vh 0;
   }
   .project {
     width: 73vw;
@@ -831,6 +849,13 @@ footer {
   .leftright {
     width: 40px;
     height: 40px;
+    top: 30vh;
+  }
+  .leftright:nth-of-type(1) {
+    translate: -15px 0;
+  }
+  .leftright:nth-of-type(2) {
+    translate: 15px 0;
   }
   .sec5Tit {
     font-size: 30px;
