@@ -653,6 +653,7 @@ const animate = () => {
       lightTopColor.setHex(yellow);
       lightBackColor.setHex(red);
       rectLightColor.setHex(purple);
+      updateCamPos.set(-0.3, 0, 5);
       staticSectionNumber = sectionNumber;
     }
   }
@@ -666,7 +667,7 @@ const animate = () => {
       lightTopColor.setHex(green);
       lightBackColor.setHex(yellow);
       rectLightColor.setHex(purple);
-      updateCamPos.set(-0.3, 0, 5);
+      updateCamPos.set(-0.55, 0, 5);
       staticSectionNumber = sectionNumber;
     }
   }
@@ -680,7 +681,7 @@ const animate = () => {
       lightTopColor.setHex(cyan);
       lightBackColor.setHex(purple);
       rectLightColor.setHex(blue);
-      updateCamPos.set(-0.3, 0, 5);
+      updateCamPos.set(-0.1, 0, 5);
       staticSectionNumber = sectionNumber;
     }
   }
@@ -694,7 +695,7 @@ const animate = () => {
       lightTopColor.setHex(red);
       lightBackColor.setHex(purple);
       rectLightColor.setHex(blue);
-      updateCamPos.set(-0.3, 0, 5);
+      updateCamPos.set(-0.1, 0, 5);
       staticSectionNumber = sectionNumber;
     }
   }
@@ -732,10 +733,10 @@ const animate = () => {
   document.querySelectorAll("#gameProject")[currentGameSlide-1].classList.add("is-in");
 
   //Update screen
-  camera.position.lerp(updateCamPos, 0.1);
-  lightTop.color.lerp(lightTopColor, 0.1);
-  lightBack.color.lerp(lightBackColor, 0.1);
-  rectLight.color.lerp(rectLightColor, 0.1);
+  camera.position.lerp(updateCamPos, 0.05);
+  lightTop.color.lerp(lightTopColor, 0.05);
+  lightBack.color.lerp(lightBackColor, 0.05);
+  rectLight.color.lerp(rectLightColor, 0.05);
 
   renderer.render(scene, camera);
   requestAnimationFrame(animate);
@@ -748,7 +749,4 @@ generateEarth();
 Array(60).fill().forEach(generateCloud);
 Array(80).fill().forEach(generateStar);
 generateAirPlane();
-// if (navigator.userAgentData.mobile === false) {
-//   console.log("generate game");
-// }
 animate();
