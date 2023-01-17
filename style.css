@@ -317,24 +317,24 @@ section {
   text-align: center;
 }
 
-#content1 {
+#content1, #content2, #content3, #content4 {
   opacity: 0;
   translate: 0 80px;
+}
+#content1 {
   transition: opacity 1s 0.1s, translate 1s cubic-bezier(0.13, 0.07, 0.26, 0.99);
 }
 #content2 {
-  opacity: 0;
-  translate: 0 80px;
   transition: opacity 1s 0.3s, translate 1s cubic-bezier(0.13, 0.07, 0.26, 0.99) 0.2s;
 }
 #content3 {
-  opacity: 0;
-  translate: 0 80px;
   transition: opacity 1s 0.5s, translate 1s cubic-bezier(0.13, 0.07, 0.26, 0.99) 0.4s;
 }
-.is-visible #content1,
-.is-visible #content2,
-.is-visible #content3 {
+#content4 {
+  transition: opacity 1s 0.7s, translate 1s cubic-bezier(0.13, 0.07, 0.26, 0.99) 0.6s;
+}
+.is-visible #content1, .is-visible #content2,
+.is-visible #content3, .is-visible #content4 {
   opacity: 1;
   translate: 0 0;
 }
@@ -371,6 +371,129 @@ section {
   50% {
     background-position: 100%;
   }
+}
+
+.sec2Part {
+  width: 30vw;
+  min-height: 50px;
+  margin: 15px 0 15px 0;
+  padding: 20px 50px 20px 50px;
+  border-radius: 10px;
+  border: rgba(70, 55, 23, 0.726) solid 0.8px;
+  box-shadow: 0px 0 20px 0 rgba(0, 68, 33, 0.741);
+  background: rgba(3, 0, 27, 0.625);
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 19px;
+  line-height: 23px;
+  color: beige;
+  display: flex;
+  align-items: center;
+}
+.sec2Part:nth-of-type(1),
+.sec2Part:nth-of-type(3) {
+  transform: skew(20deg);
+}
+.sec2Part:nth-of-type(2) {
+  transform: skew(-20deg);
+  margin-left: 10vw;
+}
+
+.sec2Content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+#part1, #part3 {
+  transform: skew(-20deg);
+}
+#part2 {
+  transform: skew(20deg);
+}
+
+.skill {
+  margin: 5px 0 5px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.softwareDes {
+  width: 40px;
+  height: 40px;
+}
+.softwareDes:nth-of-type(1) {
+  background: url("./icons/Adobe-Photoshop.png") no-repeat;
+  background-size: cover;
+}
+.softwareDes:nth-of-type(2) {
+  background: url("./icons/Adobe-Illustrator.png") no-repeat;
+  background-size: cover;
+}
+.softwareDes:nth-of-type(3) {
+  background: url("./icons/Adobe-Premiere-Pro.png") no-repeat;
+  background-size: cover;
+}
+.softwareDes:nth-of-type(4) {
+  background: url("./icons/Adobe-After-Effects.png") no-repeat;
+  background-size: cover;
+}
+.softwareDes:nth-of-type(5) {
+  background: url("./icons/Maya.png") no-repeat;
+  background-size: cover;
+}
+.softwareDes:nth-of-type(6) {
+  background: url("./icons/Zbrush.png") no-repeat;
+  background-size: cover;
+}
+.softwareDes:nth-of-type(7) {
+  background: url("./icons/Substance-Painter.png") no-repeat;
+  background-size: cover;
+}
+.softwareDes:nth-of-type(8) {
+  background: url("./icons/Unity.png") no-repeat;
+  background-size: cover;
+}
+
+.softwarePro {
+  width: 40px;
+  height: 40px;
+}
+.softwarePro:nth-of-type(1) {
+  background: url("./icons/C-Sharp.png") no-repeat;
+  background-size: cover;
+}
+.softwarePro:nth-of-type(2) {
+  background: url("./icons/HTML.png") no-repeat;
+  background-size: cover;
+}
+.softwarePro:nth-of-type(3) {
+  background: url("./icons/CSS.png") no-repeat;
+  background-size: cover;
+}
+.softwarePro:nth-of-type(4) {
+  background: url("./icons/JavaScript.png") no-repeat;
+  background-size: cover;
+}
+.softwarePro:nth-of-type(5) {
+  background: url("./icons/React.png") no-repeat;
+  background-size: cover;
+}
+.softwarePro:nth-of-type(6) {
+  background: url("./icons/Redux.png") no-repeat;
+  background-size: cover;
+}
+.softwarePro:nth-of-type(7) {
+  background: url("./icons/PostgreSQL.png") no-repeat;
+  background-size: cover;
+}
+.softwarePro:nth-of-type(8) {
+  background: url("./icons/Sequelize.png") no-repeat;
+  background-size: cover;
+}
+.softwarePro:nth-of-type(9) {
+  background: url("./icons/Threejs.png") no-repeat;
+  background-size: cover;
 }
 
 .secPortTit {
@@ -678,7 +801,6 @@ section {
   flex-direction: column;
   align-items: center;
   max-width: 30px;
-  margin-bottom: 10vh;
   scale: 0.6;
 }
 .next {
@@ -831,6 +953,52 @@ footer {
   }
   section {
     margin: 0 10vw 0 10vw;
+  }
+  #section2 {
+    justify-content: flex-start;
+  }
+  .sec2Part {
+    width: 80vw;
+    margin: 10px 0 10px 0;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  .sec2Part:nth-of-type(1) {
+    font-size: 16px;
+    line-height: 20px;
+    transform: skew(0deg);
+    margin-top: 18vh;
+  }
+  .sec2Part:nth-of-type(2) {
+    font-size: 15px;
+    transform: skew(0deg);
+    margin-left: 0;
+  }
+  .sec2Part:nth-of-type(3) {
+    font-size: 14.5px;
+    transform: skew(0deg);
+  }
+  .sec2Content {
+    align-items: center;
+  }
+  #part1, #part3 {
+    transform: skew(0deg);
+  }
+  #part2 {
+    transform: skew(0deg);
+  }
+  .skill {
+    margin: 5px 5vw 3px 5vw;
+    justify-content: center;
+  }
+  .softwareDes {
+    width: 30px;
+    height: 30px;
+  }
+  .softwarePro {
+    width: 30px;
+    height: 30px;
   }
   .secPortTit{
     margin-top: 19vh;
