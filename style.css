@@ -572,7 +572,7 @@ section {
   transition: all 0.5s ease-out;
 }
 .project {
-  width: 60vw;
+  width: 30vw;
   height: 50vh;
   margin: 0 10px 0 10px;
   border-radius: 10px;
@@ -977,7 +977,14 @@ footer {
   translate: 0 -10px;
 }
 
-
+@media only screen and (max-width: 820px) {
+  .sec2Part {
+    width: 40vw;
+  }
+  .project {
+    width: 65vw;
+  }
+}
 @media only screen and (max-width: 480px) {
   nav {
     padding: 30px 10vw 50px 10vw;
