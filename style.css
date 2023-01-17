@@ -229,6 +229,12 @@ nav {
   width: 57px;
 }
 
+#navLink5.is-on::before,
+#navLink6.is-on::before,
+#navLink7.is-on::before,
+#navLink8.is-on::before {
+  opacity: 1;
+}
 
 .navSmall {
   display: none;
@@ -240,7 +246,6 @@ nav {
 .line {
   width: 25px;
   height: 2px;
-  background-color: beige;
   display: block;
   margin: 6px auto;
   transition: all 0.3s ease-in-out;
@@ -250,17 +255,18 @@ nav {
 }
 .hamburger.is-active .line:nth-child(1) {
   width: 20px;
-  background-color: goldenrod;
-  translate: -6px 8px;
+  translate: -7px 12px;
   rotate: 45deg;
 }
 .hamburger.is-active .line:nth-child(2) {
   opacity: 0;
 }
 .hamburger.is-active .line:nth-child(3) {
+  opacity: 0;
+}
+.hamburger.is-active .line:nth-child(4) {
   width: 20px;
-  background-color: goldenrod;
-  translate: 6px -8px;
+  translate: 6px -12px;
   rotate: -45deg;
 }
 
@@ -464,34 +470,46 @@ section {
   background-size: cover;
 }
 .softwarePro:nth-of-type(2) {
-  background: url("./icons/HTML.png") no-repeat;
+  background: url("./icons/Visual-Studio.png") no-repeat;
   background-size: cover;
 }
 .softwarePro:nth-of-type(3) {
-  background: url("./icons/CSS.png") no-repeat;
+  background: url("./icons/HTML.png") no-repeat;
   background-size: cover;
 }
 .softwarePro:nth-of-type(4) {
-  background: url("./icons/JavaScript.png") no-repeat;
+  background: url("./icons/CSS.png") no-repeat;
   background-size: cover;
 }
 .softwarePro:nth-of-type(5) {
-  background: url("./icons/React.png") no-repeat;
+  background: url("./icons/JavaScript.png") no-repeat;
   background-size: cover;
 }
 .softwarePro:nth-of-type(6) {
-  background: url("./icons/Redux.png") no-repeat;
+  background: url("./icons/Visual-Studio-Code.png") no-repeat;
   background-size: cover;
 }
 .softwarePro:nth-of-type(7) {
-  background: url("./icons/PostgreSQL.png") no-repeat;
+  background: url("./icons/React.png") no-repeat;
   background-size: cover;
 }
 .softwarePro:nth-of-type(8) {
-  background: url("./icons/Sequelize.png") no-repeat;
+  background: url("./icons/Redux.png") no-repeat;
   background-size: cover;
 }
 .softwarePro:nth-of-type(9) {
+  background: url("./icons/PostgreSQL.png") no-repeat;
+  background-size: cover;
+}
+.softwarePro:nth-of-type(10) {
+  background: url("./icons/Sequelize.png") no-repeat;
+  background-size: cover;
+}
+.softwarePro:nth-of-type(11) {
+  background: url("./icons/Axios.png") no-repeat;
+  background-size: cover;
+}
+.softwarePro:nth-of-type(12) {
   background: url("./icons/Threejs.png") no-repeat;
   background-size: cover;
 }
@@ -949,7 +967,7 @@ footer {
     display: flex;
   }
   .subMenu {
-    padding: 75px 10vw 100px 80vw;
+    padding: 75px 10vw 120px 80vw;
   }
   section {
     margin: 0 10vw 0 10vw;

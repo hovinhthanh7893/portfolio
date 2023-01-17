@@ -99,15 +99,8 @@ function spaceRandom(num = 1) {
 const cubesGroup = new THREE.Object3D();
 scene.add(cubesGroup);
 function generateCube() {
-  //Throw random shape
-  const oneOrZero = Math.round(Math.random());
-  let geometry;
-  if (oneOrZero === 0) {
-    geometry = new THREE.IcosahedronGeometry(1);
-  } else {
-    geometry = new THREE.DodecahedronGeometry(1);
-  }
   //Init object
+  const geometry = new THREE.IcosahedronGeometry(1);
   const material = new THREE.MeshStandardMaterial({
     color: 0x111111,
     roughness: 0.4,
@@ -388,6 +381,7 @@ document.querySelectorAll("section").forEach((section) => {
 });
 
 //EXPAND NAVBAR HAMBURGER
+const hamburgerLine = document.querySelectorAll(".line");
 document
   .querySelector(".hamburger")
   .addEventListener("click", function(event) {
@@ -537,12 +531,26 @@ function highLightNavLink(number) {
     each.style.fontStyle = "normal";
     each.classList.remove("is-on");
   });
+  hamburgerLine.forEach((each) => {
+    each.style.backgroundColor = "beige";
+  });
   if (number > 1) {
     navLinks[number - 2].style.color = "goldenrod";
     navLinks[number - 2].style.fontStyle = "italic";
     navLinks[number - 2].classList.add("is-on");
     navLinks[number + 2].style.color = "goldenrod";
     navLinks[number + 2].style.fontStyle = "italic";
+    navLinks[number + 2].classList.add("is-on");
+    hamburgerLine[number-2].style.backgroundColor = "goldenrod";
+  }
+}
+//highlight hamburger line
+function highLightHamburger(number) {
+  hamburgerLine.forEach((each) => {
+    each.style.backgroundColor = "beige";
+  });
+  if (number > 1) {
+    hamburgerLine[number-2].style.backgroundColor = "goldenrod";
   }
 }
 //change footer according to section
@@ -588,8 +596,8 @@ const animate = () => {
   
   //Cubes rotate & fly around
   cubesGroup.children.forEach((each) => {
-    each.rotation.x += 0.001;
-    each.rotation.y += 0.002;
+    each.rotation.x += 0.008;
+    each.rotation.y += 0.005;
     each.rotation.z += 0.003;
     each.position.x = Math.sin(time * each.positionZ) * each.positionY;
     each.position.y = Math.cos(time * each.positionX) * each.positionZ;
@@ -640,6 +648,7 @@ const animate = () => {
     const sectionNumber = 1;
     if (sectionNumber !== staticSectionNumber) {
       highLightNavLink(sectionNumber);
+      highLightHamburger(sectionNumber);
       changeFooter(sectionNumber);
       lightTopColor.setHex(yellow);
       lightBackColor.setHex(red);
@@ -651,6 +660,7 @@ const animate = () => {
     const sectionNumber = 2;
     if (sectionNumber !== staticSectionNumber) {
       highLightNavLink(sectionNumber);
+      highLightHamburger(sectionNumber);
       changeFooter(sectionNumber);
       toggleStars(black);
       lightTopColor.setHex(green);
@@ -664,6 +674,7 @@ const animate = () => {
     const sectionNumber = 3;
     if (sectionNumber !== staticSectionNumber) {
       highLightNavLink(sectionNumber);
+      highLightHamburger(sectionNumber);
       changeFooter(sectionNumber);
       toggleStars(black);
       lightTopColor.setHex(cyan);
@@ -677,6 +688,7 @@ const animate = () => {
     const sectionNumber = 4;
     if (sectionNumber !== staticSectionNumber) {
       highLightNavLink(sectionNumber);
+      highLightHamburger(sectionNumber);
       changeFooter(sectionNumber);
       toggleStars(black);
       lightTopColor.setHex(red);
@@ -690,6 +702,7 @@ const animate = () => {
     const sectionNumber = 5;
     if (sectionNumber !== staticSectionNumber) {
       highLightNavLink(sectionNumber);
+      highLightHamburger(sectionNumber);
       changeFooter(sectionNumber);
       toggleStars(0x545454);
       lightTopColor.setHex(black);
@@ -698,6 +711,14 @@ const animate = () => {
       updateCamPos.set(0, -4.5, 10);
       staticSectionNumber = sectionNumber;
     }
+  }
+
+  //Update hamburger arrow
+  if (document.querySelector(".subMenu").style.display === "flex") {
+    hamburgerLine[0].style.backgroundColor = "goldenrod";
+    hamburgerLine[3].style.backgroundColor = "goldenrod";
+  } else {
+    highLightHamburger(staticSectionNumber);
   }
 
   //Update web project slide
@@ -727,7 +748,7 @@ generateEarth();
 Array(60).fill().forEach(generateCloud);
 Array(80).fill().forEach(generateStar);
 generateAirPlane();
-if (navigator.userAgentData.mobile === false) {
-  console.log("generate game");
-}
+// if (navigator.userAgentData.mobile === false) {
+//   console.log("generate game");
+// }
 animate();
