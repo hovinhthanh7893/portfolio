@@ -7,16 +7,15 @@ const sizes = {
   height: window.innerHeight,
 };
 const white = 0xffffff;
+const black = 0x000000;
 const yellow = 0xffc800;
 const red = 0xff0000;
 const purple = 0xa200ff;
 const green = 0x03fc2c;
 const blue = 0x031cfc;
 const cyan = 0x03d3fc;
-const black = 0x000000;
 const pink = 0xff7dcd;
 const lightYellow = 0xffe97d;
-const violet = 0x6a00ff;
 
 //SCENE
 const scene = new THREE.Scene();
@@ -224,7 +223,7 @@ function generateAirPlane() {
     fog: false,
   });
   const matPurple = new THREE.MeshStandardMaterial({
-    color: violet,
+    color: 0x6a00ff,
     emissive: 0x1c0f45,
     roughness: 0.5,
     metalness: 1,
