@@ -597,6 +597,8 @@ section {
 .projectTitle {
   height: 8vh;
   font-size: 20px;
+  font-weight: bold;
+  text-shadow: 0 0 10px white, 0 0 30px white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -605,10 +607,13 @@ section {
 
 .projectImage {
   display: flex;
+  overflow: auto;
+  scroll-snap-type: x mandatory;
   transition: all 0.5s ease-in-out;
 }
 
 img {
+  scroll-snap-align: center;
   max-width: 100%;
   min-width: 100%;
   height: auto;
@@ -629,7 +634,7 @@ img {
   width: 170px;
   height: 40px;
   background: black;
-  border: rgba(116, 72, 21, 0.726) solid 1px;
+  border: rgba(116, 72, 21, 0.726) solid 2px;
   box-shadow: 0px 0 10px 0 rgba(74, 0, 103, 0.741);
   border-radius: 10px;
   display: flex;
