@@ -327,7 +327,7 @@ function onWindowResize() {
   renderer.setSize(sizes.width, sizes.height);
   camera.aspect = sizes.width / sizes.height;
   camera.updateProjectionMatrix();
-  //Update project screen
+  //Update project on screen
   document.querySelectorAll("#webProject")[currentWebSlide-1].classList.remove("is-in");
   document.querySelectorAll("#dotWeb")[currentWebSlide-1].classList.remove("is-at");
   document.querySelectorAll("#gameProject")[currentGameSlide-1].classList.remove("is-in");
@@ -336,8 +336,12 @@ function onWindowResize() {
   currentWebSlide = Math.ceil(totalWebSlide / 2);
   gameSlidePos = 0;
   currentGameSlide = Math.ceil(totalGameSlide / 2);
+  //Update project size
+  projectResize();
 }
 window.addEventListener("resize", onWindowResize, false);
+
+
 
 //MOUSE EVENT
 const mouse = new THREE.Vector2();
@@ -577,6 +581,28 @@ function toggleStars(color) {
     each.material.color.setHex(color);
   })
 }
+//Update project size according to orientation
+function projectResize() {
+    if (window.innerWidth > 820) {
+      if ((window.innerHeight / window.innerWidth) >= 0.9) {
+        document.querySelectorAll(".project").forEach((each) => {
+          each.style.width = "65vw";
+        })
+        document.querySelector("#prevWebButton").style.transform = "translateX(0)";
+        document.querySelector("#nextWebButton").style.transform = "translateX(0)";
+        document.querySelector("#prevGameButton").style.transform = "translateX(0)";
+        document.querySelector("#nextGameButton").style.transform = "translateX(0)";
+      } else {
+        document.querySelectorAll(".project").forEach((each) => {
+          each.style.width = "30vw";
+        })
+        document.querySelector("#prevWebButton").style.transform = "translateX(calc(20vw - 30px))";
+        document.querySelector("#nextWebButton").style.transform = "translateX(calc(-20vw + 30px))";
+        document.querySelector("#prevGameButton").style.transform = "translateX(calc(20vw - 30px))";
+        document.querySelector("#nextGameButton").style.transform = "translateX(calc(-20vw + 30px))";
+      }
+    }
+}
 
 
 //ANIMATION
@@ -731,6 +757,8 @@ const animate = () => {
   document.querySelectorAll("#dotGame")[currentGameSlide-1].classList.add("is-at");
   document.querySelectorAll("#gameProject")[currentGameSlide-1].classList.add("is-in");
 
+  
+  
   //Update screen
   camera.position.lerp(updateCamPos, 0.05);
   lightTop.color.lerp(lightTopColor, 0.05);
@@ -748,4 +776,5 @@ generateEarth();
 Array(60).fill().forEach(generateCloud);
 Array(80).fill().forEach(generateStar);
 generateAirPlane();
+projectResize()
 animate();

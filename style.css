@@ -511,30 +511,46 @@ section {
   background-size: cover;
 }
 .softwarePro:nth-of-type(6) {
-  background: url("./icons/Visual-Studio-Code.png") no-repeat;
+  background: url("./icons/TypeScript.png") no-repeat;
   background-size: cover;
 }
 .softwarePro:nth-of-type(7) {
-  background: url("./icons/React.png") no-repeat;
+  background: url("./icons/Python.png") no-repeat;
   background-size: cover;
 }
 .softwarePro:nth-of-type(8) {
-  background: url("./icons/Redux.png") no-repeat;
+  background: url("./icons/Visual-Studio-Code.png") no-repeat;
   background-size: cover;
 }
 .softwarePro:nth-of-type(9) {
-  background: url("./icons/PostgreSQL.png") no-repeat;
+  background: url("./icons/React.png") no-repeat;
   background-size: cover;
 }
 .softwarePro:nth-of-type(10) {
-  background: url("./icons/Sequelize.png") no-repeat;
+  background: url("./icons/Redux.png") no-repeat;
   background-size: cover;
 }
 .softwarePro:nth-of-type(11) {
-  background: url("./icons/Axios.png") no-repeat;
+  background: url("./icons/Angular.png") no-repeat;
   background-size: cover;
 }
 .softwarePro:nth-of-type(12) {
+  background: url("./icons/FastAPI.png") no-repeat;
+  background-size: cover;
+}
+.softwarePro:nth-of-type(13) {
+  background: url("./icons/PostgreSQL.png") no-repeat;
+  background-size: cover;
+}
+.softwarePro:nth-of-type(14) {
+  background: url("./icons/Sequelize.png") no-repeat;
+  background-size: cover;
+}
+.softwarePro:nth-of-type(15) {
+  background: url("./icons/Axios.png") no-repeat;
+  background-size: cover;
+}
+.softwarePro:nth-of-type(16) {
   background: url("./icons/Threejs.png") no-repeat;
   background-size: cover;
 }
@@ -569,18 +585,19 @@ section {
   flex-direction: column;
   align-items: center;
 }
+
 .wrapper {
   display: flex;
   transition: all 0.5s ease-out;
 }
 .project {
   width: 30vw;
-  height: 48vh;
+  min-height: 48vh;
   margin: 0 10px 0 10px;
   border-radius: 10px;
   border: rgba(88, 0, 44, 0.726) solid 0.8px;
   box-shadow: 0px 0 10px 0 rgba(92, 0, 128, 0.8);
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.9);
   box-sizing: border-box;
   font-family: "Josefin Sans", sans-serif;
   display: flex;
@@ -608,13 +625,11 @@ section {
 
 .projectImage {
   display: flex;
-  overflow: auto;
-  scroll-snap-type: x mandatory;
+  overflow: hidden;
   transition: all 0.5s ease-in-out;
 }
 
 img {
-  scroll-snap-align: center;
   max-width: 100%;
   min-width: 100%;
   height: auto;
@@ -624,8 +639,8 @@ img {
   position: absolute;
   bottom: 0;
   width: 30vw;
-  height: 4vh;
-  margin-bottom: 2vh;
+  height: 3vh;
+  margin: 10px 0 20px 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -655,14 +670,58 @@ img {
 }
 .seemoreButton:hover {
   border: yellow solid 0.8px;
+  box-shadow: 0px 0 10px 0 rgb(156, 101, 0);
 }
 .seemoreButton:active {
   scale: 0.9;
 }
 
+.imgIndex {
+  padding: 15px 0 15px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.imgButton {
+  width: 30px;
+  height: 30px;
+  border: white solid 0.8px;
+  border-radius: 5px;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#prevImg::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border: white solid;
+  border-width: 0.8px 0 0 0.8px;
+  rotate: -45deg;
+  translate: 3px 0;
+}
+#nextImg::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border: white solid;
+  border-width: 0.8px 0.8px 0 0;
+  rotate: 45deg;
+  translate: -3px 0;
+}
+.imgButton:hover {
+  border: gold solid 1.2px;
+  box-shadow: 0px 0 10px 0 rgb(156, 101, 0);
+}
+.imgButton:active {
+  scale: 0.9;
+}
+
 .dotGroup {
   width: fit-content;
-  margin: 10px 0;
   padding: 10px 20px;
   background: black;
   border-radius: 30px;
@@ -684,27 +743,33 @@ img {
   width: 50px;
   height: 50px;
   border: none;
-  background: url("./icons/icon-slide-next-100.png") no-repeat;
-  background-size: cover;
   z-index: 10;
   animation: sound 4s ease-in-out infinite;
   opacity: 0.5;
 }
 .leftright:nth-of-type(1) {
+  background: url("./icons/icon-slide-prev-100.png") no-repeat;
+  background-size: cover;
   left: 0;
-  rotate: 180deg;
-  translate: calc(20vw - 30px) 0;
+  transform: translateX(calc(20vw - 30px));
 }
 .leftright:nth-of-type(2) {
+  background: url("./icons/icon-slide-next-100.png") no-repeat;
+  background-size: cover;
   right: 0;
-  translate: calc(-20vw + 30px) 0;
+  transform: translateX(calc(-20vw + 30px));
 }
 .leftright:hover {
   cursor: url("./icons/pointer-yellow.png"), pointer;
   opacity: 1;
 }
-.leftright:active {
-  scale: 0.9;
+.leftright:nth-of-type(1):active {
+  background: url("./icons/icon-slide-prev-clicked-100.png") no-repeat;
+  background-size: cover;
+}
+.leftright:nth-of-type(2):active {
+  background: url("./icons/icon-slide-next-clicked-100.png") no-repeat;
+  background-size: cover;
 }
 
 .dotIndex {
@@ -716,15 +781,15 @@ img {
   gap: 10px;
 }
 .dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #8f0069;
+  width: 9px;
+  height: 9px;
+  border-radius: 5px;
+  background: #c8007f;
   transition: all 0.4s ease-in-out;
 }
 .dot.is-at {
-  scale: 1.2;
-  background: #ff42cd;
+  width: 30px;
+  background: #ffa4d8;
   margin: 0 10px 0 10px;
 }
 
@@ -1074,14 +1139,11 @@ footer {
   .projectDes {
     width: 65vw;
   }
-  .leftright {
-    top: 36vh;
-  }
   .leftright:nth-of-type(1) {
-    translate: -15px 0;
+    transform: translateX(-15px);
   }
   .leftright:nth-of-type(2) {
-    translate: 15px 0;
+    transform: translateX(15px);
   }
 }
 @media only screen and (max-width: 480px) {
@@ -1164,9 +1226,13 @@ footer {
     width: 80vw;
     margin: 0 8px 0 8px;
   }
+  .imgButton {
+    width: 26px;
+    height: 26px;
+  }
   .projectDes {
     width: 80vw;
-    height: 8vh;
+    margin: 10px 0 25px 0;
   }
   .seemoreButton {
     height: 30px;
@@ -1176,10 +1242,10 @@ footer {
     height: 40px;
   }
   .leftright:nth-of-type(1) {
-    translate: -18px 0;
+    transform: translateX(-18px);
   }
   .leftright:nth-of-type(2) {
-    translate: 18px 0;
+    transform: translateX(18px);
   }
   .sec5Tit {
     font-size: 30px;
