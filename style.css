@@ -598,7 +598,6 @@ section {
   border: rgba(88, 0, 44, 0.726) solid 0.8px;
   box-shadow: 0px 0 10px 0 rgba(92, 0, 128, 0.8);
   background: rgba(0, 0, 0, 0.9);
-  box-sizing: border-box;
   font-family: "Josefin Sans", sans-serif;
   display: flex;
   flex-direction: column;
@@ -624,14 +623,19 @@ section {
 }
 
 .projectImage {
+  width: 100%;
   display: flex;
-  overflow: hidden;
+  justify-content: flex-start;
+}
+
+.imageWrap {
+  display: flex;
+  justify-content: flex-start;
   transition: all 0.5s ease-in-out;
 }
 
 img {
-  max-width: 100%;
-  min-width: 100%;
+  width: 30vw;
   height: auto;
 }
 
@@ -730,11 +734,16 @@ img {
   gap: 10px;
 }
 .dotImg {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 4px;
   background: wheat;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.dotImg.is-focus {
+  width: 20px;
+  height: 8px;
+  background: beige;
 }
 
 .leftright {
@@ -791,6 +800,27 @@ img {
   width: 30px;
   background: #ffa4d8;
   margin: 0 10px 0 10px;
+}
+
+.projectSecret {
+  position: absolute;
+  height: 10px;
+  visibility: none;
+}
+#secret1 {
+  width: 1px;
+}
+#secret2 {
+  width: 1px;
+}
+#secret3 {
+  width: 1px;
+}
+#secret4 {
+  width: 1px;
+}
+#secret5 {
+  width: 1px;
 }
 
 .sec5Tit {
@@ -1136,6 +1166,9 @@ footer {
   .project {
     width: 65vw;
   }
+  img {
+    width: 65vw;
+  }
   .projectDes {
     width: 65vw;
   }
@@ -1225,6 +1258,9 @@ footer {
   .project {
     width: 80vw;
     margin: 0 8px 0 8px;
+  }
+  img {
+    width: 80vw;
   }
   .imgButton {
     width: 26px;

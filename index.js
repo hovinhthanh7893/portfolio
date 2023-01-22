@@ -327,7 +327,7 @@ function onWindowResize() {
   renderer.setSize(sizes.width, sizes.height);
   camera.aspect = sizes.width / sizes.height;
   camera.updateProjectionMatrix();
-  //Update project on screen
+  //Refresh middle project on screen
   document.querySelectorAll("#webProject")[currentWebSlide-1].classList.remove("is-in");
   document.querySelectorAll("#dotWeb")[currentWebSlide-1].classList.remove("is-at");
   document.querySelectorAll("#gameProject")[currentGameSlide-1].classList.remove("is-in");
@@ -338,6 +338,11 @@ function onWindowResize() {
   currentGameSlide = Math.ceil(totalGameSlide / 2);
   //Update project size
   projectResize();
+  //Refresh first image on screen
+  document.querySelectorAll(".imageWrap").forEach((each) => each.style.translate = 0);
+  document.querySelectorAll(".dotImg").forEach((each) => each.classList.remove("is-focus"));
+  document.querySelectorAll(".dotGroup").forEach((each) => each.children[0].classList.add("is-focus"));
+  document.querySelectorAll(".projectSecret").forEach((each) => each.style.width = "1px");
 }
 window.addEventListener("resize", onWindowResize, false);
 
@@ -482,6 +487,51 @@ document
     }
 });
 
+//IMAGE SLIDE
+//Next image
+document.querySelectorAll("#nextImg").forEach((each) => {
+  each.addEventListener("click", function(event) {
+    const whoosh = new Audio("./audios/Whoosh.mp3");
+    whoosh.play();
+    const amount = this.closest(".project").children[2].children[1].children.length;
+    const currentImage = this.closest(".project").children[3].getBoundingClientRect().width;
+    if (currentImage < amount) {
+      const step = this.closest(".project").children[1].getBoundingClientRect().width * currentImage;
+      this.closest(".project").children[1].children[0].style.translate = "-" + step + "px";
+      this.closest(".project").children[2].children[1].children[currentImage-1].classList.remove("is-focus");
+      this.closest(".project").children[2].children[1].children[currentImage].classList.add("is-focus");
+      this.closest(".project").children[3].style.width = (currentImage + 1) + "px";
+    } else {
+      this.closest(".project").children[1].children[0].style.translate = 0;
+      this.closest(".project").children[2].children[1].children[currentImage-1].classList.remove("is-focus");
+      this.closest(".project").children[2].children[1].children[0].classList.add("is-focus");
+      this.closest(".project").children[3].style.width = "1px";
+    }
+  });
+})
+//Previous image
+document.querySelectorAll("#prevImg").forEach((each) => {
+  each.addEventListener("click", function(event) {
+    const whoosh = new Audio("./audios/Whoosh.mp3");
+    whoosh.play();
+    const amount = this.closest(".project").children[2].children[1].children.length;
+    const currentImage = this.closest(".project").children[3].getBoundingClientRect().width;
+    if (currentImage > 1) {
+      const step = this.closest(".project").children[1].getBoundingClientRect().width * (currentImage - 2);
+      this.closest(".project").children[1].children[0].style.translate = "-" + step + "px";
+      this.closest(".project").children[2].children[1].children[currentImage-1].classList.remove("is-focus");
+      this.closest(".project").children[2].children[1].children[currentImage-2].classList.add("is-focus");
+      this.closest(".project").children[3].style.width = (currentImage - 1) + "px";
+    } else {
+      const step = this.closest(".project").children[1].getBoundingClientRect().width * (amount - 1);
+      this.closest(".project").children[1].children[0].style.translate = "-" + step + "px";
+      this.closest(".project").children[2].children[1].children[currentImage-1].classList.remove("is-focus");
+      this.closest(".project").children[2].children[1].children[amount-1].classList.add("is-focus");
+      this.closest(".project").children[3].style.width = amount + "px";
+    }
+  });
+})
+
 //BUTTON BACK TO TOP
 document
   .querySelector(".backToTop")
@@ -592,6 +642,7 @@ function projectResize() {
         document.querySelector("#nextWebButton").style.transform = "translateX(0)";
         document.querySelector("#prevGameButton").style.transform = "translateX(0)";
         document.querySelector("#nextGameButton").style.transform = "translateX(0)";
+        document.querySelectorAll("img").forEach((each) => each.style.width = "65vw");
       } else {
         document.querySelectorAll(".project").forEach((each) => {
           each.style.width = "30vw";
@@ -600,6 +651,7 @@ function projectResize() {
         document.querySelector("#nextWebButton").style.transform = "translateX(calc(-20vw + 30px))";
         document.querySelector("#prevGameButton").style.transform = "translateX(calc(20vw - 30px))";
         document.querySelector("#nextGameButton").style.transform = "translateX(calc(-20vw + 30px))";
+        document.querySelectorAll("img").forEach((each) => each.style.width = "30vw");
       }
     }
 }
@@ -756,8 +808,6 @@ const animate = () => {
   document.querySelector("#gameWrapper").style.translate = gameSlidePos + "px";
   document.querySelectorAll("#dotGame")[currentGameSlide-1].classList.add("is-at");
   document.querySelectorAll("#gameProject")[currentGameSlide-1].classList.add("is-in");
-
-  
   
   //Update screen
   camera.position.lerp(updateCamPos, 0.05);
