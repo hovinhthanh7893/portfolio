@@ -624,12 +624,13 @@ section {
 }
 
 .projectSoftware {
-  width: 100%;
+  max-width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 15px;
-  padding: 25px 0 90px 0;
+  flex-wrap: wrap;
+  padding: 25px 20px 90px 20px;
 }
 .projectIcon {
   width: auto;
@@ -705,21 +706,21 @@ section {
 .projectDes {
   position: absolute;
   bottom: 0;
-  width: 30vw;
+  width: 100%;
   height: 3vh;
   margin: 10px 0 20px 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 20px;
   text-align: center;
 }
 .seemoreButton {
-  width: 170px;
-  height: 40px;
+  padding: 10px 15px;
   background: black;
   border: rgba(116, 72, 21, 0.726) solid 2px;
   box-shadow: 0px 0 10px 0 rgba(74, 0, 103, 0.741);
-  border-radius: 10px;
+  border-radius: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1240,6 +1241,9 @@ footer {
   .picture {
     width: 80vw;
   }
+  .projectSoftware {
+    padding: 18px 20px 70px 20px;
+  }
   .projectIcon {
     width: auto;
     height: 30px;
@@ -1249,11 +1253,15 @@ footer {
     height: 26px;
   }
   .projectDes {
-    width: 80vw;
+    width: 100%;
     margin: 10px 0 25px 0;
+    gap: 10px;
   }
   .seemoreButton {
-    height: 30px;
+    padding: 7px 10px;
+  }
+  .seemore {
+    font-size: 16px;
   }
   .leftright {
     width: 40px;
