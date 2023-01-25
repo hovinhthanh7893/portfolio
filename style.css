@@ -618,50 +618,22 @@ section {
   transition: all 0.5s ease-in-out;
 }
 
-img {
+.picture {
   width: 30vw;
   height: auto;
 }
 
-.projectDes {
-  position: absolute;
-  bottom: 0;
-  width: 30vw;
+.projectSoftware {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 25px 0 90px 0;
+}
+.projectIcon {
+  width: auto;
   height: 3vh;
-  margin: 10px 0 20px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-.seemoreButton {
-  width: 170px;
-  height: 40px;
-  background: black;
-  border: rgba(116, 72, 21, 0.726) solid 2px;
-  box-shadow: 0px 0 10px 0 rgba(74, 0, 103, 0.741);
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.seemore {
-  text-decoration: none;
-  background-image: linear-gradient(60deg, #ff417a, #ffec19, #26ff9d, #b721ff);
-  background-size: 200%;
-  background-position: 0;
-  animation: moveGradient 6s alternate infinite;
-  font-size: 19px;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-}
-.seemoreButton:hover {
-  border: yellow solid 0.8px;
-  box-shadow: 0px 0 10px 0 rgb(156, 101, 0);
-}
-.seemoreButton:active {
-  scale: 0.9;
 }
 
 .imgIndex {
@@ -728,6 +700,47 @@ img {
   width: 20px;
   height: 8px;
   background: beige;
+}
+
+.projectDes {
+  position: absolute;
+  bottom: 0;
+  width: 30vw;
+  height: 3vh;
+  margin: 10px 0 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.seemoreButton {
+  width: 170px;
+  height: 40px;
+  background: black;
+  border: rgba(116, 72, 21, 0.726) solid 2px;
+  box-shadow: 0px 0 10px 0 rgba(74, 0, 103, 0.741);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.seemore {
+  text-decoration: none;
+  background-image: linear-gradient(60deg, #ff417a, #ffec19, #26ff9d, #b721ff);
+  background-size: 200%;
+  background-position: 0;
+  animation: moveGradient 6s alternate infinite;
+  font-size: 19px;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.seemoreButton:hover {
+  border: yellow solid 0.8px;
+  box-shadow: 0px 0 10px 0 rgb(156, 101, 0);
+}
+.seemoreButton:active {
+  scale: 0.9;
 }
 
 .leftright {
@@ -1153,7 +1166,7 @@ footer {
   .project {
     width: 65vw;
   }
-  img {
+  .picture {
     width: 65vw;
   }
   .projectDes {
@@ -1224,8 +1237,12 @@ footer {
     width: 80vw;
     margin: 0 8px 0 8px;
   }
-  img {
+  .picture {
     width: 80vw;
+  }
+  .projectIcon {
+    width: auto;
+    height: 30px;
   }
   .imgButton {
     width: 26px;

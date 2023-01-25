@@ -346,8 +346,6 @@ function onWindowResize() {
 }
 window.addEventListener("resize", onWindowResize, false);
 
-
-
 //MOUSE EVENT
 const mouse = new THREE.Vector2();
 function onMouseMove(event) {
@@ -642,7 +640,7 @@ function projectResize() {
         document.querySelector("#nextWebButton").style.transform = "translateX(0)";
         document.querySelector("#prevGameButton").style.transform = "translateX(0)";
         document.querySelector("#nextGameButton").style.transform = "translateX(0)";
-        document.querySelectorAll("img").forEach((each) => each.style.width = "65vw");
+        document.querySelectorAll(".picture").forEach((each) => each.style.width = "65vw");
       } else {
         document.querySelectorAll(".project").forEach((each) => {
           each.style.width = "30vw";
@@ -651,7 +649,7 @@ function projectResize() {
         document.querySelector("#nextWebButton").style.transform = "translateX(calc(-20vw + 30px))";
         document.querySelector("#prevGameButton").style.transform = "translateX(calc(20vw - 30px))";
         document.querySelector("#nextGameButton").style.transform = "translateX(calc(-20vw + 30px))";
-        document.querySelectorAll("img").forEach((each) => each.style.width = "30vw");
+        document.querySelectorAll(".picture").forEach((each) => each.style.width = "30vw");
       }
     }
 }
