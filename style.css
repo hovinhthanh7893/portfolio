@@ -802,7 +802,7 @@ section {
 .projectSecret {
   position: absolute;
   height: 10px;
-  visibility: none;
+  visibility: hidden;
 }
 #secret1 {
   width: 1px;
