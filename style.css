@@ -450,15 +450,15 @@ section {
   background-size: cover;
 }
 .softwareDes:nth-of-type(5) {
-  background: url("./icons/Maya.png") no-repeat;
+  background: url("./icons/Substance-Painter.png") no-repeat;
   background-size: cover;
 }
 .softwareDes:nth-of-type(6) {
-  background: url("./icons/Zbrush.png") no-repeat;
+  background: url("./icons/Maya.png") no-repeat;
   background-size: cover;
 }
 .softwareDes:nth-of-type(7) {
-  background: url("./icons/Substance-Painter.png") no-repeat;
+  background: url("./icons/Zbrush.png") no-repeat;
   background-size: cover;
 }
 .softwareDes:nth-of-type(8) {
@@ -968,12 +968,12 @@ img {
   filter: invert(54%) sepia(80%) saturate(935%) hue-rotate(347deg) brightness(101%) contrast(103%);
 }
 .social:nth-of-type(3) {
-  background: url("./icons/icon-instagram-64.png") no-repeat;
+  background: url("./icons/Codepen.png") no-repeat;
   background-size: cover;
   filter: invert(93%) sepia(32%) saturate(1390%) hue-rotate(338deg) brightness(109%) contrast(102%);
 }
 .social:nth-of-type(4) {
-  background: url("./icons/icon-facebook-64.png") no-repeat;
+  background: url("./icons/Artstation.png") no-repeat;
   background-size: cover;
   filter: invert(85%) sepia(61%) saturate(1211%) hue-rotate(68deg) brightness(102%) contrast(104%);
 }
@@ -983,7 +983,7 @@ img {
   filter: invert(68%) sepia(66%) saturate(1835%) hue-rotate(152deg) brightness(101%) contrast(104%);
 }
 .social:nth-of-type(6) {
-  background: url("./icons/icon-behance-96.png") no-repeat;
+  background: url("./icons/icon-facebook-64.png") no-repeat;
   background-size: cover;
   filter: invert(16%) sepia(99%) saturate(6552%) hue-rotate(260deg) brightness(118%) contrast(121%);
 }
