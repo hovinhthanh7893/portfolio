@@ -624,13 +624,14 @@ section {
 }
 
 .projectSoftware {
-  max-width: 100%;
+  width: 100%;
+  padding: 25px 20px 90px 20px;
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 15px;
   flex-wrap: wrap;
-  padding: 25px 20px 90px 20px;
 }
 .projectIcon {
   width: auto;
