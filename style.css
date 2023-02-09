@@ -515,11 +515,11 @@ section {
   background-size: cover;
 }
 .softwarePro:nth-of-type(12) {
-  background: url("./icons/Angular.png") no-repeat;
+  background: url("./icons/Vue.png") no-repeat;
   background-size: cover;
 }
 .softwarePro:nth-of-type(13) {
-  background: url("./icons/FastAPI.png") no-repeat;
+  background: url("./icons/Angular.png") no-repeat;
   background-size: cover;
 }
 .softwarePro:nth-of-type(14) {
@@ -527,14 +527,18 @@ section {
   background-size: cover;
 }
 .softwarePro:nth-of-type(15) {
-  background: url("./icons/Sequelize.png") no-repeat;
+  background: url("./icons/FastAPI.png") no-repeat;
   background-size: cover;
 }
 .softwarePro:nth-of-type(16) {
-  background: url("./icons/Axios.png") no-repeat;
+  background: url("./icons/Sequelize.png") no-repeat;
   background-size: cover;
 }
 .softwarePro:nth-of-type(17) {
+  background: url("./icons/Axios.png") no-repeat;
+  background-size: cover;
+}
+.softwarePro:nth-of-type(18) {
   background: url("./icons/Threejs.png") no-repeat;
   background-size: cover;
 }
@@ -1083,7 +1087,7 @@ footer {
     rgba(0, 0, 0, 0)
   );
   box-sizing: border-box;
-  z-index: 99;
+  z-index: 2;
 }
 
 .backToTop {
