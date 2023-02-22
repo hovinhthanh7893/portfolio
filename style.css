@@ -1087,7 +1087,7 @@ footer {
     rgba(0, 0, 0, 0)
   );
   box-sizing: border-box;
-  z-index: 2;
+  z-index: 99;
 }
 
 .backToTop {
