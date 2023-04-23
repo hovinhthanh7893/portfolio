@@ -1,24 +1,28 @@
 {
+    "name": "HoVinhThanh7893",
     "short_name": "HoVinhThanh7893",
-    "name": "PORTFOLIO",
+    "description": "hovinhthanh7893 portfolio",
     "icons": [
       {
         "src": "./icons/favicon/favicon.ico",
         "sizes": "64x64 24x24",
-        "type": "icons/x-icon"
+        "type": "icons/x-icon",
+        "purpose": "any maskable"
       },
       {
         "src": "./icons/favicon/android-chrome-192x192.png",
         "type": "icons/png",
-        "sizes": "192x192"
+        "sizes": "192x192",
+        "purpose": "any maskable"
       },
       {
         "src": "./icons/favicon/android-chrome-512x512.png",
         "type": "icons/png",
-        "sizes": "512x512"
+        "sizes": "512x512",
+        "purpose": "any maskable"
       }
     ],
-    "start_url": ".",
+    "start_url": "/",
     "display": "standalone",
     "theme_color": "#000000",
     "background_color": "#000000"
