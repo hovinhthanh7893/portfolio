@@ -1124,6 +1124,9 @@ input::placeholder, textarea::placeholder {
 .contact_form input:nth-of-type(3)::placeholder {
   color: #26ff9d;
 }
+.contact_form textarea {
+  resize: none;
+}
 .contact_form textarea::placeholder {
   color: aqua;
 }
@@ -1135,8 +1138,32 @@ textarea:focus, input:focus{
 }
 
 #contact_form_submit {
+  min-height: 32px;
   font-family: "Josefin Sans", sans-serif;
   font-size: 20px;
+}
+
+.contact_form_missing, .contact_form_mail_inv, .contact_form_mail_error {
+  text-shadow: #e33244 0 0 10px;
+  animation: fadeaway 3s ease forwards;
+}
+.contact_form_success {
+  text-shadow: #deff4d 0 0 10px;
+  animation: fadeaway 3s ease linear;
+}
+@keyframes fadeaway {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.contact_form_hide {
+  display: none;
 }
 
 .nextButton1 {
@@ -1265,6 +1292,7 @@ footer {
   border: none;
   background: url("./icons/icon-mute-96.png") no-repeat;
   background-size: cover;
+  opacity: 0.6;
   animation: sound 6s infinite;
 }
 .sound:hover {
