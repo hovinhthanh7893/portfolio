@@ -399,7 +399,8 @@
         </a>
       </section>
       <section id="section5">
-        <div class="sec5Tit" id="content1"> Let's get in touch!
+        <div class="sec5Tit" id="content1">
+          Let's get in touch!
           <div class="hand"></div>
         </div>
         <div class="secContact" id="content2">
@@ -412,36 +413,12 @@
           </div>
         </div>
         <div class="secSocial" id="content3">
-          <a
-            class="social"
-            href="https://www.linkedin.com/in/hovinhthanh7893/"
-            target="_blank"
-          ></a>
-          <a
-            class="social"
-            href="https://github.com/hovinhthanh7893"
-            target="_blank"
-          ></a>
-          <a
-            class="social"
-            href="https://codepen.io/hovinhthanh7893"
-            target="_blank"
-          ></a>
-          <a
-            class="social"
-            href="https://www.artstation.com/hovinhthanh7893"
-            target="_blank"
-          ></a>
-          <a
-            class="social"
-            href="https://www.youtube.com/@hovinhthanh7893"
-            target="_blank"
-          ></a>
-          <a
-            class="social"
-            href="https://www.facebook.com/hovinhthanh7893"
-            target="_blank"
-          ></a>
+          <a class="social" href="https://www.linkedin.com/in/hovinhthanh7893/" target="_blank"></a>
+          <a class="social" href="https://github.com/hovinhthanh7893" target="_blank"></a>
+          <a class="social" href="https://codepen.io/hovinhthanh7893" target="_blank"></a>
+          <a class="social" href="https://www.artstation.com/hovinhthanh7893" target="_blank"></a>
+          <a class="social" href="https://www.youtube.com/@hovinhthanh7893" target="_blank"></a>
+          <a class="social" href="https://www.facebook.com/hovinhthanh7893" target="_blank"></a>
         </div>
         <div class="contact_form_wrap hidden_layer" id="contactForm">
           <div class="contact_form_frame">
@@ -458,7 +435,14 @@
       </section>
     </main>
     <footer>
-      <div class="copyright">Copyright &copy; 2024 All Rights Reserved by Ho Vinh Thanh</div>
+      <div class="copyright">
+        Copyright &copy;
+        <span id="copyright_year">
+          <script>document.getElementById('copyright_year').appendChild(document.createTextNode(new Date().getFullYear()))</script>
+        </span>
+        All Rights Reserved by
+        <a class="copyright_link" href="https://www.linkedin.com/in/hovinhthanh7893/" target="_blank">Ho Vinh Thanh</a>
+      </div>
       <div class="endPage">
         <button class="sound"></button>
         <a href="#section1" class="backToTop"></a>

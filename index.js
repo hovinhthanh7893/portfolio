@@ -1,6 +1,8 @@
 import * as THREE from "https://cdn.skypack.dev/three@0.148.0";
 import openSimplexNoise from 'https://cdn.skypack.dev/open-simplex-noise';
 
+const test = '2025'
+
 //VARIABLES
 const sizes = {
   width: window.innerWidth,
@@ -663,7 +665,7 @@ function changeFooter(setting) {
   if (setting === 5) {
     document.querySelector("footer").style.justifyContent = "space-between";
     document.querySelector(".backToTop").style.display = "block";
-    document.querySelector(".copyright").style.display = "flex";
+    document.querySelector(".copyright").style.display = "inline";
     document.querySelector(".moveUp").style.display = "none";
   } else if (setting === 2) {
     document.querySelector("footer").style.justifyContent = "flex-end";
