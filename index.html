@@ -4,7 +4,7 @@
     <title>HoVinhThanh7893</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="msapplication-TileColor" content="#303E50">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -27,7 +27,7 @@
   <body>
     <canvas class="webgl"></canvas>
     <nav>
-      <a class="logo" href="/portfolio/">
+      <a class="logo" href="/" aria-label="website logo">
         <span class="logoName">h</span>
         <span class="logoName">o</span>
         <span class="logoName">v</span>
@@ -45,10 +45,10 @@
         <span class="logoName">3</span>
       </a>
       <div class="navBig">
-        <a href="#section2" class="navEach" id="navLink1">About</a>
-        <a href="#section3" class="navEach" id="navLink2">Web</a>
-        <a href="#section4" class="navEach" id="navLink3">Game</a>
-        <a href="#section5" class="navEach" id="navLink4">Contact</a>
+        <a href="#section2" class="navEach" id="navLink1" aria-label="about nav">About</a>
+        <a href="#section3" class="navEach" id="navLink2" aria-label="web nav">Web</a>
+        <a href="#section4" class="navEach" id="navLink3" aria-label="game nav">Game</a>
+        <a href="#section5" class="navEach" id="navLink4" aria-label="contact nav">Contact</a>
       </div>
       <div class="navSmall">
         <div class="hamburger">
@@ -58,30 +58,30 @@
           <span class="line"></span>
         </div>
         <div class="subMenu">
-          <a href="#section2" class="navEach" id="navLink5">About</a>
-          <a href="#section3" class="navEach" id="navLink6">Web</a>
-          <a href="#section4" class="navEach" id="navLink7">Game</a>
-          <a href="#section5" class="navEach" id="navLink8">Contact</a>
+          <a href="#section2" class="navEach" id="navLink5" aria-label="about nav">About</a>
+          <a href="#section3" class="navEach" id="navLink6" aria-label="web nav">Web</a>
+          <a href="#section4" class="navEach" id="navLink7" aria-label="game nav">Game</a>
+          <a href="#section5" class="navEach" id="navLink8" aria-label="contact nav">Contact</a>
       </div>
     </nav>
     <main>
       <section id="section1">
-        <div class="sec1Tit" id="content1">Hello,</div>
-        <div class="sec1Name" id="content1">My name is Thanh</div>
-        <div class="sec1Des" id="content2">I love to create beautiful things</div>
-        <a href="#section2" class="nextButton1" id="content3">
+        <div class="sec1Tit content1">Hello,</div>
+        <div class="sec1Name content1">My name is Thanh</div>
+        <div class="sec1Des content2">I love to create beautiful things</div>
+        <a href="#section2" class="nextButton1 content3" aria-label="to section 2">
           <span class="next"></span>
           <span class="next"></span>
           <span class="next"></span>
         </a>
       </section>
       <section id="section2">
-        <div class="sec2Part" id="content1">
+        <div class="sec2Part content1">
           I was born in 1993 in Vietnam 🇻🇳
           <br/>Living and working in Amsterdam 🇳🇱
         </div>
-        <div class="lineSec2" id = "content2"></div>
-        <div class="sec2Part" id="content3">
+        <div class="lineSec2 content2"></div>
+        <div class="sec2Part content3">
           <div>I'm a Full-Stack Web Developer 🤖</div>
           <div class="skill">
             <svg class="softwareIcon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -221,8 +221,8 @@
             </svg>                                                
           </div>
         </div>
-        <div class="lineSec2" id = "content4"></div>
-        <div class="sec2Part" id="content5">
+        <div class="lineSec2 content4"></div>
+        <div class="sec2Part content5">
           <div>I also make games 👾 2D-3D arts 🎨 animations 🌈 and films 🎬</div>
           <div class="skill">
             <svg class="softwareIcon" viewBox="0 0 700 700" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -312,23 +312,23 @@
             </svg>                                                          
           </div>
         </div>
-        <a href="#section3" class="nextButton2" id="content6">
+        <a href="#section3" class="nextButton2 content6" aria-label="to section 3">
           <span class="next"></span>
           <span class="next"></span>
           <span class="next"></span>
         </a>
       </section>
       <section id="section3">
-        <div class="secPortTit" id="content1">I have been working on some WEBs recently</div>
-        <div class="secPortDes" id="content2">You wanna check them out?</div>
-        <div class="secPortFrame" id="content3">
+        <div class="secPortTit content1">I have been working on some WEBs recently</div>
+        <div class="secPortDes content2">You wanna check them out?</div>
+        <div class="secPortFrame content3">
           <button class="leftright" id="prevWebButton" aria-label="to previous web"></button>
           <button class="leftright" id="nextWebButton" aria-label="to next web"></button>
           <div class="wrapper" id="webWrapper">
             <div class="project" id="webProject">
               <div class="projectTitle">KALLOS</div>
               <div class="projectImage">
-                  <img class="picture" src="./images/kallos.jpg">
+                  <img class="picture" src="./images/kallos.jpg" alt="kallos website">
               </div>
               <div class="projectSoftware">
                 <svg class="softwareIcon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -367,10 +367,10 @@
                 </svg>
               </div>
               <div class="projectDes">
-                <a class="seemoreButton" href="https://github.com/hovinhthanh7893/Kallos-app-back-end" target="_blank">
+                <a class="seemoreButton" href="https://github.com/hovinhthanh7893/Kallos-app-back-end" target="_blank" aria-label="to kallos backend">
                   <div class="seemore">&lt; Back-end &gt;</div>
                 </a>
-                <a class="seemoreButton" href="https://github.com/hovinhthanh7893/Kallos-app-front-end" target="_blank">
+                <a class="seemoreButton" href="https://github.com/hovinhthanh7893/Kallos-app-front-end" target="_blank" aria-label="to kallos frontend">
                   <div class="seemore">&lt; Front-end &gt;</div>
                 </a>
               </div>
@@ -378,7 +378,7 @@
             <div class="project" id="webProject">
               <div class="projectTitle">HANG.VO.INTERIOR </div>
               <div class="projectImage">
-                  <img class="picture" src="./images/hangvo.jpg">
+                  <img class="picture" src="./images/hangvo.webp" alt="hangvo website">
               </div>
               <div class="projectSoftware">
                 <svg class="softwareIcon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -407,7 +407,7 @@
                 </svg>
               </div>
               <div class="projectDes">
-                <a class="seemoreButton" href="https://hangvo0693.github.io/portfolio" target="_blank">
+                <a class="seemoreButton" href="https://hangvo0693.github.io/portfolio" target="_blank" aria-label="to hangvo website">
                   <div class="seemore">&lt; Visit page &gt;</div>
                 </a>
               </div>
@@ -415,7 +415,7 @@
             <div class="project" id="webProject">
               <div class="projectTitle">POKEDEX</div>
               <div class="projectImage">
-                  <img class="picture" src="./images/pokedex.jpg">
+                  <img class="picture" src="./images/pokedex.webp" alt="pokedex website">
               </div>
               <div class="projectSoftware">
                 <svg class="softwareIcon" viewBox="0 0 823 823" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -450,7 +450,7 @@
                 </svg>
               </div>
               <div class="projectDes">
-                <a class="seemoreButton" href="https://hovinhthanh7893.github.io/pokedex/" target="_blank">
+                <a class="seemoreButton" href="https://hovinhthanh7893.github.io/pokedex/" target="_blank" aria-label="to pokedex website">
                   <div class="seemore">&lt; Visit page &gt;</div>
                 </a>
               </div>
@@ -458,7 +458,7 @@
             <div class="project" id="webProject">
               <div class="projectTitle">NUMEROLOGY</div>
               <div class="projectImage">
-                  <img class="picture" src="./images/ezgif.com-webp-to-jpg.jpg">
+                  <img class="picture" src="./images/ezgif.com-webp-to-jpg.jpg" alt="numerology website">
               </div>
               <div class="projectSoftware">
                 <svg class="softwareIcon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -491,7 +491,7 @@
                 </svg>
               </div>
               <div class="projectDes">
-                <a class="seemoreButton" href="https://hovinhthanh7893.github.io/numerology/" target="_blank">
+                <a class="seemoreButton" href="https://hovinhthanh7893.github.io/numerology/" target="_blank" aria-label="to numerology website">
                   <div class="seemore">&lt; Visit page &gt;</div>
                 </a>
               </div>
@@ -499,7 +499,7 @@
             <div class="project" id="webProject">
               <div class="projectTitle">VEGACORNER</div>
               <div class="projectImage">
-                  <img class="picture" src="./images/vegacorner.jpg">
+                  <img class="picture" src="./images/vegacorner.jpg" alt="vegacorner website">
               </div>
               <div class="projectSoftware">
                 <svg class="softwareIcon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -535,10 +535,10 @@
                 </svg>               
               </div>
               <div class="projectDes">
-                <a class="seemoreButton" href="https://github.com/hovinhthanh7893/VegaCorner-app-back-end" target="_blank">
+                <a class="seemoreButton" href="https://github.com/hovinhthanh7893/VegaCorner-app-back-end" target="_blank" aria-label="to vegacorner backend">
                   <div class="seemore">&lt; Back-end &gt;</div>
                 </a>
-                <a class="seemoreButton" href="https://github.com/hovinhthanh7893/VegaCorner-app-front-end" target="_blank">
+                <a class="seemoreButton" href="https://github.com/hovinhthanh7893/VegaCorner-app-front-end" target="_blank" aria-label="to vegacorner frontend">
                   <div class="seemore">&lt; Front-end &gt;</div>
                 </a>
               </div>
@@ -552,16 +552,16 @@
             <div class="dot" id="dotWeb"></div>
           </div>
         </div>
-        <a href="#section4" class="nextButton2" id="content4">
+        <a href="#section4" class="nextButton2 content4" aria-label="to section 4">
           <span class="next"></span>
           <span class="next"></span>
           <span class="next"></span>
         </a>
       </section>
       <section id="section4">
-        <div class="secPortTit" id="content1">I made some GAMEs too</div>
-        <div class="secPortDes" id="content2">and I think they are amazing you may take a look :&rpar;</div>
-        <div class="secPortFrame" id="content3">
+        <div class="secPortTit content1">I made some GAMEs too</div>
+        <div class="secPortDes content2">and I think they are amazing you may take a look :&rpar;</div>
+        <div class="secPortFrame content3">
           <button class="leftright" id="prevGameButton" aria-label="to previous game"></button>
           <button class="leftright" id="nextGameButton" aria-label="to previous next"></button>
           <div class="wrapper" id="gameWrapper">
@@ -569,9 +569,9 @@
               <div class="projectTitle">THE TREE OF NEBROK</div>
               <div class="projectImage">
                 <div class="imageWrap">
-                  <img class="picture" src="https://static.wixstatic.com/media/0d77ad_eecd8218b9ef4d3886a128063ab6fc0f~mv2.jpg">
-                  <img class="picture" src="https://static.wixstatic.com/media/0d77ad_39f7b8d99b084406adb7c9e884f55f09~mv2.gif">
-                  <img class="picture" src="https://static.wixstatic.com/media/0d77ad_133bb835631643eba70dbae4c23ec181~mv2.jpg">
+                  <img class="picture" src="https://static.wixstatic.com/media/0d77ad_eecd8218b9ef4d3886a128063ab6fc0f~mv2.jpg" alt="The tree of Nebrok 1">
+                  <img class="picture" src="https://static.wixstatic.com/media/0d77ad_39f7b8d99b084406adb7c9e884f55f09~mv2.gif" alt="The tree of Nebrok 2">
+                  <img class="picture" src="https://static.wixstatic.com/media/0d77ad_133bb835631643eba70dbae4c23ec181~mv2.jpg" alt="The tree of Nebrok 3">
                 </div>
               </div>
               <div class="imgIndex">
@@ -589,9 +589,9 @@
               <div class="projectTitle">MARIACHI EL FEROZ</div>
               <div class="projectImage">
                 <div class="imageWrap">
-                  <img class="picture" src="https://static.wixstatic.com/media/0d77ad_e64666bfca77494f9ce3e1c6ecdc5e4f~mv2.jpg">
-                  <img class="picture" src="https://static.wixstatic.com/media/0d77ad_2d104235769d47d2844aa81dc8ac54cb~mv2.gif">
-                  <img class="picture" src="https://static.wixstatic.com/media/0d77ad_ec940c90fb6744cfac8624831277519e~mv2.jpg">
+                  <img class="picture" src="https://static.wixstatic.com/media/0d77ad_e64666bfca77494f9ce3e1c6ecdc5e4f~mv2.jpg" alt="Mariachi el Feroz 1">
+                  <img class="picture" src="https://static.wixstatic.com/media/0d77ad_2d104235769d47d2844aa81dc8ac54cb~mv2.gif" alt="Mariachi el Feroz 2">
+                  <img class="picture" src="https://static.wixstatic.com/media/0d77ad_ec940c90fb6744cfac8624831277519e~mv2.jpg" alt="Mariachi el Feroz 3">
                 </div>
               </div>
               <div class="imgIndex">
@@ -609,12 +609,12 @@
               <div class="projectTitle">GOUDEN EEUW</div>
               <div class="projectImage">
                 <div class="imageWrap">
-                  <img class="picture" src="https://static.wixstatic.com/media/0d77ad_f5adee10986c42b6990b4fd91583fae4~mv2.png">
-                  <img class="picture" src="https://static.wixstatic.com/media/0d77ad_efe2f29859a1405d833748e64bcf6413~mv2.png">
-                  <img class="picture" src="https://static.wixstatic.com/media/0d77ad_50fc96d691b24e198b4dd74a7529374a~mv2.png">
-                  <img class="picture" src="https://static.wixstatic.com/media/0d77ad_b3cc7ab24cfd4f92a0c7296112702aeb~mv2.png">
-                  <img class="picture" src="https://static.wixstatic.com/media/0d77ad_254fa8c6dfd84d33b99302c0563c536f~mv2.png">
-                  <img class="picture" src="https://static.wixstatic.com/media/0d77ad_0b3eafd31a604665859f44ae754ef454~mv2.png">
+                  <img class="picture" src="https://static.wixstatic.com/media/0d77ad_f5adee10986c42b6990b4fd91583fae4~mv2.png" alt="Gouden eeuw 1">
+                  <img class="picture" src="https://static.wixstatic.com/media/0d77ad_efe2f29859a1405d833748e64bcf6413~mv2.png" alt="Gouden eeuw 2">
+                  <img class="picture" src="https://static.wixstatic.com/media/0d77ad_50fc96d691b24e198b4dd74a7529374a~mv2.png" alt="Gouden eeuw 3">
+                  <img class="picture" src="https://static.wixstatic.com/media/0d77ad_b3cc7ab24cfd4f92a0c7296112702aeb~mv2.png" alt="Gouden eeuw 4">
+                  <img class="picture" src="https://static.wixstatic.com/media/0d77ad_254fa8c6dfd84d33b99302c0563c536f~mv2.png" alt="Gouden eeuw 5">
+                  <img class="picture" src="https://static.wixstatic.com/media/0d77ad_0b3eafd31a604665859f44ae754ef454~mv2.png" alt="Gouden eeuw 6">
                 </div>
               </div>
               <div class="imgIndex">
@@ -631,7 +631,7 @@
               </div>
               <div class="projectSecret" id="secret3"></div>
               <div class="projectDes">
-                <a class="seemoreButton" href="https://www.youtube.com/watch?v=--2FK0n3sLg" target="_blank">
+                <a class="seemoreButton" href="https://www.youtube.com/watch?v=--2FK0n3sLg" target="_blank" aria-label="to gouden eeuw trailer">
                   <div class="seemore">&lt; More details &gt;</div>
                 </a>
               </div>
@@ -640,11 +640,11 @@
               <div class="projectTitle">INDIANA AARDEWERK</div>
               <div class="projectImage">
                 <div class="imageWrap">
-                  <img class="picture" src="https://static.wixstatic.com/media/0d77ad_42509055c98748fd88c09cbe92f5d789~mv2.gif">
-                  <img class="picture" src="https://static.wixstatic.com/media/0d77ad_d92fab550ae74f43b82ac3fafe3d57ee~mv2.png">
-                  <img class="picture" src="https://static.wixstatic.com/media/0d77ad_bec3022f81724e248719313c6ddc97d6~mv2.gif">
-                  <img class="picture" src="https://static.wixstatic.com/media/0d77ad_7fb3e80c56f441bdbc07cca2a2ac2065~mv2.gif">
-                  <img class="picture" src="https://static.wixstatic.com/media/0d77ad_ef7c2025ca93404b858c268c8aa97943~mv2.jpg">
+                  <img class="picture" src="https://static.wixstatic.com/media/0d77ad_42509055c98748fd88c09cbe92f5d789~mv2.gif" alt="Indiana aardewerk 1">
+                  <img class="picture" src="https://static.wixstatic.com/media/0d77ad_d92fab550ae74f43b82ac3fafe3d57ee~mv2.png" alt="Indiana aardewerk 2">
+                  <img class="picture" src="https://static.wixstatic.com/media/0d77ad_bec3022f81724e248719313c6ddc97d6~mv2.gif" alt="Indiana aardewerk 3">
+                  <img class="picture" src="https://static.wixstatic.com/media/0d77ad_7fb3e80c56f441bdbc07cca2a2ac2065~mv2.gif" alt="Indiana aardewerk 4">
+                  <img class="picture" src="https://static.wixstatic.com/media/0d77ad_ef7c2025ca93404b858c268c8aa97943~mv2.jpg" alt="Indiana aardewerk 5">
                 </div>
               </div>
               <div class="imgIndex">
@@ -660,7 +660,7 @@
               </div>
               <div class="projectSecret" id="secret4"></div>
               <div class="projectDes">
-                <a class="seemoreButton" href="https://simmer.io/@hovinhthanh7893/indiana-aardewerk" target="_blank">
+                <a class="seemoreButton" href="https://simmer.io/@hovinhthanh7893/indiana-aardewerk" target="_blank" aria-label="to play indiana aardewerk">
                   <div class="seemore">&lt; Play game &gt;</div>
                 </a>
               </div>
@@ -669,10 +669,10 @@
               <div class="projectTitle">WIJNBROEDERS.NL</div>
               <div class="projectImage">
                 <div class="imageWrap">
-                  <img class="picture" src="https://static.wixstatic.com/media/0d77ad_cf1006598ea249c08f821bd012715dfd~mv2.jpg">
-                  <img class="picture" src="https://static.wixstatic.com/media/0d77ad_d5ff0a15a973484790dbe8905f7036a9~mv2.gif">
-                  <img class="picture" src="https://static.wixstatic.com/media/0d77ad_13b4d53c214242ecbc9d9b39516ea6ca~mv2.gif">
-                  <img class="picture" src="https://static.wixstatic.com/media/0d77ad_39033ff9ea1c4fffba5630f2fc5d5e82~mv2.gif">
+                  <img class="picture" src="https://static.wixstatic.com/media/0d77ad_cf1006598ea249c08f821bd012715dfd~mv2.jpg" alt="Wijnbroeders 1">
+                  <img class="picture" src="https://static.wixstatic.com/media/0d77ad_d5ff0a15a973484790dbe8905f7036a9~mv2.gif" alt="Wijnbroeders 2">
+                  <img class="picture" src="https://static.wixstatic.com/media/0d77ad_13b4d53c214242ecbc9d9b39516ea6ca~mv2.gif" alt="Wijnbroeders 3">
+                  <img class="picture" src="https://static.wixstatic.com/media/0d77ad_39033ff9ea1c4fffba5630f2fc5d5e82~mv2.gif" alt="Wijnbroeders 4">
                 </div>
               </div>
               <div class="imgIndex">
@@ -687,7 +687,7 @@
               </div>
               <div class="projectSecret" id="secret5"></div>
               <div class="projectDes">
-                <a class="seemoreButton" href="https://www.youtube.com/watch?v=uP9qvj2_RJc" target="_blank">
+                <a class="seemoreButton" href="https://www.youtube.com/watch?v=uP9qvj2_RJc" target="_blank" aria-label="to wijnbroeders trailer">
                   <div class="seemore">&lt; Trailer &gt;</div>
                 </a>
               </div>
@@ -701,14 +701,14 @@
             <div class="dot" id="dotGame"></div>
           </div>
         </div>
-        <a href="#section5" class="nextButton2" id="content4">
+        <a href="#section5" class="nextButton2 content4" aria-label="to section 5">
           <span class="next"></span>
           <span class="next"></span>
           <span class="next"></span>
         </a>
       </section>
       <section id="section5">
-        <div class="sec5Tit" id="content1">
+        <div class="sec5Tit content1">
           Let's get in touch!
           <svg class="hand" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M7.47326 6.11763C7.0996 6.11763 6.73009 5.95156 6.48513 5.63187C6.0658 5.08799 6.1696 4.30329 6.71348 3.88396C7.4525 3.31517 9.10077 1.48007 9.91452 0.462875C10.3463 -0.0727081 11.1269 -0.159896 11.6666 0.26774C12.2022 0.699528 12.2894 1.48007 11.8617 2.0198C11.1019 2.97057 9.25854 5.07138 8.23304 5.86022C8.00469 6.0346 7.73898 6.11763 7.47326 6.11763Z" fill="#199BE2"/>
@@ -717,8 +717,8 @@
             <path d="M10.5165 36.4964C7.33625 33.312 4.75383 30.1358 3.50414 28.2883C2.25444 26.4407 1.92645 24.0493 1.76453 21.3298C1.60261 18.6104 1.0172 12.6277 0.294791 10.6722C-0.427624 8.71666 0.112111 7.60813 2.28766 8.09805C4.4632 8.58796 6.22357 11.4236 5.56758 13.0096C6.92522 14.7492 7.25322 15.9989 7.41514 16.8168C7.57706 17.6347 9.60314 17.3192 10.147 16.8293L26.2726 3.2695C27.9292 1.87034 30.6528 4.11646 29.1623 6.04705L21.1701 13.3916C19.7169 14.8655 21.3735 16.7047 22.6398 15.5671L32.7951 6.52036C34.9208 5.18348 36.9096 7.46697 35.4232 9.22318L25.8824 17.8506C24.7614 19.0256 25.571 20.9769 27.1694 19.9598L35.8509 12.4699C37.9018 10.9296 40.368 13.0262 38.5661 15.2475L30.1421 22.6377C28.9464 23.7794 29.8723 25.1371 31.014 24.2154L36.1249 19.9639C37.8313 18.6602 40.2227 20.8981 38.4997 22.9657C38.4997 22.9657 26.2311 34.3292 21.7721 36.7746C17.313 39.22 12.3392 38.3273 10.5165 36.5047V36.4964Z" fill="#FDBF2F"/>
           </svg>
         </div>
-        <div class="secContact" id="content2">
-          <a class="secPhone" href="https://api.whatsapp.com/send?phone=0651237146" target="_blank">
+        <div class="secContact content2">
+          <a class="secPhone" href="https://api.whatsapp.com/send?phone=0651237146" target="_blank" aria-label="open whatsapp">
             <div class="phone">
               <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M12.4964 0C5.60534 0 0 5.60691 0 12.4999C0 15.2336 0.881584 17.7688 2.38021 19.8265L0.822703 24.4707L5.62731 22.9352C7.60344 24.2432 9.96168 25 12.5036 25C19.3947 25 25 19.3929 25 12.5001C25 5.60713 19.3947 0.000206629 12.5036 0.000206629L12.4964 0ZM9.00669 6.34939C8.76431 5.76889 8.58062 5.74691 8.21342 5.73198C8.0884 5.72472 7.94907 5.71747 7.7946 5.71747C7.3169 5.71747 6.81743 5.85704 6.51617 6.16565C6.14898 6.54041 5.23793 7.41478 5.23793 9.20792C5.23793 11.0011 6.54561 12.7353 6.72185 12.9779C6.90555 13.2202 9.27124 16.9533 12.9444 18.4747C15.8168 19.6652 16.6692 19.5548 17.323 19.4153C18.2779 19.2095 19.4755 18.5038 19.7768 17.6516C20.078 16.799 20.078 16.0714 19.9897 15.9171C19.9016 15.7628 19.659 15.6749 19.2918 15.4909C18.9246 15.3072 17.1393 14.4253 16.8013 14.3078C16.4706 14.1829 16.1548 14.2271 15.9052 14.5799C15.5525 15.0722 15.2073 15.572 14.928 15.8732C14.7076 16.1084 14.3475 16.1378 14.0464 16.0127C13.6423 15.8439 12.5111 15.4468 11.1151 14.2049C10.0351 13.2424 9.3005 12.0447 9.08756 11.6846C8.87442 11.3173 9.06556 11.1039 9.23433 10.9056C9.41803 10.6777 9.59429 10.5162 9.77799 10.303C9.96169 10.09 10.0645 9.97963 10.1821 9.72972C10.3071 9.48727 10.2188 9.23736 10.1307 9.05361C10.0425 8.86986 9.30795 7.07672 9.00669 6.34939Z" fill="white"/>
@@ -735,33 +735,33 @@
             <p>Send message</p>
           </div>
         </div>
-        <div class="secSocial" id="content3">
-          <a class="social" href="https://www.linkedin.com/in/hovinhthanh7893/" target="_blank">           
+        <div class="secSocial content3">
+          <a class="social" href="https://www.linkedin.com/in/hovinhthanh7893/" target="_blank" aria-label="open linkedin">           
             <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M22.5 0H2.5C1.125 0 0 1.125 0 2.5V22.5C0 23.875 1.125 25 2.5 25H22.5C23.875 25 25 23.875 25 22.5V2.5C25 1.125 23.875 0 22.5 0ZM7.625 20H3.75V9.25H7.625V20ZM5.625 8C4.5 8 3.75 7.25 3.75 6.25C3.75 5.25 4.5 4.5 5.75 4.5C6.875 4.5 7.625 5.25 7.625 6.25C7.625 7.25 6.875 8 5.625 8ZM21.25 20H17.375V14.125C17.375 12.5 16.375 12.125 16 12.125C15.625 12.125 14.375 12.375 14.375 14.125C14.375 14.375 14.375 20 14.375 20H10.5V9.25H14.375V10.75C14.875 9.875 15.875 9.25 17.75 9.25C19.625 9.25 21.125 10.75 21.125 14.125L21.25 20Z" fill="#FF20BF"/>
             </svg>              
           </a>
-          <a class="social social_round" href="https://github.com/hovinhthanh7893" target="_blank">
+          <a class="social social_round" href="https://github.com/hovinhthanh7893" target="_blank" aria-label="open github">
             <svg width="26" height="25" viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M12.6013 0.350809C5.69715 0.350809 0.100098 5.94786 0.100098 12.8521C0.100098 18.3416 3.6389 23.0058 8.55987 24.6856L8.64823 24.7114C9.27346 24.8289 9.50271 24.443 9.50271 24.1104C9.50271 23.8136 9.49271 23.0266 9.48687 21.9854C6.00976 22.7398 5.27616 20.3081 5.27616 20.3081C5.03607 19.537 4.54423 18.9034 3.89816 18.4875L3.88482 18.48C2.75274 17.7047 3.97235 17.7205 3.97235 17.7205C4.79515 17.8364 5.48457 18.3191 5.88055 18.996L5.88722 19.0085C6.34906 19.838 7.22104 20.3898 8.22224 20.3898C8.70242 20.3898 9.15258 20.2631 9.54106 20.0405L9.52772 20.0472C9.58774 19.3878 9.87868 18.8059 10.3188 18.3757L10.3197 18.3749C7.54366 18.0623 4.62509 16.9869 4.62509 12.1977C4.62509 12.1751 4.62426 12.1493 4.62426 12.1235C4.62426 10.8555 5.1136 9.70174 5.9139 8.84059L5.9114 8.84392C5.74217 8.39209 5.6438 7.87023 5.6438 7.32587C5.6438 6.67813 5.78218 6.06207 6.03144 5.50687L6.01977 5.53521C6.01977 5.53521 7.06682 5.20009 9.4577 6.81651C10.3947 6.54891 11.4709 6.39469 12.583 6.39469C13.6951 6.39469 14.7713 6.54891 15.7917 6.83652L15.7083 6.81651C18.0834 5.20009 19.1304 5.53521 19.1304 5.53521C19.368 6.07041 19.5064 6.69397 19.5064 7.35004C19.5064 7.88524 19.4147 8.39876 19.2455 8.8756L19.2555 8.84392C20.0499 9.70424 20.5376 10.858 20.5376 12.126C20.5376 12.1518 20.5376 12.1768 20.5368 12.2018V12.1977C20.5368 17.0002 17.6149 18.0573 14.833 18.3649C15.3599 18.9043 15.685 19.642 15.685 20.4565C15.685 20.534 15.6816 20.6116 15.6758 20.6883L15.6766 20.6783C15.6766 22.3514 15.6608 23.6952 15.6608 24.1012C15.6608 24.4296 15.8792 24.8198 16.5203 24.6947C21.5455 23.0033 25.1001 18.3349 25.1001 12.8354C25.1001 5.93953 19.5097 0.349976 12.6147 0.349976C12.6097 0.349976 12.6038 0.349976 12.5988 0.349976H12.5997L12.6013 0.350809Z" fill="#FF8200"/>
             </svg>              
           </a>
-          <a class="social social_round" href="https://codepen.io/hovinhthanh7893" target="_blank">
+          <a class="social social_round" href="https://codepen.io/hovinhthanh7893" target="_blank" aria-label="open codepen">
             <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M8.54275 13.2829L6.88081 14.3945V12.1713L8.54275 13.2829ZM12.617 10.5576V7.4595L7.41261 10.9288L9.73741 12.484L12.617 10.5576ZM19.15 10.9288L13.9455 7.4595V10.5576L16.8253 12.484L19.15 10.9288ZM7.41261 15.6369L12.617 19.1063V16.0081L9.73746 14.0822L7.41261 15.6369ZM13.9455 16.0081V19.1063L19.15 15.6369L16.8253 14.0822L13.9455 16.0081ZM13.2812 11.7115L10.9319 13.2828L13.2812 14.8543L15.6306 13.2828L13.2812 11.7115ZM25.7812 13.2829C25.7812 20.1866 20.1849 25.7827 13.2812 25.7827C6.37787 25.7827 0.78125 20.1866 0.78125 13.2829C0.78125 6.37922 6.37787 0.782837 13.2812 0.782837C20.1849 0.782837 25.7812 6.37922 25.7812 13.2829ZM21.0101 10.9279C21.0101 10.8986 21.008 10.8698 21.0041 10.8413C21.0028 10.8316 21.0005 10.8222 20.9989 10.8124C20.9955 10.7937 20.9922 10.775 20.9873 10.7567C20.9845 10.7457 20.9805 10.7352 20.9769 10.7246C20.9717 10.7083 20.9664 10.6921 20.9599 10.6762C20.9554 10.6653 20.9499 10.6543 20.945 10.6437C20.9379 10.6287 20.9306 10.614 20.9225 10.5999C20.9165 10.5892 20.9098 10.5791 20.9035 10.5689C20.8946 10.5551 20.8855 10.5417 20.8755 10.5287C20.8682 10.5189 20.8607 10.5092 20.8525 10.4999C20.8422 10.4877 20.8312 10.4754 20.8196 10.464C20.8108 10.4551 20.8023 10.4462 20.7932 10.4381C20.7812 10.4271 20.7683 10.4165 20.7554 10.4063C20.7456 10.3986 20.7358 10.3909 20.7255 10.3836C20.7217 10.3811 20.7182 10.3779 20.7143 10.3754L13.6498 5.66562C13.4266 5.51679 13.136 5.51679 12.9129 5.66562L5.84818 10.3754C5.84446 10.3779 5.84103 10.3811 5.83737 10.3836C5.82699 10.3909 5.81706 10.3986 5.80728 10.4063C5.79426 10.4165 5.78164 10.4271 5.76961 10.4381C5.76046 10.4462 5.7518 10.4551 5.74299 10.464C5.73145 10.4754 5.72068 10.4877 5.70987 10.4999C5.70214 10.5092 5.69446 10.5189 5.68712 10.5287C5.67738 10.5417 5.66799 10.5551 5.65923 10.5689C5.65248 10.5791 5.64622 10.5892 5.64015 10.5999C5.63203 10.614 5.62474 10.6287 5.61755 10.6437C5.61246 10.6543 5.60738 10.6653 5.60273 10.6762C5.59622 10.6921 5.59074 10.7083 5.5856 10.7246C5.58198 10.7352 5.57836 10.7458 5.57528 10.7567C5.57034 10.775 5.56716 10.7937 5.56364 10.8124C5.56207 10.8222 5.55963 10.8316 5.5584 10.8413C5.55454 10.8698 5.55229 10.8986 5.55229 10.9279V15.6378C5.55229 15.6671 5.55454 15.6959 5.5584 15.7248C5.55963 15.7341 5.56207 15.7439 5.56364 15.7532C5.56716 15.772 5.57039 15.7907 5.57528 15.809C5.57836 15.82 5.58198 15.8305 5.5856 15.8411C5.59069 15.8573 5.59622 15.8736 5.60273 15.8899C5.60738 15.9009 5.61246 15.9114 5.61755 15.922C5.62469 15.937 5.63203 15.9516 5.64015 15.9663C5.64622 15.9764 5.65248 15.9866 5.65923 15.9968C5.66804 16.0106 5.67738 16.024 5.68712 16.037C5.69441 16.0472 5.70214 16.0565 5.70987 16.0659C5.72068 16.078 5.7314 16.0903 5.74299 16.1016C5.7518 16.1106 5.76046 16.1195 5.76961 16.1277C5.78159 16.1387 5.79426 16.1491 5.80728 16.1593C5.81706 16.167 5.82699 16.1748 5.83737 16.1821C5.84103 16.1845 5.84446 16.1878 5.84818 16.1902L12.9129 20.9001C13.0244 20.9745 13.153 21.0118 13.2812 21.0118C13.4099 21.0118 13.5382 20.9745 13.6498 20.9001L20.7143 16.1902C20.7181 16.1878 20.7216 16.1845 20.7255 16.1821C20.7358 16.1748 20.7456 16.167 20.7554 16.1593C20.7684 16.1491 20.7812 16.1386 20.7932 16.1277C20.8023 16.1195 20.8108 16.1106 20.8196 16.1016C20.8312 16.0903 20.8422 16.078 20.8525 16.0659C20.8607 16.0566 20.8681 16.0472 20.8755 16.037C20.8855 16.024 20.8946 16.0106 20.9035 15.9968C20.9098 15.9866 20.9165 15.9764 20.9225 15.9663C20.9306 15.9516 20.9379 15.937 20.945 15.922C20.9499 15.9114 20.9554 15.9008 20.9599 15.8899C20.9664 15.8736 20.9717 15.8573 20.9769 15.8411C20.9805 15.8305 20.9845 15.8199 20.9873 15.809C20.9923 15.7907 20.9955 15.772 20.9989 15.7532C21.0005 15.7439 21.0028 15.7341 21.0041 15.7248C21.008 15.6959 21.0101 15.667 21.0101 15.6378V10.9279ZM19.6817 14.3945V12.1713L18.02 13.2829L19.6817 14.3945Z" fill="#FFF900"/>
             </svg>              
           </a>
-          <a class="social" href="https://www.awwwards.com/hovinhthanh7893/" target="_blank">
+          <a class="social" href="https://www.awwwards.com/hovinhthanh7893/" target="_blank" aria-label="open awwwards">
             <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M20.9568 0H4.04323C1.81015 0 0 1.81015 0 4.04323V20.9568C0 23.1898 1.81015 25 4.04323 25H20.9568C23.1898 25 25 23.1898 25 20.9568V4.04323C25 1.81015 23.1898 0 20.9568 0ZM15.0727 16.7976C14.9969 17.0363 14.881 17.1071 14.6516 17.1021C14.183 17.0921 13.7137 17.0846 13.2462 17.1053C12.9831 17.1165 12.8904 17.0063 12.8264 16.7675C12.359 15.0107 11.8791 13.2575 11.4023 11.5038C11.3922 11.4655 11.3797 11.4279 11.3415 11.2989C11.2162 11.7437 11.1109 12.104 11.0125 12.4668C10.6278 13.891 10.2393 15.3139 9.86717 16.7412C9.79825 17.0056 9.68672 17.1203 9.40038 17.1059C8.93296 17.0827 8.46303 17.0934 7.99499 17.1021C7.79762 17.1059 7.70113 17.0326 7.6391 16.8402C6.7099 13.9524 5.77256 11.0664 4.83835 8.17982C4.81328 8.10276 4.80201 8.02193 4.77569 7.90226C5.52882 7.90226 6.25501 7.89474 6.9812 7.91416C7.0495 7.91604 7.14599 8.07895 7.17293 8.1817C7.55702 9.62719 7.93108 11.0752 8.30827 12.5219C8.43296 12.9994 8.56078 13.4756 8.74373 13.9511C8.96115 13.0789 9.17794 12.2061 9.39662 11.334C9.66165 10.2763 9.93421 9.22055 10.188 8.1604C10.2368 7.95614 10.3208 7.89035 10.5238 7.89474C11.0652 7.90601 11.6071 7.90915 12.1485 7.89348C12.3716 7.88722 12.4505 7.97243 12.5013 8.17982C12.9486 10.005 13.4073 11.8277 13.8628 13.6516C13.8878 13.7519 13.9148 13.8515 13.9919 13.9605C14.1272 13.448 14.2625 12.9355 14.3972 12.4223C14.7688 11.0056 15.1447 9.59023 15.5056 8.17043C15.5608 7.95426 15.6529 7.88972 15.8672 7.89411C16.532 7.90664 17.1967 7.8985 17.9091 7.8985C17.869 8.05013 17.8446 8.16667 17.8083 8.27945C16.8947 11.1184 15.9768 13.9555 15.0727 16.7976ZM19.4386 17.2312C18.5664 17.2406 17.8371 16.5088 17.8546 15.6422C17.8728 14.7475 18.5689 14.0783 19.4687 14.0909C20.3578 14.1034 21.0113 14.7769 21.0044 15.6729C20.9975 16.5633 20.3365 17.2212 19.4392 17.2306L19.4386 17.2312Z" fill="#00FF67"/>
             </svg>              
           </a>
-          <a class="social social_youtube" href="https://www.youtube.com/@hovinhthanh7893" target="_blank">
+          <a class="social social_youtube" href="https://www.youtube.com/@hovinhthanh7893" target="_blank" aria-label="open youtube">
             <svg width="26" height="19" viewBox="0 0 26 19" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M10.0424 13.2046V5.77201L16.5764 9.48871L10.0424 13.2046ZM24.5758 3.4323C24.2807 2.34788 23.4472 1.50935 22.3878 1.21261L22.3653 1.20761C19.7038 0.8692 16.6256 0.675821 13.5016 0.675821C13.184 0.675821 12.8672 0.677488 12.5513 0.681656L12.5997 0.680822C12.3313 0.677488 12.0154 0.674988 11.6978 0.674988C8.57374 0.674988 5.49386 0.868366 2.47065 1.24262L2.8324 1.20595C1.75132 1.50852 0.917789 2.34621 0.628554 3.40896L0.623553 3.43063C0.290142 5.18854 0.100098 7.21151 0.100098 9.27866C0.100098 9.35201 0.100098 9.42536 0.100931 9.49788V9.48621C0.100931 9.54789 0.100098 9.62124 0.100098 9.69459C0.100098 11.7617 0.290976 13.7839 0.655227 15.7452L0.623553 15.5418C0.918622 16.6262 1.75215 17.4647 2.81156 17.7615L2.83407 17.7665C5.49552 18.1049 8.57374 18.2983 11.6978 18.2983C12.0145 18.2983 12.3313 18.2966 12.648 18.2924L12.5997 18.2933C12.8681 18.2966 13.1848 18.2991 13.5016 18.2991C16.6265 18.2991 19.7055 18.1057 22.7287 17.7315L22.367 17.7681C23.4489 17.4664 24.2824 16.6279 24.5725 15.5651L24.5775 15.5435C24.9101 13.7855 25.1001 11.7626 25.1001 9.69626C25.1001 9.62291 25.1001 9.54956 25.0993 9.47704V9.48788C25.0993 9.4262 25.1001 9.35285 25.1001 9.2795C25.1001 7.21235 24.9092 5.19021 24.545 3.22892L24.5758 3.4323Z" fill="#00DCFF"/>
             </svg>              
           </a>
-          <a class="social" href="https://www.facebook.com/hovinhthanh7893" target="_blank">
+          <a class="social" href="https://www.facebook.com/hovinhthanh7893" target="_blank" aria-label="open facebook">
             <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M22.2222 0H2.77778C1.25 0 0 1.25 0 2.77778V22.2222C0 23.7514 1.25 25 2.77778 25H12.5V15.2778H9.72222V11.8403H12.5V8.99306C12.5 5.9875 14.1833 3.87639 17.7306 3.87639L20.2347 3.87917V7.49722H18.5722C17.1917 7.49722 16.6667 8.53333 16.6667 9.49444V11.8417H20.2333L19.4444 15.2778H16.6667V25H22.2222C23.75 25 25 23.7514 25 22.2222V2.77778C25 1.25 23.75 0 22.2222 0Z" fill="#7D0CFF"/>
             </svg>              
@@ -799,13 +799,13 @@
           <script>document.getElementById('copyright_year').appendChild(document.createTextNode(new Date().getFullYear()))</script>
         </span>
         All Rights Reserved by
-        <a class="copyright_link" href="https://www.linkedin.com/in/hovinhthanh7893/" target="_blank">Ho Vinh Thanh</a>
+        <a class="copyright_link" href="https://www.linkedin.com/in/hovinhthanh7893/" target="_blank" aria-label="to linkedin">Ho Vinh Thanh</a>
       </div>
       <div class="endPage">
         <button class="sound" id="soundButton" aria-label="toggle sound"></button>
-        <a href="#section1" class="backToTop"></a>
+        <a href="#section1" class="backToTop" aria-label="to section 1"></a>
       </div>
-      <a href="#section1" class="moveUp"></a>
+      <a href="#section1" class="moveUp" aria-label="scroll to top"></a>
     </footer>
   </body>
 </html>

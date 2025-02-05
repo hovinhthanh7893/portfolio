@@ -9,7 +9,7 @@ body {
   box-sizing: border-box;
   overflow-x: hidden;
   overflow-y: scroll;
-  cursor: url("./icons/cursor-yellow.png"), auto;
+  cursor: url("./icons/cursor-yellow.webp"), auto;
 }
 ::-webkit-scrollbar {
   width: 0;
@@ -17,7 +17,7 @@ body {
 }
 
 a {
-  cursor: url("./icons/pointer-yellow.png"), pointer;
+  cursor: url("./icons/pointer-yellow.webp"), pointer;
 }
 
 .webgl {
@@ -54,6 +54,7 @@ nav {
 }
 
 .logo {
+  position: relative;
   display: flex;
   flex-wrap: nowrap;
   text-decoration: none;
@@ -76,7 +77,8 @@ nav {
 .logo::after {
   content: "";
   position: absolute;
-  top: 53px;
+  top: 26px;
+  left: 0;
   height: 1px;
   width: 0px;
   background: goldenrod;
@@ -158,6 +160,7 @@ nav {
   opacity: 0;
 }
 .navEach {
+  position: relative;
   text-decoration: none;
   color: beige;
 }
@@ -183,12 +186,12 @@ nav {
 
 #navLink1::after {
   content: "";
+  position: absolute;
+  top: 22px;
+  left: 4px;
   height: 1px;
   width: 0;
   background: goldenrod;
-  position: absolute;
-  top: 55px;
-  translate: -45px 0;
   transition: width 0.5s ease-out;
 }
 #navLink1.is-on::after {
@@ -197,12 +200,12 @@ nav {
 
 #navLink2::after {
   content: "";
+  position: absolute;
+  top: 22px;
+  left: 4px;
   height: 1px;
   width: 0;
   background: goldenrod;
-  position: absolute;
-  top: 55px;
-  translate: -32px 0;
   transition: width 0.5s ease-out;
 }
 #navLink2.is-on::after {
@@ -211,30 +214,30 @@ nav {
 
 #navLink3::after {
   content: "";
+  position: absolute;
+  top: 22px;
+  left: 5px;
   height: 1px;
   width: 0;
   background: goldenrod;
-  position: absolute;
-  top: 55px;
-  translate: -42px 0;
   transition: width 0.5s ease-out;
 }
 #navLink3.is-on::after {
-  width: 44px;
+  width: 45px;
 }
 
 #navLink4::after {
   content: "";
+  position: absolute;
+  top: 22px;
+  left: 6px;
   height: 1px;
   width: 0;
   background: goldenrod;
-  position: absolute;
-  top: 55px;
-  translate: -56px 0;
   transition: width 0.5s ease-out;
 }
 #navLink4.is-on::after {
-  width: 57px;
+  width: 60px;
 }
 
 #navLink5.is-on::before,
@@ -263,7 +266,7 @@ nav {
   transition: all 0.3s ease-in-out;
 }
 .hamburger:hover {
-  cursor: url("./icons/pointer-yellow.png"), pointer;
+  cursor: url("./icons/pointer-yellow.webp"), pointer;
 }
 .hamburger.is-active .line:nth-child(1) {
   width: 20px;
@@ -336,35 +339,6 @@ section {
   text-align: center;
 }
 
-#content1, #content2, #content3, #content4, #content5, #content6 {
-  opacity: 0;
-  translate: 0 80px;
-}
-#content1 {
-  transition: opacity 1s 0.1s, translate 1s cubic-bezier(0.13, 0.07, 0.26, 0.99);
-}
-#content2 {
-  transition: opacity 1s 0.3s, translate 1s cubic-bezier(0.13, 0.07, 0.26, 0.99) 0.2s;
-}
-#content3 {
-  transition: opacity 1s 0.5s, translate 1s cubic-bezier(0.13, 0.07, 0.26, 0.99) 0.4s;
-}
-#content4 {
-  transition: opacity 1s 0.7s, translate 1s cubic-bezier(0.13, 0.07, 0.26, 0.99) 0.6s;
-}
-#content5 {
-  transition: opacity 1s 0.9s, translate 1s cubic-bezier(0.13, 0.07, 0.26, 0.99) 0.8s;
-}
-#content6 {
-  transition: opacity 1s 1.1s, translate 1s cubic-bezier(0.13, 0.07, 0.26, 0.99) 1s;
-}
-.is-visible #content1, .is-visible #content2,
-.is-visible #content3, .is-visible #content4,
-.is-visible #content5, .is-visible #content6 {
-  opacity: 1;
-  translate: 0 0;
-}
-
 .sec1Tit {
   flex-wrap: wrap;
   font-size: 60px;
@@ -420,13 +394,13 @@ section {
   height: 1px;
   margin: 20px 0 20px 0;
 }
-#content2.lineSec2 {
+.content2.lineSec2 {
   background: linear-gradient(60deg, #b721ff, #26ff9d, #ffec19, #ff417a);
   background-size: 200%;
   background-position: 0;
   animation: moveGradient 6s alternate infinite;
 }
-#content4.lineSec2 {
+.content4.lineSec2 {
   background: linear-gradient(-60deg, #b721ff, #26ff9d, #ffec19, #ff417a);
   background-size: 200%;
   background-position: 0;
@@ -469,6 +443,7 @@ section {
 }
 
 .secPortFrame {
+  position: relative;
   height: 50vh;
   margin: 2vh 0 3vh 0;
   display: flex;
@@ -481,6 +456,7 @@ section {
   transition: all 0.5s ease-out;
 }
 .project {
+  position: relative;
   width: 30vw;
   min-height: 48vh;
   margin: 0 10px 0 10px;
@@ -609,6 +585,7 @@ section {
 .projectDes {
   position: absolute;
   bottom: 0;
+  left: 0;
   width: 100%;
   height: 3vh;
   margin: 10px 0 20px 0;
@@ -656,27 +633,27 @@ section {
   opacity: 0.5;
 }
 .leftright:nth-of-type(1) {
-  background: url("./icons/icon-slide-prev-100.png") no-repeat;
+  background: url("./icons/icon-slide-prev-100.webp") no-repeat;
   background-size: cover;
   left: 0;
   transform: translateX(calc(20vw - 30px));
 }
 .leftright:nth-of-type(2) {
-  background: url("./icons/icon-slide-next-100.png") no-repeat;
+  background: url("./icons/icon-slide-next-100.webp") no-repeat;
   background-size: cover;
   right: 0;
   transform: translateX(calc(-20vw + 30px));
 }
 .leftright:hover {
-  cursor: url("./icons/pointer-yellow.png"), pointer;
+  cursor: url("./icons/pointer-yellow.webp"), pointer;
   opacity: 1;
 }
 .leftright:nth-of-type(1):active {
-  background: url("./icons/icon-slide-prev-clicked-100.png") no-repeat;
+  background: url("./icons/icon-slide-prev-clicked-100.webp") no-repeat;
   background-size: cover;
 }
 .leftright:nth-of-type(2):active {
-  background: url("./icons/icon-slide-next-clicked-100.png") no-repeat;
+  background: url("./icons/icon-slide-next-clicked-100.webp") no-repeat;
   background-size: cover;
 }
 
@@ -774,6 +751,7 @@ section {
   font-size: 20px;
 }
 .secPhone {
+  position: relative;
   width: 200px;
   height: 40px;
   border-radius: 10px;
@@ -795,9 +773,11 @@ section {
 .secPhone::after {
   content: "";
   position: absolute;
+  top: 50%;
+  right: 3px;
   width: 155px;
   height: 34px;
-  margin: 0 3px 0 42px;
+  translate: 0 -50%;
   border-radius: 8px;
   background-color: black;
 }
@@ -844,7 +824,7 @@ section {
   animation: moveGradient 8s alternate infinite;
 }
 .secMail:hover {
-  cursor: url("./icons/pointer-yellow.png"), pointer;
+  cursor: url("./icons/pointer-yellow.webp"), pointer;
   font-weight: bolder;
   box-shadow: 0px 0 15px 0 rgb(255, 145, 0);
 }
@@ -934,11 +914,11 @@ section {
   z-index: 10;
   animation: sound 4s ease-in-out infinite;
   opacity: 0.4;
-  background: url("./icons/icon-close-100.png") no-repeat;
+  background: url("./icons/icon-close-100.webp") no-repeat;
   background-size: cover;
 }
 .close_button:hover {
-  cursor: url("./icons/pointer-yellow.png"), pointer;
+  cursor: url("./icons/pointer-yellow.webp"), pointer;
   opacity: 1;
   scale: 1.1;
 }
@@ -961,7 +941,7 @@ input, textarea {
   font-family: "Josefin Sans", sans-serif;
   font-size: 18px;
   caret-color: white;
-  cursor: url("./icons/pointer-yellow.png"), pointer;
+  cursor: url("./icons/pointer-yellow.webp"), pointer;
 }
 input {
   height: 30px;
@@ -1081,6 +1061,7 @@ textarea:focus, input:focus{
   scale: 0.6;
 }
 .next {
+  position: relative;
   width: 2px;
   height: 24px;
   border-radius: 1px;
@@ -1094,6 +1075,7 @@ textarea:focus, input:focus{
 .next::after {
   content: "";
   position: absolute;
+  left: 0;
   bottom: 0;
   width: 24px;
   height: 2px;
@@ -1122,6 +1104,35 @@ textarea:focus, input:focus{
   }
 }
 
+.content1, .content2, .content3, .content4, .content5, .content6 {
+  opacity: 0;
+  translate: 0 80px;
+}
+.content1 {
+  transition: opacity 1s 0.1s, translate 1s cubic-bezier(0.13, 0.07, 0.26, 0.99);
+}
+.content2 {
+  transition: opacity 1s 0.3s, translate 1s cubic-bezier(0.13, 0.07, 0.26, 0.99) 0.2s;
+}
+.content3 {
+  transition: opacity 1s 0.5s, translate 1s cubic-bezier(0.13, 0.07, 0.26, 0.99) 0.4s;
+}
+.content4 {
+  transition: opacity 1s 0.7s, translate 1s cubic-bezier(0.13, 0.07, 0.26, 0.99) 0.6s;
+}
+.content5 {
+  transition: opacity 1s 0.9s, translate 1s cubic-bezier(0.13, 0.07, 0.26, 0.99) 0.8s;
+}
+.content6 {
+  transition: opacity 1s 1.1s, translate 1s cubic-bezier(0.13, 0.07, 0.26, 0.99) 1s;
+}
+.is-visible .content1, .is-visible .content2,
+.is-visible .content3, .is-visible .content4,
+.is-visible .content5, .is-visible .content6 {
+  opacity: 1;
+  translate: 0 0;
+}
+
 footer {
   position: fixed;
   bottom: 0;
@@ -1146,7 +1157,7 @@ footer {
   width: 34px;
   height: 34px;
   margin-top: 3px;
-  background: url("./icons/icon-top-arrow-64.png") no-repeat;
+  background: url("./icons/icon-top-arrow-64.webp") no-repeat;
   background-size: cover;
   animation: sound 5s infinite;
   opacity: 0.3;
@@ -1164,7 +1175,7 @@ footer {
   height: 34px;
   margin-top: 3px;
   border: none;
-  background: url("./icons/icon-up-arrow-64.png") no-repeat;
+  background: url("./icons/icon-up-arrow-64.webp") no-repeat;
   background-size: cover;
   animation: sound 5s ease-in-out infinite;
   opacity: 0.4;
@@ -1191,13 +1202,13 @@ footer {
   height: 40px;
   border: none;
   background-color: none;
-  background: url("./icons/icon-mute-96.png") no-repeat;
+  background: url("./icons/icon-mute-96.webp") no-repeat;
   background-size: cover;
   opacity: 0.6;
   animation: sound 6s infinite;
 }
 .sound:hover {
-  cursor: url("./icons/pointer-yellow.png"), pointer;
+  cursor: url("./icons/pointer-yellow.webp"), pointer;
 }
 .sound:active {
   transform: scale(0.9);
@@ -1250,9 +1261,6 @@ footer {
 @media only screen and (max-width: 480px) {
   nav {
     padding: 30px 10vw 50px 10vw;
-  }
-  .logo::after {
-    top: 60px;
   }
   .navBig {
     display: none;
