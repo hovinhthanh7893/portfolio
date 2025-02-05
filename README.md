@@ -13,13 +13,14 @@ This is my portfolio website, created using pure HTML, CSS, JavaScript and deplo
 ├── index.html
 ├── index.js
 ├── style.css
-├── images/
-│   │   ├── images1.webp
-│   │   ├── images2.webp
-├── sounds/
-│   │   ├── sound1.mp3
-│   │   ├── sound2.mp3
-├── .gitignore
+├── icons/
+│   │   ├── favicon/
+│   │   │   ├── favicon.ico
+│   │   │   ├── favicon-16x16.png
+│   │   │   ├── favicon-32x32.png
+│   │   │   ├── apple-touch-icon.png
+│   │   │   ├── android-chrome-192x192.png
+│   │   │   ├── android-chrome-512x512.png
 ├── README.md
 ├── manifest.webmanifest
 ```
@@ -39,9 +40,33 @@ This is my portfolio website, created using pure HTML, CSS, JavaScript and deplo
 
 ## How to deploy a GitHub Pages?
 - A GitHub Pages must be a public repo
-- Make a new branch name "gh-pages" as production branch
+- Create folder github/workflows/deploy.yml
+```
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./
+        publish_branch: gh-pages
+```
+- Make a new branch name "gh-pages" as a production branch
 - On Github repo > Settings > Pages > Branch > choose branch "gh-pages", folder "/(root)" > Save
-- Wait for a 3-5 minutes for deploying
+- Everytime you commit to "main" branch, GitHub will automatically deploy to "gh-pages" branch
 - Access your live page at "https://\<your-account-id>.github.io/\<github-repo-name>/"
 
 ## How to intergrate Three.js?
@@ -65,13 +90,17 @@ import * as THREE from "https://cdn.skypack.dev/three@0.148.0"
 ```
 
 ```
-- Create renderer object
+- Create animate function
+```
+
+```
+- Initiate ThreeJS
 ```
 
 ```
 
 ## How to set up EmailJS?
-- Go to [emailjs.com](https://www.emailjs.com/) and create free account
+- Go to [emailjs.com](https://www.emailjs.com/) and create a free account
 - Click on "Email Services" > "Add New Servive" and follow to connect to your personal email. In the tab you can find your "SERVICE_ID"
 - Click on "Email Templates" > "Create New Template" and follow to create a template for the mail that send to you. In the tab you can find your "TEMPLATE_ID"
 - Click on "Account" > "Public Key" is your "USER_ID"
@@ -96,13 +125,13 @@ fetch('https://api.emailjs.com/api/v1.0/email/send', {
   })
   .then((httpResponse) => {
     if (httpResponse.ok) {
-      <your-success-function>
+      <your-success-handle-function>
     } else {
-      <your-fail-function>
+      <your-fail-handle-function>
     }
   })
   .catch((error) => {
-    <your-error-function>
+    <your-error-handle-function>
   })
 ```
 
