@@ -1,8 +1,6 @@
 import * as THREE from "https://cdn.skypack.dev/three@0.148.0";
 import openSimplexNoise from 'https://cdn.skypack.dev/open-simplex-noise';
 
-const test = '2025'
-
 //VARIABLES
 const sizes = {
   width: window.innerWidth,
@@ -574,6 +572,7 @@ document
         }
       }
       if (emailValid) {
+        document.querySelector("#contact_form_submit").classList.add("secMail_active");
         fetch('https://api.emailjs.com/api/v1.0/email/send', {
             method: 'POST',
             headers: {
@@ -592,6 +591,7 @@ document
             })
           })
           .then((httpResponse) => {
+            document.querySelector("#contact_form_submit").classList.remove("secMail_active");
             if (httpResponse.ok) {
               if (document.querySelector(".contact_form_success").classList.contains("contact_form_hide")) {
                 document.querySelector(".contact_form_success").classList.remove("contact_form_hide");
@@ -740,27 +740,27 @@ function toggleStars(color) {
 }
 //Update project size according to orientation
 function projectResize() {
-    if (window.innerWidth > 820) {
-      if ((window.innerHeight / window.innerWidth) >= 0.9) {
-        document.querySelectorAll(".project").forEach((each) => {
-          each.style.width = "65vw";
-        })
-        document.querySelector("#prevWebButton").style.transform = "translateX(0)";
-        document.querySelector("#nextWebButton").style.transform = "translateX(0)";
-        document.querySelector("#prevGameButton").style.transform = "translateX(0)";
-        document.querySelector("#nextGameButton").style.transform = "translateX(0)";
-        document.querySelectorAll(".picture").forEach((each) => each.style.width = "65vw");
-      } else {
-        document.querySelectorAll(".project").forEach((each) => {
-          each.style.width = "30vw";
-        })
-        document.querySelector("#prevWebButton").style.transform = "translateX(calc(20vw - 30px))";
-        document.querySelector("#nextWebButton").style.transform = "translateX(calc(-20vw + 30px))";
-        document.querySelector("#prevGameButton").style.transform = "translateX(calc(20vw - 30px))";
-        document.querySelector("#nextGameButton").style.transform = "translateX(calc(-20vw + 30px))";
-        document.querySelectorAll(".picture").forEach((each) => each.style.width = "30vw");
-      }
+  if (window.innerWidth > 820) {
+    if ((window.innerHeight / window.innerWidth) >= 0.9) {
+      document.querySelectorAll(".project").forEach((each) => {
+        each.style.width = "65vw";
+      })
+      document.querySelector("#prevWebButton").style.transform = "translateX(0)";
+      document.querySelector("#nextWebButton").style.transform = "translateX(0)";
+      document.querySelector("#prevGameButton").style.transform = "translateX(0)";
+      document.querySelector("#nextGameButton").style.transform = "translateX(0)";
+      document.querySelectorAll(".picture").forEach((each) => each.style.width = "65vw");
+    } else {
+      document.querySelectorAll(".project").forEach((each) => {
+        each.style.width = "30vw";
+      })
+      document.querySelector("#prevWebButton").style.transform = "translateX(calc(20vw - 30px))";
+      document.querySelector("#nextWebButton").style.transform = "translateX(calc(-20vw + 30px))";
+      document.querySelector("#prevGameButton").style.transform = "translateX(calc(20vw - 30px))";
+      document.querySelector("#nextGameButton").style.transform = "translateX(calc(-20vw + 30px))";
+      document.querySelectorAll(".picture").forEach((each) => each.style.width = "30vw");
     }
+  }
 }
 
 

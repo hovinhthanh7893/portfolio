@@ -71,33 +71,45 @@ jobs:
 - Access your live page at "https://\<your-account-id>.github.io/\<github-repo-name>/"
 
 ## How to intergrate Three.js?
-- Import ThreeJS in index.js
-```
-import * as THREE from "https://cdn.skypack.dev/three@0.148.0"
-```
 - Create visual canvas in html
 ```
 <canvas class="webgl"></canvas>
 ```
-- Create scene object
+- Import ThreeJS in index.js
 ```
-
+import * as THREE from "https://cdn.skypack.dev/three@0.148.0"
 ```
-- Create camera object
+- Create scene & camera
 ```
-
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight);
+camera.position.z = 5;
+scene.add(camera);
 ```
-- Create renderer object
+- Create object
 ```
-
+const geometry = new THREE.SphereGeometry(1, 32, 16); 
+const material = new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true });
+const mesh = new THREE.Mesh( geometry, material );
+scene.add(mesh);
+```
+- Create renderer
+```
+const canvas = document.querySelector(".webgl");
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+renderer.setSize(window.innerWidth, window.innerHeight);
 ```
 - Create animate function
 ```
-
+const animate = () => {
+  window.requestAnimationFrame(animate);
+  mesh.rotation.y += 0.01;
+  renderer.render(scene, camera);
+};
 ```
 - Initiate ThreeJS
 ```
-
+animate();
 ```
 
 ## How to set up EmailJS?
