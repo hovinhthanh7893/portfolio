@@ -1,6 +1,10 @@
 import * as THREE from "https://cdn.skypack.dev/three@0.148.0";
 import openSimplexNoise from 'https://cdn.skypack.dev/open-simplex-noise';
 
+console.log(window.ENV.USER_ID)
+console.log(window.ENV.SERVICE_ID)
+console.log(window.ENV.TEMPLATE_ID)
+
 //VARIABLES
 const sizes = {
   width: window.innerWidth,
