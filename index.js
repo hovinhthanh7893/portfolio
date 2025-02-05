@@ -536,54 +536,107 @@ document.querySelectorAll("#prevImg").forEach((each) => {
 document
   .querySelector(".secMail")
   .addEventListener("click", function(event) {
-    document.querySelector("#contactForm").classList.remove("hidden_layer")
-    document.querySelector("nav").classList.add("nav_hidden")
-    document.querySelector("footer").classList.add("nav_hidden")
+    document.querySelector("#contactForm").classList.remove("hidden_layer");
+    document.querySelector("nav").classList.add("nav_hidden");
+    document.querySelector("footer").classList.add("nav_hidden");
     setTimeout(() => {
-      document.querySelector("#contactForm").style.opacity = 1
-    }, '10')
+      document.querySelector("#contactForm").style.opacity = 1;
+    }, '10');
 });
 document
   .querySelector("#closeContactForm")
   .addEventListener("click", function(event) {
-    document.querySelector("nav").classList.remove("nav_hidden")
-    document.querySelector("footer").classList.remove("nav_hidden")
-    document.querySelector("#contactForm").style.opacity = 0
+    document.querySelector("nav").classList.remove("nav_hidden");
+    document.querySelector("footer").classList.remove("nav_hidden");
+    document.querySelector("#contactForm").style.opacity = 0;
     setTimeout(() => {
-      document.querySelector("#contactForm").classList.add("hidden_layer")
-    }, '500')
+      document.querySelector("#contactForm").classList.add("hidden_layer");
+    }, '500');
 });
 document
   .querySelector("#contact_form_submit")
   .addEventListener("click", function(event) {
-    const name = document.querySelector("#contact_name").value
-    const email = document.querySelector("#contact_email").value
-    const subject = document.querySelector("#contact_subject").value
-    const message = document.querySelector("#contact_message").value
-
-    fetch('https://api.emailjs.com/api/v1.0/email/send', {
-        method: 'POST',
-        headers: {
-          'Content-type': 'application/json'
-        },
-        body: JSON.stringify({
-          user_id: 'FCPt1EIYp5ib1ELvH',
-          service_id: 'service_gbz0gz8',
-          template_id: 'template_2uwkp26',
-          template_params: {
-              'name': name,
-              'email': email,
-              'subject': subject,
-              'message': message
+    const name = document.querySelector("#contact_name").value;
+    const email = document.querySelector("#contact_email").value;
+    const subject = document.querySelector("#contact_subject").value;
+    const message = document.querySelector("#contact_message").value;
+    if (name && email && subject && message) {
+      let emailValid = false
+      if (email.includes('@')) {
+        const parts = email.split('@')
+        if (parts[1].length > 3) {
+          if (parts[1].includes('.')) {
+            const after = parts[1].split('.')
+            if (after[1].length > 1) {
+              emailValid = true
+            }
           }
-        })
-      })
-      .then((httpResponse) => {
-        if (httpResponse.ok) {
-          
         }
-      })
-      .catch((error) => {});
+      }
+      if (emailValid) {
+        fetch('https://api.emailjs.com/api/v1.0/email/send', {
+            method: 'POST',
+            headers: {
+              'Content-type': 'application/json'
+            },
+            body: JSON.stringify({
+              user_id: 'FCPt1EIYp5ib1ELvH',
+              service_id: 'service_gbz0gz8',
+              template_id: 'template_2uwkp26',
+              template_params: {
+                  'name': name,
+                  'email': email,
+                  'subject': subject,
+                  'message': message
+              }
+            })
+          })
+          .then((httpResponse) => {
+            if (httpResponse.ok) {
+              if (document.querySelector(".contact_form_success").classList.contains("contact_form_hide")) {
+                document.querySelector(".contact_form_success").classList.remove("contact_form_hide");
+                setTimeout(() => {
+                  document.querySelector("nav").classList.remove("nav_hidden");
+                  document.querySelector("footer").classList.remove("nav_hidden");
+                  document.querySelector("#contactForm").style.opacity = 0;
+                  setTimeout(() => {
+                    document.querySelector("#contactForm").classList.add("hidden_layer");
+                  }, '500');
+                }, '2000');
+              }
+            } else {
+              if (document.querySelector(".contact_form_mail_error").classList.contains("contact_form_hide")) {
+                document.querySelector(".contact_form_mail_error").classList.remove("contact_form_hide");
+                setTimeout(() => {
+                  document.querySelector(".contact_form_mail_error").classList.add("contact_form_hide");
+                }, '3000');
+              }
+            }
+          })
+          .catch((error) => {
+            if (document.querySelector(".contact_form_mail_error").classList.contains("contact_form_hide")) {
+              document.querySelector(".contact_form_mail_error").classList.remove("contact_form_hide");
+              setTimeout(() => {
+                document.querySelector(".contact_form_mail_error").classList.add("contact_form_hide");
+              }, '3000');
+            }
+          });
+      } else {
+        if (document.querySelector(".contact_form_mail_inv").classList.contains("contact_form_hide")) {
+          document.querySelector(".contact_form_mail_inv").classList.remove("contact_form_hide");
+          setTimeout(() => {
+            document.querySelector(".contact_form_mail_inv").classList.add("contact_form_hide");
+          }, '3000');
+        }
+      }
+    } else {
+      if (document.querySelector(".contact_form_missing").classList.contains("contact_form_hide")) {
+        document.querySelector(".contact_form_missing").classList.remove("contact_form_hide");
+        setTimeout(() => {
+          document.querySelector(".contact_form_missing").classList.add("contact_form_hide");
+        }, '3000');
+      }
+    }
 });
 
 //BUTTON BACK TO TOP
