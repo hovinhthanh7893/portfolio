@@ -237,7 +237,7 @@ function generateAirPlane() {
     flatShading: true,
     fog: false,
   });
-  const flagText = new THREE.TextureLoader().load("./images/peace-flag.jpg");
+  const flagText = new THREE.TextureLoader().load("./images/peace-flag.webp");
   const matFlag = new THREE.MeshStandardMaterial({
     map: flagText,
     roughness: 0.5,
@@ -661,14 +661,14 @@ document
     if (soundOn === true) {
       this.style.opacity = 1;
       backgroundSound.pause();
-      this.style.backgroundImage = "url('./icons/icon-mute-96.png')";
+      this.style.backgroundImage = "url('./icons/icon-mute-96.webp')";
       soundOn = false;
     } else {
       this.style.opacity = 0.2;
       backgroundSound.play();
       backgroundSound.volume = 0.5;
       backgroundSound.loop = true;
-      this.style.backgroundImage = "url('./icons/icon-sound-96.png')";
+      this.style.backgroundImage = "url('./icons/icon-sound-96.webp')";
     soundOn = true;
     }
 });
