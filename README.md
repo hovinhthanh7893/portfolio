@@ -39,6 +39,12 @@ This is my portfolio website, created using pure HTML, CSS, JavaScript and deplo
 - Access localhost on brownser at http://127.0.0.1:5500/
 - Click button "Port:5500" on the right bottom corner of VS Code to close localhost
 
+## Lighthouse checklist
+- \<button> always has id and aria-label, min size 24x24 px
+- \<a> always has aria-label
+- \<img> always has alt
+- only use webp or svg
+
 ## How to deploy a GitHub Pages?
 - A GitHub Pages must be a public repo
 - Create new folder .github/workflows/deploy.yml
