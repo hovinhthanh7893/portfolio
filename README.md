@@ -21,6 +21,7 @@ This is my portfolio website, created using pure HTML, CSS, JavaScript and deplo
 │   │   │   ├── apple-touch-icon.png
 │   │   │   ├── android-chrome-192x192.png
 │   │   │   ├── android-chrome-512x512.png
+├── .gitignore
 ├── README.md
 ├── manifest.webmanifest
 ```
@@ -40,7 +41,7 @@ This is my portfolio website, created using pure HTML, CSS, JavaScript and deplo
 
 ## How to deploy a GitHub Pages?
 - A GitHub Pages must be a public repo
-- Create folder github/workflows/deploy.yml
+- Create new folder .github/workflows/deploy.yml
 ```
 name: Deploy to GitHub Pages
 
