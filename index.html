@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="msapplication-TileColor" content="#303E50">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="author" content="hovinhthanh7893">
     <meta name="description" content="hovinhthanh7893 portfolio">
@@ -22,13 +22,15 @@
       gtag('config', 'G-Q5DSMWE148');
     </script>
 
-    <link rel="icon" href="./icons/favicon/favicon.ico" />
+    <script src="./config.js"></script>
+    <script type="module" src="./index.js"></script>
+    <link rel="icon" href="./icons/favicon/favicon.ico"/>
     <link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./icons/favicon/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="./icons/favicon/apple-touch-icon.png">
-    <link rel="manifest" href="./manifest.webmanifest" />
-    <link rel="stylesheet" type="text/css" href="./style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&family=Playfair+Display&family=Roboto+Slab&display=swap" rel="stylesheet" />
+    <link rel="manifest" href="./manifest.webmanifest"/>
+    <link rel="stylesheet" type="text/css" href="./style.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&family=Playfair+Display&family=Roboto+Slab&display=swap" rel="stylesheet"/>
   </head>
   <body>
     <canvas class="webgl"></canvas>
@@ -406,9 +408,9 @@
             <div class="phone"></div>
             <div class="phoneNumber">+31 65 123 7146</div>
           </a>
-          <a class="secMail" href="mailto:hovinhthanh7893@gmail.com">
+          <div class="secMail">
             <div class="mail"></div>Send message
-          </a>
+          </div>
         </div>
         <div class="secSocial" id="content3">
           <a
@@ -442,16 +444,27 @@
             target="_blank"
           ></a>
         </div>
+        <div class="contact_form_wrap hidden_layer" id="contactForm">
+          <div class="contact_form_frame">
+            <button class="close_button" id="closeContactForm"></button>
+            <div class="contact_form">
+              <input type="text" id="contact_name" value="" placeholder="Name" autocomplete="off">
+              <input type="text" id="contact_email" value="" placeholder="Email" autocomplete="off">
+              <input type="text" id="contact_subject" value="" placeholder="Subject" autocomplete="off">
+              <textarea rows="6" id="contact_message" value="" placeholder="Message" autocomplete="off"></textarea>
+            </div>
+            <button class="secMail" id="contact_form_submit">Send</button>
+          </div>
+        </div>
       </section>
     </main>
     <footer>
-      <div class="copyright">Copyright &copy; 2023 All Rights Reserved by Ho Vinh Thanh</div>
+      <div class="copyright">Copyright &copy; 2024 All Rights Reserved by Ho Vinh Thanh</div>
       <div class="endPage">
         <button class="sound"></button>
         <a href="#section1" class="backToTop"></a>
       </div>
       <a href="#section1" class="moveUp"></a>
     </footer>
-    <script type="module" src="./index.js"></script>
   </body>
-  </html>
+</html>

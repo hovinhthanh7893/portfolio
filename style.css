@@ -49,6 +49,10 @@ nav {
   z-index: 99;
 }
 
+.nav_hidden {
+  pointer-events: none;
+}
+
 .logo {
   display: flex;
   flex-wrap: nowrap;
@@ -148,6 +152,10 @@ nav {
 .navBig {
   display: flex;
   gap: 30px;
+  transition: opacity 0.5s ease;
+}
+.nav_hidden .navBig {
+  opacity: 0;
 }
 .navEach {
   text-decoration: none;
@@ -238,6 +246,10 @@ nav {
 
 .navSmall {
   display: none;
+  transition: opacity 0.5s ease;
+}
+.nav_hidden .navSmall {
+  opacity: 0;
 }
 
 .hamburger {
@@ -950,6 +962,7 @@ section {
   animation: moveGradient 8s alternate infinite;
 }
 .secMail:hover {
+  cursor: url("./icons/pointer-yellow.png"), pointer;
   font-weight: bolder;
   box-shadow: 0px 0 15px 0 rgb(255, 145, 0);
 }
@@ -967,6 +980,7 @@ section {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   gap: 20px;
 }
 .social {
@@ -983,11 +997,13 @@ section {
   background: url("./icons/icon-github-64.png") no-repeat;
   background-size: cover;
   filter: invert(54%) sepia(80%) saturate(935%) hue-rotate(347deg) brightness(101%) contrast(103%);
+  border-radius: 50%;
 }
 .social:nth-of-type(3) {
   background: url("./icons/Codepen.png") no-repeat;
   background-size: cover;
   filter: invert(93%) sepia(32%) saturate(1390%) hue-rotate(338deg) brightness(109%) contrast(102%);
+  border-radius: 50%;
 }
 .social:nth-of-type(4) {
   background: url("./icons/Artstation.png") no-repeat;
@@ -995,9 +1011,10 @@ section {
   filter: invert(85%) sepia(61%) saturate(1211%) hue-rotate(68deg) brightness(102%) contrast(104%);
 }
 .social:nth-of-type(5) {
-  background: url("./icons/icon-youtube-64.png") no-repeat;
+  background: url("./icons/icon-youtube-64.png") no-repeat center;
   background-size: cover;
   filter: invert(68%) sepia(66%) saturate(1835%) hue-rotate(152deg) brightness(101%) contrast(104%);
+  height: 20px;
 }
 .social:nth-of-type(6) {
   background: url("./icons/icon-facebook-64.png") no-repeat;
@@ -1013,6 +1030,113 @@ section {
 .social:active {
   filter: invert(100%);
   scale: 0.9;
+}
+
+.contact_form_wrap {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  width: 100vw;
+  height: 100%;
+  translate: -50% 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.contact_form_frame {
+  position: relative;
+  box-sizing: border-box;
+  width: 80vw;
+  max-width: 500px;
+  height: 70vh;
+  padding: 8vh 24px;
+  border-radius: 25px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: rgba(88, 0, 44, 0.726) solid 0.8px;
+  box-shadow: 0px 0 10px 0 rgba(92, 0, 128, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+.hidden_layer {
+  display: none;
+}
+.close_button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 30px;
+  height: 30px;
+  border: none;
+  z-index: 10;
+  animation: sound 4s ease-in-out infinite;
+  opacity: 0.4;
+  background: url("./icons/icon-close-100.png") no-repeat;
+  background-size: cover;
+}
+.close_button:hover {
+  cursor: url("./icons/pointer-yellow.png"), pointer;
+  opacity: 1;
+  scale: 1.1;
+}
+.close_button:active {
+  scale: 0.95;
+}
+.contact_form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+input, textarea {
+  width: 100%;
+  background: none;
+  border: #6424dc solid;
+  border-width: 0 0 0.5px 0;
+  color: white;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 18px;
+  caret-color: white;
+  cursor: url("./icons/pointer-yellow.png"), pointer;
+}
+input {
+  height: 30px;
+}
+textarea {
+  padding: 0 0 20px 10px;
+}
+input::placeholder, textarea::placeholder {
+  font-size: 20px;
+}
+.contact_form input:nth-of-type(1)::placeholder {
+  color: #ffec19;
+}
+.contact_form input:nth-of-type(2)::placeholder {
+  color: #ff9318;
+}
+.contact_form input:nth-of-type(3)::placeholder {
+  color: #26ff9d;
+}
+.contact_form textarea::placeholder {
+  color: aqua;
+}
+textarea:focus, input:focus{
+  outline: none;
+}
+#contact_form_submit {
+  margin-top: 20px;
+}
+
+#contact_form_submit {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 20px;
 }
 
 .nextButton1 {
@@ -1129,6 +1253,10 @@ footer {
   display: flex;
   justify-content: flex-end;
   gap: 50px;
+  transition: opacity 0.5s ease;
+}
+.nav_hidden .endPage {
+  opacity: 0;
 }
 
 .sound {

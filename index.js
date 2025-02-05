@@ -530,6 +530,60 @@ document.querySelectorAll("#prevImg").forEach((each) => {
   });
 })
 
+// OPEN CONTACT FORM
+document
+  .querySelector(".secMail")
+  .addEventListener("click", function(event) {
+    document.querySelector("#contactForm").classList.remove("hidden_layer")
+    document.querySelector("nav").classList.add("nav_hidden")
+    document.querySelector("footer").classList.add("nav_hidden")
+    setTimeout(() => {
+      document.querySelector("#contactForm").style.opacity = 1
+    }, '10')
+});
+document
+  .querySelector("#closeContactForm")
+  .addEventListener("click", function(event) {
+    document.querySelector("nav").classList.remove("nav_hidden")
+    document.querySelector("footer").classList.remove("nav_hidden")
+    document.querySelector("#contactForm").style.opacity = 0
+    setTimeout(() => {
+      document.querySelector("#contactForm").classList.add("hidden_layer")
+    }, '500')
+});
+document
+  .querySelector("#contact_form_submit")
+  .addEventListener("click", function(event) {
+    const name = document.querySelector("#contact_name").value
+    const email = document.querySelector("#contact_email").value
+    const subject = document.querySelector("#contact_subject").value
+    const message = document.querySelector("#contact_message").value
+
+    fetch('https://api.emailjs.com/api/v1.0/email/send', {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify({
+          user_id: window.ENV.USER_ID,
+          service_id: window.ENV.SERVICE_ID,
+          template_id: window.ENV.TEMPLATE_ID,
+          template_params: {
+              'name': name,
+              'email': email,
+              'subject': subject,
+              'message': message
+          }
+        })
+      })
+      .then((httpResponse) => {
+        if (httpResponse.ok) {
+          
+        }
+      })
+      .catch((error) => {});
+});
+
 //BUTTON BACK TO TOP
 document
   .querySelector(".backToTop")
