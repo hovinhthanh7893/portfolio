@@ -13,13 +13,14 @@ This is my portfolio website, created using pure HTML, CSS, JavaScript and deplo
 ├── index.html
 ├── index.js
 ├── style.css
-├── images/
-│   │   ├── images1.webp
-│   │   ├── images2.webp
-├── sounds/
-│   │   ├── sound1.mp3
-│   │   ├── sound2.mp3
-├── .gitignore
+├── icons/
+│   │   ├── favicon/
+│   │   │   ├── favicon.ico
+│   │   │   ├── favicon-16x16.png
+│   │   │   ├── favicon-32x32.png
+│   │   │   ├── apple-touch-icon.png
+│   │   │   ├── android-chrome-192x192.png
+│   │   │   ├── android-chrome-512x512.png
 ├── README.md
 ├── manifest.webmanifest
 ```
@@ -96,13 +97,13 @@ fetch('https://api.emailjs.com/api/v1.0/email/send', {
   })
   .then((httpResponse) => {
     if (httpResponse.ok) {
-      <your-success-function>
+      <your-success-handle-function>
     } else {
-      <your-fail-function>
+      <your-fail-handle-function>
     }
   })
   .catch((error) => {
-    <your-error-function>
+    <your-error-handle-function>
   })
 ```
 

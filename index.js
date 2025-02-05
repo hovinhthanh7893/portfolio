@@ -1,10 +1,6 @@
 import * as THREE from "https://cdn.skypack.dev/three@0.148.0";
 import openSimplexNoise from 'https://cdn.skypack.dev/open-simplex-noise';
 
-console.log(window.ENV.USER_ID)
-console.log(window.ENV.SERVICE_ID)
-console.log(window.ENV.TEMPLATE_ID)
-
 //VARIABLES
 const sizes = {
   width: window.innerWidth,
@@ -569,9 +565,9 @@ document
           'Content-type': 'application/json'
         },
         body: JSON.stringify({
-          user_id: window.ENV.USER_ID,
-          service_id: window.ENV.SERVICE_ID,
-          template_id: window.ENV.TEMPLATE_ID,
+          user_id: 'FCPt1EIYp5ib1ELvH',
+          service_id: 'service_gbz0gz8',
+          template_id: 'template_2uwkp26',
           template_params: {
               'name': name,
               'email': email,
