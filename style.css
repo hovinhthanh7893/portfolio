@@ -440,119 +440,9 @@ section {
   flex-wrap: wrap;
   gap: 10px;
 }
-
-.softwareDes {
+.softwareIcon {
   width: 3vh;
   height: 3vh;
-}
-.softwareDes:nth-of-type(1) {
-  background: url("./icons/Adobe-Photoshop.png") no-repeat;
-  background-size: cover;
-}
-.softwareDes:nth-of-type(2) {
-  background: url("./icons/Adobe-Illustrator.png") no-repeat;
-  background-size: cover;
-}
-.softwareDes:nth-of-type(3) {
-  background: url("./icons/Adobe-Premiere-Pro.png") no-repeat;
-  background-size: cover;
-}
-.softwareDes:nth-of-type(4) {
-  background: url("./icons/Adobe-After-Effects.png") no-repeat;
-  background-size: cover;
-}
-.softwareDes:nth-of-type(5) {
-  background: url("./icons/Substance-Painter.png") no-repeat;
-  background-size: cover;
-}
-.softwareDes:nth-of-type(6) {
-  background: url("./icons/Maya.png") no-repeat;
-  background-size: cover;
-}
-.softwareDes:nth-of-type(7) {
-  background: url("./icons/Zbrush.png") no-repeat;
-  background-size: cover;
-}
-.softwareDes:nth-of-type(8) {
-  background: url("./icons/Unity.png") no-repeat;
-  background-size: cover;
-}
-
-.softwarePro {
-  width: 3vh;
-  height: 3vh;
-}
-.softwarePro:nth-of-type(1) {
-  background: url("./icons/C-Sharp.png") no-repeat;
-  background-size: cover;
-}
-.softwarePro:nth-of-type(2) {
-  background: url("./icons/Visual-Studio.png") no-repeat;
-  background-size: cover;
-}
-.softwarePro:nth-of-type(3) {
-  background: url("./icons/HTML.png") no-repeat;
-  background-size: cover;
-}
-.softwarePro:nth-of-type(4) {
-  background: url("./icons/CSS.png") no-repeat;
-  background-size: cover;
-}
-.softwarePro:nth-of-type(5) {
-  background: url("./icons/JavaScript.png") no-repeat;
-  background-size: cover;
-}
-.softwarePro:nth-of-type(6) {
-  background: url("./icons/TypeScript.png") no-repeat;
-  background-size: cover;
-}
-.softwarePro:nth-of-type(7) {
-  background: url("./icons/Python.png") no-repeat;
-  background-size: cover;
-}
-.softwarePro:nth-of-type(8) {
-  background: url("./icons/Visual-Studio-Code.png") no-repeat;
-  background-size: cover;
-}
-.softwarePro:nth-of-type(9) {
-  background: url("./icons/React.png") no-repeat;
-  background-size: cover;
-}
-.softwarePro:nth-of-type(10) {
-  background: url("./icons/Redux.png") no-repeat;
-  background-size: cover;
-}
-.softwarePro:nth-of-type(11) {
-  background: url("./icons/NextJS.png") no-repeat;
-  background-size: cover;
-}
-.softwarePro:nth-of-type(12) {
-  background: url("./icons/Vue.png") no-repeat;
-  background-size: cover;
-}
-.softwarePro:nth-of-type(13) {
-  background: url("./icons/Angular.png") no-repeat;
-  background-size: cover;
-}
-.softwarePro:nth-of-type(14) {
-  background: url("./icons/PostgreSQL.png") no-repeat;
-  background-size: cover;
-}
-.softwarePro:nth-of-type(15) {
-  background: url("./icons/FastAPI.png") no-repeat;
-  background-size: cover;
-}
-.softwarePro:nth-of-type(16) {
-  background: url("./icons/Sequelize.png") no-repeat;
-  background-size: cover;
-}
-.softwarePro:nth-of-type(17) {
-  background: url("./icons/Axios.png") no-repeat;
-  background-size: cover;
-}
-.softwarePro:nth-of-type(18) {
-  background: url("./icons/Threejs.png") no-repeat;
-  background-size: cover;
 }
 
 .secPortTit {
@@ -648,10 +538,6 @@ section {
   align-items: center;
   gap: 15px;
   flex-wrap: wrap;
-}
-.projectIcon {
-  width: auto;
-  height: 3vh;
 }
 
 .imgIndex {
@@ -849,8 +735,6 @@ section {
 .hand {
   width: 40px;
   height: 40px;
-  background: url("./icons/icon-so-so-96.png") no-repeat;
-  background-size: cover;
   animation: handWave 2.5s ease-in-out infinite;
 }
 @keyframes handWave {
@@ -922,8 +806,6 @@ section {
   height: 25px;
   margin-left: 11px;
   margin-right: 18px;
-  background: url("./icons/icon-whatsapp-50.png") no-repeat;
-  background-size: cover;
   z-index: 10;
 }
 .secPhone:hover {
@@ -949,7 +831,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 5px;
   box-shadow: 1px 0 10px 0 rgb(216, 0, 220);
   background: linear-gradient(
     132deg,
@@ -970,10 +852,12 @@ section {
   scale: 0.9;
 }
 .mail {
-  width: 30px;
-  height: 30px;
-  background: url("./icons/icon-envelope-64.png") no-repeat;
-  background-size: cover;
+  width: 25px;
+  height: 21px;
+}
+.secMail p {
+  width: 130px;
+  margin-left: 10px;
 }
 
 .secSocial {
@@ -988,38 +872,11 @@ section {
   height: 25px;
   border-radius: 5px;
 }
-.social:nth-of-type(1) {
-  background: url("./icons/icon-linkedin-50.png") no-repeat;
-  background-size: cover;
-  filter: invert(39%) sepia(57%) saturate(2362%) hue-rotate(297deg) brightness(101%) contrast(101%);
-}
-.social:nth-of-type(2) {
-  background: url("./icons/icon-github-64.png") no-repeat;
-  background-size: cover;
-  filter: invert(54%) sepia(80%) saturate(935%) hue-rotate(347deg) brightness(101%) contrast(103%);
+.social_round {
   border-radius: 50%;
 }
-.social:nth-of-type(3) {
-  background: url("./icons/Codepen.png") no-repeat;
-  background-size: cover;
-  filter: invert(93%) sepia(32%) saturate(1390%) hue-rotate(338deg) brightness(109%) contrast(102%);
-  border-radius: 50%;
-}
-.social:nth-of-type(4) {
-  background: url("./icons/Artstation.png") no-repeat;
-  background-size: cover;
-  filter: invert(85%) sepia(61%) saturate(1211%) hue-rotate(68deg) brightness(102%) contrast(104%);
-}
-.social:nth-of-type(5) {
-  background: url("./icons/icon-youtube-64.png") no-repeat center;
-  background-size: cover;
-  filter: invert(68%) sepia(66%) saturate(1835%) hue-rotate(152deg) brightness(101%) contrast(104%);
-  height: 20px;
-}
-.social:nth-of-type(6) {
-  background: url("./icons/icon-facebook-64.png") no-repeat;
-  background-size: cover;
-  filter: invert(16%) sepia(99%) saturate(6552%) hue-rotate(260deg) brightness(118%) contrast(121%);
+.social_youtube {
+  height: 19px;
 }
 .social:hover {
   filter: invert(48%) sepia(64%) saturate(995%) hue-rotate(17deg)
@@ -1141,6 +998,49 @@ textarea:focus, input:focus{
   min-height: 32px;
   font-family: "Josefin Sans", sans-serif;
   font-size: 20px;
+}
+.loading_dots {
+  height: 20px;
+  display: none;
+  align-items: center;
+  gap: 6px;
+}
+.secMail_active p {
+  display: none;
+}
+.secMail_active .loading_dots {
+  display: flex;
+}
+.loading_dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: white;
+}
+#loading_dot_1 {
+  animation: loadingdots 0.8s infinite ease;
+}
+#loading_dot_2 {
+  animation: loadingdots 0.8s infinite ease;
+  animation-delay: 0.1s;
+}
+#loading_dot_3 {
+  animation: loadingdots 0.8s infinite ease;
+  animation-delay: 0.2s;
+}
+@keyframes loadingdots {
+  0%  {
+    translate: 0 0;
+  }
+  25% {
+    translate: 0 -5px;
+  }
+  50% {
+    translate: 0 0;
+  }
+  100% {
+    translate: 0 0;
+  }
 }
 
 .contact_form_missing, .contact_form_mail_inv, .contact_form_mail_error {
@@ -1290,6 +1190,7 @@ footer {
   width: 40px;
   height: 40px;
   border: none;
+  background-color: none;
   background: url("./icons/icon-mute-96.png") no-repeat;
   background-size: cover;
   opacity: 0.6;
@@ -1305,6 +1206,10 @@ footer {
   50% {
     opacity: 1;
   }
+}
+.sound_mute {
+  width: 40px;
+  height: 40px;
 }
 
 .copyright {
@@ -1377,11 +1282,7 @@ footer {
     width: 30vw;
     margin: 15px 0 15px 0;
   }
-  .softwareDes {
-    width: 30px;
-    height: 30px;
-  }
-  .softwarePro {
+  .softwareIcon {
     width: 30px;
     height: 30px;
   }
@@ -1405,10 +1306,6 @@ footer {
   }
   .projectSoftware {
     padding: 18px 20px 70px 20px;
-  }
-  .projectIcon {
-    width: auto;
-    height: 30px;
   }
   .imgButton {
     width: 26px;
