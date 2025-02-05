@@ -14,15 +14,6 @@
     <meta name="theme-color" content="#000000">
     <meta name="format-detection" content="telephone=no">
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5DSMWE148"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-Q5DSMWE148');
-    </script>
-
-    <script type="module" src="./index.js"></script>
     <link rel="icon" href="./icons/favicon/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./icons/favicon/favicon-16x16.png">
@@ -30,6 +21,8 @@
     <link rel="manifest" href="./manifest.webmanifest">
     <link rel="stylesheet" type="text/css" href="./style.css">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&family=Playfair+Display&family=Roboto+Slab&display=swap" rel="stylesheet">
+  
+    <script type="module" src="./index.js"></script>
   </head>
   <body>
     <canvas class="webgl"></canvas>
@@ -329,8 +322,8 @@
         <div class="secPortTit" id="content1">I have been working on some WEBs recently</div>
         <div class="secPortDes" id="content2">You wanna check them out?</div>
         <div class="secPortFrame" id="content3">
-          <button class="leftright" id="prevWebButton"></button>
-          <button class="leftright" id="nextWebButton"></button>
+          <button class="leftright" id="prevWebButton" aria-label="to previous web"></button>
+          <button class="leftright" id="nextWebButton" aria-label="to next web"></button>
           <div class="wrapper" id="webWrapper">
             <div class="project" id="webProject">
               <div class="projectTitle">KALLOS</div>
@@ -567,10 +560,10 @@
       </section>
       <section id="section4">
         <div class="secPortTit" id="content1">I made some GAMEs too</div>
-        <div class="secPortDes" id="content2">and I think they are amazing you may take a look :)</div>
+        <div class="secPortDes" id="content2">and I think they are amazing you may take a look :&rpar;</div>
         <div class="secPortFrame" id="content3">
-          <button class="leftright" id="prevGameButton"></button>
-          <button class="leftright" id="nextGameButton"></button>
+          <button class="leftright" id="prevGameButton" aria-label="to previous game"></button>
+          <button class="leftright" id="nextGameButton" aria-label="to previous next"></button>
           <div class="wrapper" id="gameWrapper">
             <div class="project" id="gameProject">
               <div class="projectTitle">THE TREE OF NEBROK</div>
@@ -776,7 +769,7 @@
         </div>
         <div class="contact_form_wrap hidden_layer" id="contactForm">
           <div class="contact_form_frame">
-            <button class="close_button" id="closeContactForm"></button>
+            <button class="close_button" id="closeContactForm" aria-label="close contact form"></button>
             <div class="contact_form">
               <input type="text" id="contact_name" value="" placeholder="Name" autocomplete="off">
               <input type="text" id="contact_email" value="" placeholder="Email" autocomplete="off">
@@ -787,7 +780,7 @@
             <p class="contact_form_mail_inv contact_form_hide">Please provide a valid email</p>
             <p class="contact_form_mail_error contact_form_hide">Something went wrong, please try again later</p>
             <p class="contact_form_success contact_form_hide">I've received your mail.<br>Thank you for reaching out.<br>I will reply asap!</p>
-            <button class="secMail" id="contact_form_submit">
+            <button class="secMail" id="contact_form_submit" aria-label="send email">
               <p>Send</p>
               <div class="loading_dots">
                 <span id="loading_dot_1"></span>
@@ -809,7 +802,7 @@
         <a class="copyright_link" href="https://www.linkedin.com/in/hovinhthanh7893/" target="_blank">Ho Vinh Thanh</a>
       </div>
       <div class="endPage">
-        <button class="sound"></button>
+        <button class="sound" id="soundButton" aria-label="toggle sound"></button>
         <a href="#section1" class="backToTop"></a>
       </div>
       <a href="#section1" class="moveUp"></a>
