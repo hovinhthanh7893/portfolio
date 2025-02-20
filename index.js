@@ -328,10 +328,10 @@ function onWindowResize() {
   camera.aspect = sizes.width / sizes.height;
   camera.updateProjectionMatrix();
   //Refresh middle project on screen
-  document.querySelectorAll("#webProject")[currentWebSlide-1].classList.remove("is-in");
-  document.querySelectorAll("#dotWeb")[currentWebSlide-1].classList.remove("is-at");
-  document.querySelectorAll("#gameProject")[currentGameSlide-1].classList.remove("is-in");
-  document.querySelectorAll("#dotGame")[currentGameSlide-1].classList.remove("is-at");
+  document.querySelectorAll(".webProject")[currentWebSlide-1].classList.remove("is-in");
+  document.querySelectorAll(".dotWeb")[currentWebSlide-1].classList.remove("is-at");
+  document.querySelectorAll(".gameProject")[currentGameSlide-1].classList.remove("is-in");
+  document.querySelectorAll(".dotGame")[currentGameSlide-1].classList.remove("is-at");
   webSlidePos = 0;
   currentWebSlide = Math.ceil(totalWebSlide / 2);
   gameSlidePos = 0;
@@ -412,7 +412,7 @@ navLinks.forEach((each) => {
 })
 
 //WEB SLIDE
-const totalWebSlide = document.querySelectorAll("#webProject").length;
+const totalWebSlide = document.querySelectorAll(".webProject").length;
 let webSlidePos = 0;
 let currentWebSlide = Math.ceil(totalWebSlide / 2);
 //Next web
@@ -421,8 +421,8 @@ document
   .addEventListener("click", function(event) {
     const whoosh = new Audio("./audios/Whoosh.mp3");
     whoosh.play();
-    document.querySelectorAll("#webProject")[currentWebSlide-1].classList.remove("is-in");
-    document.querySelectorAll("#dotWeb")[currentWebSlide-1].classList.remove("is-at");
+    document.querySelectorAll(".webProject")[currentWebSlide-1].classList.remove("is-in");
+    document.querySelectorAll(".dotWeb")[currentWebSlide-1].classList.remove("is-at");
     if (currentWebSlide === totalWebSlide) {
       webSlidePos = -(webSlidePos);
       currentWebSlide = 1;
@@ -437,8 +437,8 @@ document
   .addEventListener("click", function(event) {
     const whoosh = new Audio("./audios/Whoosh.mp3");
     whoosh.play();
-    document.querySelectorAll("#webProject")[currentWebSlide-1].classList.remove("is-in");
-    document.querySelectorAll("#dotWeb")[currentWebSlide-1].classList.remove("is-at");
+    document.querySelectorAll(".webProject")[currentWebSlide-1].classList.remove("is-in");
+    document.querySelectorAll(".dotWeb")[currentWebSlide-1].classList.remove("is-at");
     if (currentWebSlide === 1) {
       webSlidePos = -(webSlidePos);
       currentWebSlide = totalWebSlide;
@@ -449,7 +449,7 @@ document
 });
 
 //GAME SLIDE
-const totalGameSlide = document.querySelectorAll("#gameProject").length;
+const totalGameSlide = document.querySelectorAll(".gameProject").length;
 let gameSlidePos = 0;
 let currentGameSlide = Math.ceil(totalGameSlide / 2);
 //Next game
@@ -458,8 +458,8 @@ document
   .addEventListener("click", function(event) {
     const whoosh = new Audio("./audios/Whoosh.mp3");
     whoosh.play();
-    document.querySelectorAll("#gameProject")[currentGameSlide-1].classList.remove("is-in");
-    document.querySelectorAll("#dotGame")[currentGameSlide-1].classList.remove("is-at");
+    document.querySelectorAll(".gameProject")[currentGameSlide-1].classList.remove("is-in");
+    document.querySelectorAll(".dotGame")[currentGameSlide-1].classList.remove("is-at");
     if (currentGameSlide === totalGameSlide) {
       gameSlidePos = -(gameSlidePos);
       currentGameSlide = 1;
@@ -474,8 +474,8 @@ document
   .addEventListener("click", function(event) {
     const whoosh = new Audio("./audios/Whoosh.mp3");
     whoosh.play();
-    document.querySelectorAll("#gameProject")[currentGameSlide-1].classList.remove("is-in");
-    document.querySelectorAll("#dotGame")[currentGameSlide-1].classList.remove("is-at");
+    document.querySelectorAll(".gameProject")[currentGameSlide-1].classList.remove("is-in");
+    document.querySelectorAll(".dotGame")[currentGameSlide-1].classList.remove("is-at");
     if (currentGameSlide === 1) {
       gameSlidePos = -(gameSlidePos);
       currentGameSlide = totalGameSlide;
@@ -487,7 +487,7 @@ document
 
 //IMAGE SLIDE
 //Next image
-document.querySelectorAll("#nextImg").forEach((each) => {
+document.querySelectorAll(".nextImg").forEach((each) => {
   each.addEventListener("click", function(event) {
     const whoosh = new Audio("./audios/Whoosh.mp3");
     whoosh.play();
@@ -508,7 +508,7 @@ document.querySelectorAll("#nextImg").forEach((each) => {
   });
 })
 //Previous image
-document.querySelectorAll("#prevImg").forEach((each) => {
+document.querySelectorAll(".prevImg").forEach((each) => {
   each.addEventListener("click", function(event) {
     const whoosh = new Audio("./audios/Whoosh.mp3");
     whoosh.play();
@@ -908,13 +908,13 @@ const animate = () => {
 
   //Update web project slide
   document.querySelector("#webWrapper").style.translate = webSlidePos + "px";
-  document.querySelectorAll("#dotWeb")[currentWebSlide-1].classList.add("is-at");
-  document.querySelectorAll("#webProject")[currentWebSlide-1].classList.add("is-in");
+  document.querySelectorAll(".dotWeb")[currentWebSlide-1].classList.add("is-at");
+  document.querySelectorAll(".webProject")[currentWebSlide-1].classList.add("is-in");
 
   //Update game project slide
   document.querySelector("#gameWrapper").style.translate = gameSlidePos + "px";
-  document.querySelectorAll("#dotGame")[currentGameSlide-1].classList.add("is-at");
-  document.querySelectorAll("#gameProject")[currentGameSlide-1].classList.add("is-in");
+  document.querySelectorAll(".dotGame")[currentGameSlide-1].classList.add("is-at");
+  document.querySelectorAll(".gameProject")[currentGameSlide-1].classList.add("is-in");
   
   //Update screen
   camera.position.lerp(updateCamPos, 0.05);

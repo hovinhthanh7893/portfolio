@@ -534,7 +534,7 @@ section {
   justify-content: center;
   align-items: center;
 }
-#prevImg::after {
+.prevImg::after {
   content: "";
   width: 10px;
   height: 10px;
@@ -543,7 +543,7 @@ section {
   rotate: -45deg;
   translate: 3px 0;
 }
-#nextImg::after {
+.nextImg::after {
   content: "";
   width: 10px;
   height: 10px;
